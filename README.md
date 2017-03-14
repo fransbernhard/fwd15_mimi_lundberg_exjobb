@@ -1,7 +1,8 @@
 
-#1. Clone project
+# 1. Clone project
+# 2. Run the following commands in your terminal
 
-##npm install
+## npm install
 
 To download dependencies necessary for project
 
