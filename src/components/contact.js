@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import Menu from './components/menu';
 
 // Create Component
-class Print extends React.Component {
+class Contact extends React.Component {
     render() {
         return (
-            <div class="wrapper">
-                <Menu />
-                <h2>Välkommen till </h2>
+            <div className="contact">
+                <h2>CONTACT</h2>
+                <p>Etiam porta sem malesuada magna mollis euismod. </p>
             </div>
         )
     }
@@ -28,4 +27,4 @@ class Print extends React.Component {
     }
 }
 
-export default Print;
+export default Contact;

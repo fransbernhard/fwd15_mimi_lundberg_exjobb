@@ -9,10 +9,10 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const entry = PRODUCTION
 	// if production is true
-	?	[ 	'./src/index.js' 	]
+	?	[ 	'./src/app.js' 	]
 	// if false: development
 	:	[
-				'./src/index.js',
+				'./src/app.js',
 				'webpack-dev-server/client?http://localhost:8080',
 				'webpack/hot/only-dev-server'
 		];

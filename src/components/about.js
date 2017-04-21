@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import Menu from './components/menu';
 
 // Create Component
-class Paint extends React.Component {
+class About extends React.Component {
     render() {
         return (
-            <div>
-                <Menu />
-                <h2>All about me</h2>
+            <div className="about">
+                <h2>ABOUT SECTION</h2>
+                <p>Etiam porta sem malesuada magna mollis euismod. </p>
             </div>
         )
     }
@@ -28,4 +27,4 @@ class Paint extends React.Component {
     }
 }
 
-export default Paint;
+export default About;
