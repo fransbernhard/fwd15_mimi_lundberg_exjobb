@@ -9,7 +9,7 @@ class Menu extends React.Component {
                 <nav>
                     <ul>
                         <li>
-                            <Link to={'/'}>Home</Link>
+                            <Link to={'/'}>Homess</Link>
                         </li>
                         <li>
                             <Link to={'/paint'}>Paint</Link>
