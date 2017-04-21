@@ -8,9 +8,8 @@ import './dummydata';
 
 // Module requires
 import Paint from './paint';
-import Magda from './magda';
+import Print from './print';
 import TodoComponent from './components/todo';
-
 
 // return routes
 class App extends React.Component {
@@ -19,7 +18,7 @@ class App extends React.Component {
             <Router history={browserHistory}>
                 <Route path={'/'} component={TodoComponent} />
                 <Route path={'/paint'} component={Paint} />
-                <Route path={'/magda'} component={Magda} />
+                <Route path={'/print'} component={Print} />
             </Router>
         )
     }
@@ -27,7 +26,7 @@ class App extends React.Component {
 
 ReactDOM.render (
     <App />,
-    document.getElementById('todo-wrapper')
+    document.getElementById('app')
 )
 
 // Hot module reloader (injecting code)

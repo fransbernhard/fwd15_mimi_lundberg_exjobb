@@ -20,11 +20,13 @@ class TodoComponent extends React.Component {
         }.bind(this));
 
         return(
-            <div id="todo-list">
+            <div id="contents">
                 <Menu />
-                <p>The busiest people have the most leasure</p>
-                <ul>{todos}</ul>
-                <AddItem onAdd={this.onAdd.bind(this)}/>
+                <div id="test">
+                    <p>The busiest people have the most leasure</p>
+                    <ul>{todos}</ul>
+                    <AddItem onAdd={this.onAdd.bind(this)}/>
+                </div>
             </div>
         );
     }

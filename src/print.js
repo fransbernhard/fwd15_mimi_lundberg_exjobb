@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Menu from './components/menu';
 
 // Create Component
-class Paint extends React.Component {
+class Print extends React.Component {
     render() {
         return (
-            <div>
+            <div class="wrapper">
                 <Menu />
-                <h2>All about me</h2>
+                <h2>Välkommen till </h2>
             </div>
         )
     }
@@ -28,4 +28,4 @@ class Paint extends React.Component {
     }
 }
 
-export default Paint;
+export default Print;
