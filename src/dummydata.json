@@ -1,0 +1,36 @@
+{
+    "category": "paint",
+    "title": "Moby",
+    "stocked": true,
+    "price": 600,
+    "links": "./img/cloud.jpg",
+    "ex": "Original",
+}, {
+    "category": "paint",
+    "title": "Oby",
+    "stocked": true,
+    "price": 600,
+    "links": "./img/cloud.jpg",
+    "ex": "Original",
+}, {
+    "category": "paint",
+    "title": "Byo",
+    "stocked": true,
+    "price": 600,
+    "links": "./img/cloud.jpg",
+    "ex": "Original",
+}, {
+    "category": "print",
+    "title": "Mimi",
+    "stocked": true,
+    "price": 1200,
+    "links": "./img/dessert.jpg",
+    "ex": "6 av 7",
+}, {
+    "category": "print",
+    "title": "Hjerter",
+    "stocked": true,
+    "price": 1200,
+    "links": "./img/dessert.jpg",
+    "ex": "6 av 66",
+}

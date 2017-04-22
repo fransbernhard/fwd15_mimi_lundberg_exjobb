@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Menu from './components/menu';
-import './dummydata';
+// import json from './dummydata.json';
 
 // Create Component
 class Archive extends React.Component {
+
     render() {
         return (
             <div>

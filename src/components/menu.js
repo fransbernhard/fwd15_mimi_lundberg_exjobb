@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
 // import { HashLink as Link } from 'react-router-hash-link';
 
+
 //Create AddItem component
 class Menu extends React.Component {
     render() {

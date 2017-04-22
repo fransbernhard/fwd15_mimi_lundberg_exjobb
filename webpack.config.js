@@ -59,6 +59,9 @@ config = {
 				}, {
 						test: /\.(sass|scss)$/,
 						loaders: cssLoader,
+				}, {
+						test: /\.json$/,
+						loader: 'json-loader',
 				}]
 	  },
 	  output: {
