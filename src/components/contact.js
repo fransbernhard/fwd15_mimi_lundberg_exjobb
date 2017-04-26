@@ -72,16 +72,3 @@ class Contact extends React.Component {
 }
 
 export default Contact;
-
-
-// success: function(data){
-//     if(data === "success"){
-//       // Success..
-//       this.setState({
-//           type: 'success',
-//           message: 'We have received your message and will contact you shortly. Thanks!'
-//       });
-//     } else {
-//         console.log(data);
-//     }
-// }.bind(this)

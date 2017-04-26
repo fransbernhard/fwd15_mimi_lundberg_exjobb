@@ -44,29 +44,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "There was a problem with your submission, please try again.";
 }
 
-// 
-// $email = $_POST["formEmail"];
-// $message = $_POST["formMsg"];
-//
-// $sendEmailTo = "mimilundberg@icloud.com";
-// $subject = "magdalundberg.se";
-//
-// $body = "Email: ";
-// $body .= $email;
-// $body .= "\n";
-//
-// $body .= "Message: \n";
-// $body .= $message;
-// $body .= "\n";
-//
-// // send email
-// $success = mail($sendEmailTo, $subject, $body, "From:".$email);
-//
-// // redirect to success page
-// if ($success){
-//   echo "success";
-// } else {
-//   echo "invalid";
-// }
-
 ?>
