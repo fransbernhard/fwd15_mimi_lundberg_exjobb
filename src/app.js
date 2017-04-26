@@ -12,6 +12,7 @@ import Menu from './components/menu';
 import Archive from './archive';
 import About from './components/about';
 import Contact from './components/contact';
+import Footer from './components/footer';
 
 // return routes
 class App extends React.Component {
@@ -35,6 +36,7 @@ var Home = React.createClass({
                 <div className="hero-bckgound"></div>
                 <About />
                 <Contact />
+                <Footer />
             </div>
         </div>
       )
