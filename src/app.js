@@ -42,7 +42,7 @@ var Home = React.createClass({
       )
     },
 
-    // Lifecycle funcitons
+    // Lifecycle functions
     // This function gets called just before the component mounts the DOM
     // rendering
     componentWillMount: function(){

@@ -5,8 +5,8 @@ class Contact extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            formEmail: '',
-            formMsg: ''
+            contactEmail: '',
+            contactMessage: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,35 +16,38 @@ class Contact extends React.Component {
 
     handleChange(event) {
         this.setState({
-            formEmail: event.target.value,
+            contactEmail: event.target.value,
         });
     }
 
     handleChangeMsg(event) {
         this.setState({
-            formMsg: event.target.value
+            contactMessage: event.target.value
         });
     }
 
-    handleSubmit(event){
+    handleSubmit(event) {
+
+        event.preventDefault();
         this.setState({
             type: 'info',
             message: 'Sending…'
         });
 
-        $.ajax ({
-            url: 'php/process.php',
+        $.ajax({
+
+            url: 'php/mailer.php',
             type: 'POST',
             data: {
-                'formEmail': this.state.formEmail,
-                'formMsg': this.state.formMsg
+                'form_email': this.state.contactEmail,
+                'form_msg': this.state.contactMessage
             },
             cache: false,
-            success: function(data){
+            success: function(data) {
                 // Success..
                 this.setState({
                     type: 'success',
-                    message: 'We have received your message and will contact you shortly. Thanks!'
+                    message: 'We have received your message and will get in touch shortly. Thanks!'
                 });
             }.bind(this),
             error: function(xhr, status, err) {
@@ -53,6 +56,7 @@ class Contact extends React.Component {
                     message: 'Sorry, there has been an error.  Please try again later or visit us at SZB 438.'
                 });
             }.bind(this)
+
         });
     }
 
@@ -61,9 +65,9 @@ class Contact extends React.Component {
             <div className="contact">
                 <form className="form" onSubmit={this.handleSubmit} id="formContact">
                     <label>Email</label>
-                    <input id="formEmail" type="email" name="formEmail" value={this.state.formEmail} onChange={this.handleChange} required />
+                    <input id="formEmail" type="email" name="formEmail" value={this.state.contactEmail} onChange={this.handleChange} required />
                     <label>Meddelande</label>
-                    <textarea id="formMsg" name="formMsg" rows="8" cols="40" value={this.state.formMsg} onChange={this.handleChangeMsg} required></textarea>
+                    <textarea id="formMsg" name="formMsg" rows="8" cols="40" value={this.state.contactMessage} onChange={this.handleChangeMsg} required></textarea>
                     <input type="submit" value="Submit" className="btn--cta" id="btn-submit" />
                 </form>
             </div>
