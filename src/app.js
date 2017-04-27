@@ -35,7 +35,7 @@ var Home = React.createClass({
             <div className="container">
                 <div className="hero-bckgound"></div>
                 <About />
-                <Contact />
+                <Contact url="php/mailer.php"/>
                 <Footer />
             </div>
         </div>

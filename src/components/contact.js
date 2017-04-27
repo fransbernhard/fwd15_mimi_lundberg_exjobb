@@ -30,13 +30,13 @@ class Contact extends React.Component {
 
         event.preventDefault();
         this.setState({
-            type: 'info',
-            message: 'Sending…'
+            contactEmail: 'info',
+            contactMessage: 'Sending…'
         });
 
         $.ajax({
 
-            url: 'php/mailer.php',
+            url: this.props.url,
             type: 'POST',
             data: {
                 'form_email': this.state.contactEmail,
@@ -46,18 +46,24 @@ class Contact extends React.Component {
             success: function(data) {
                 // Success..
                 this.setState({
-                    type: 'success',
-                    message: 'We have received your message and will get in touch shortly. Thanks!'
+                    contactEmail: 'success',
+                    contactMessage: 'We have received your message and will get in touch shortly. Thanks!'
                 });
+                console.log('success');
             }.bind(this),
             error: function(xhr, status, err) {
                 this.setState({
-                    type: 'danger',
-                    message: 'Sorry, there has been an error.  Please try again later or visit us at SZB 438.'
+                    contactEmail: 'danger',
+                    contactMessage: 'Sorry, there has been an error.  Please try again later or visit us at SZB 438.'
                 });
+                console.log('fail');
             }.bind(this)
 
         });
+
+        $('#formContact').slideUp();
+        $('#formContact').after('<h1>Tack för ditt mejl!</h1><p>Återkommer så fort som möjligt.</p>');
+
     }
 
     render() {

@@ -1,5 +1,14 @@
-$fieldcolor: rgba(255, 255, 255, .4);
-$fieldcolorHover: rgba(255, 255, 255, .3);
+.contact {
+    background: url(../img/main.jpg) no-repeat center center scroll;
+    background-size: cover;
+    z-index: 0;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
 
 // form
 form {

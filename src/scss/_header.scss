@@ -8,8 +8,12 @@ nav {
     ul {
         display: flex;
         justify-content: center;
+        align-items: center;
         li {
             padding: 15px;
+            a {
+              font-size: 12px;
+            }
         }
     }
 }
