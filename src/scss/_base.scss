@@ -23,10 +23,15 @@ li {
 .container {
     padding-top: 50px;
 }
+
 .container, .hero-bckgound {
     display: flex;
     flex-flow: column;
     align-items: center;
+}
+
+.wrapper {
+    max-width: 940px;
 }
 
 .hero-bckgound {
@@ -37,6 +42,34 @@ li {
     width: 100vw;
 }
 
-.wrapper {
-    max-width: 940px;
+.archive-container {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.archive-wrapper {
+    width: 940px;
+}
+
+.filterList {
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-around;
+
+  li {
+      font-size: 12px;
+      padding: 10px 15px;
+  }
+
+  li:hover {
+      border-bottom: 4px solid pink;
+  }
+}
+
+@media screen and (min-width: 700px) {
+    .filterList {
+        width: 30vw;
+    }
 }

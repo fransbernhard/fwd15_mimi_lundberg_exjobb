@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import './scss/app.scss';
-import './dummydata';
+import './data';
 // import { HashLink as Link } from 'react-router-hash-link';
 
 // Module requires
@@ -43,7 +43,7 @@ var Home = React.createClass({
     },
 
     // Lifecycle functions
-    // This function gets called just before the component mounts the DOM
+    // Gets called just before the component mounts the DOM
     // rendering
     componentWillMount: function(){
         console.log('componentWillMound');

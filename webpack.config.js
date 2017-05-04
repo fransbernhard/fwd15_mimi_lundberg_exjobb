@@ -51,16 +51,16 @@ config = {
 		entry: entry,
 	  plugins: plugins,
 	  module: {
-	      loaders: [{
+	      rules: [{
 	          test: /\.(js|jsx)$/,
 	          loaders: 'babel-loader',
 	          exclude: /node_modules/
 	      }, {
 						test: /\.(png|jpg|gif)$/,
-						loaders: 'url-loader?limit=10000&name=images/[hash:12].[ext]',
+						loader: 'url-loader?limit=10000&name=images/[hash:12].[ext]',
 				}, {
 						test: /\.(sass|scss)$/,
-						loaders: cssLoader,
+						loader: cssLoader,
 				}, {
 						test: /\.json$/,
 						loader: 'json-loader',

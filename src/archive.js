@@ -1,38 +1,58 @@
 import React, { Component } from 'react';
 import Menu from './components/menu';
-// import json from './dummydata.json';
+import json from './data.json';
+
 
 // Create Component
 class Archive extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      data: []
+    };
+  };
 
-    render() {
-        return (
-            <div>
-                <Menu />
-                <div className="container">
-                    <div className="wrapper">
-                        <h2>This is archive</h2>
-                        <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.</p>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Menu />
+        <div className="archive-container">
+          <div className="archive-wrapper">
+            <ul className="filterList">
+              <li>paintings</li>
+              <li>pints</li>
+              <li>places</li>
+              <li>social</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
-    // Lifecycle funcitons
-    componentWillMount() {
-        console.log('componentWillMound');
-    }
+  // Lifecycle funcitons
+  componentWillMount() {
+      console.log('componentWillMound');
+  }
 
-    // Gets called AFTER render method
-    componentDidMount() {
-        console.log('componentDidMound');
-        // any grabbing of external data
-    }
+  // Gets called AFTER render method
+  componentDidMount() {
+    // any grabbing of external data
+    fetch("./data.json")
+    .then(function(response) {
+      return response.json()
+    })
+    .then(function(json) {
+      this.setState({
+        data: json
+      });
+    });
+    console.log('componentDidMount  ' + this.state.data[json]);
+  }
 
-    componentWillUpdate() {
-        console.log('componentWillUpdate');
-    }
-}
+  componentWillUpdate() {
+    console.log('componentWillUpdate');
+  }
+};
 
 export default Archive;

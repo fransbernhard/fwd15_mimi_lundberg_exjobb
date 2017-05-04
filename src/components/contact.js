@@ -69,13 +69,15 @@ class Contact extends React.Component {
     render() {
         return (
             <div className="contact">
-                <form className="form" onSubmit={this.handleSubmit} id="formContact">
-                    <label>Email</label>
-                    <input id="formEmail" type="email" name="formEmail" value={this.state.contactEmail} onChange={this.handleChange} required />
-                    <label>Meddelande</label>
-                    <textarea id="formMsg" name="formMsg" rows="8" cols="40" value={this.state.contactMessage} onChange={this.handleChangeMsg} required></textarea>
-                    <input type="submit" value="Submit" className="btn--cta" id="btn-submit" />
-                </form>
+                <div className="filter">
+                    <form className="form" onSubmit={this.handleSubmit} id="formContact">
+                        <label>Email</label>
+                        <input id="formEmail" type="email" name="formEmail" value={this.state.contactEmail} onChange={this.handleChange} required />
+                        <label>Meddelande</label>
+                        <textarea id="formMsg" name="formMsg" rows="8" cols="40" value={this.state.contactMessage} onChange={this.handleChangeMsg} required></textarea>
+                        <input type="submit" value="Submit" className="btn--cta" id="btn-submit" />
+                    </form>
+                </div>
             </div>
         )
     }

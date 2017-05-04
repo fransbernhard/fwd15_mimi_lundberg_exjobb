@@ -19,7 +19,6 @@ class Menu extends React.Component {
             </header>
         );
     }
-
 }
 
 export default Menu;

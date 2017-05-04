@@ -10,6 +10,16 @@
     flex-flow: column;
 }
 
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 100vw;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 // form
 form {
     font-size: 9px;
