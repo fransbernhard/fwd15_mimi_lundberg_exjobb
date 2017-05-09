@@ -17,7 +17,7 @@ class About extends React.Component {
 
             <h5>2016</h5>
             <p>Vernissage DÅLIG SIKT | Stockholm <br/>
-            Utställning | L'homme rouge, Stockholm<br/>
+            Utställning | L´homme rouge, Stockholm<br/>
             Artwork "Dying for you" | Otto Knows</p>
 
             <br/>

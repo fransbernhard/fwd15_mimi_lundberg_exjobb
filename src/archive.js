@@ -1,17 +1,62 @@
 import React, { Component } from 'react';
 import Menu from './components/menu';
-import json from './data.json';
-
+import Footer from './components/footer';
+// import json from './data.json';
 
 // Create Component
-class Archive extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      data: []
-    };
-  };
+class ProductItem extends React.Component {
+  render(){
+    const name = this.props.product.stocked ?
+      this.props.product.name :
+      <span style={{color: 'red'}}>
+        {this.props.product.name}
+      </span>;
 
+    const limited = this.props.product.limited ?
+      <p>begränsad upplaga: {this.props.product.limited}</p> :
+      <span>{this.props.product.limited}</span>;
+
+    if(this.props.product.available){
+      var available = 'tillgängliga: ' + this.props.product.available + ' ex';
+    }
+
+    if(this.props.product.price){
+      var price = this.props.product.price + ' kr';
+    }
+
+    return (
+      <div className="product hvr-sink">
+        <img src={require('./img/main.jpg')} />
+        <h3>{name}</h3>
+        <p>{this.props.product.type}</p>
+        {limited}
+        <p>{available}</p>
+        <p>{price}</p>
+      </div>
+    );
+  }
+}
+
+class ProductContainer extends React.Component {
+  render(){
+    var items = [];
+    // var lastCategory = null;
+    this.props.products.forEach(function(product) {
+      // if(product.category !== lastCategory) {
+      //   items.push(<ProductCategory category={product.category} key={product.category} />);
+      // }
+      items.push(<ProductItem product={product} key={product.name} />);
+      // lastCategory = product.category;
+    });
+    return (
+      <div>
+        <div className="prodContainer">{items}</div>
+      </div>
+    )
+  }
+}
+
+class Archive extends React.Component {
   render() {
     return (
       <div>
@@ -22,37 +67,27 @@ class Archive extends React.Component {
               <li>paintings</li>
               <li>pints</li>
               <li>places</li>
-              <li>social</li>
             </ul>
+            <br/><br/>
+            <ProductContainer products={PRODUCTS}/>
           </div>
         </div>
+        <Footer />
       </div>
     );
   };
-
-  // Lifecycle funcitons
-  componentWillMount() {
-      console.log('componentWillMound');
-  }
-
-  // Gets called AFTER render method
-  componentDidMount() {
-    // any grabbing of external data
-    fetch("./data.json")
-    .then(function(response) {
-      return response.json()
-    })
-    .then(function(json) {
-      this.setState({
-        data: json
-      });
-    });
-    console.log('componentDidMount  ' + this.state.data[json]);
-  }
-
-  componentWillUpdate() {
-    console.log('componentWillUpdate');
-  }
 };
+
+var PRODUCTS = [
+  {category: 'print', type: 'akvarellppr, 70x100 cm', limited: '30', available: '28', price: '3,000', stocked: true, name: 'Mimi | second edition'},
+  {category: 'print', type: 'akvarellppr, 70x100 cm', stocked: true, price: '5,000', limited: '16', available: '8', name: 'Elephnt'},
+  {category: 'places', limited: '30', available: '28', type: 'papper', price: '1,500', stocked: false, name: 'Elefant'},
+  {category: 'painting', type: 'matt emulsion', stocked: true, name: 'Mimi', limited: '30', available: '28'},
+  {category: 'painting', type: 'plexiglas', stocked: true, name: 'Comsiter', limited: '16'},
+  {category: 'print', limited: '30 ex', available: '28', type: 'matt olja', stocked: false, name: 'Maja'},
+  {category: 'print', price: '1,500', type: 'matt olja', available: '14', stocked: true, name: 'Loved'},
+  {category: 'print', limited: '30', available: '28', type: 'matt olja', stocked: false, name: 'Pandas'},
+  {category: 'print', type: 'matt olja', stocked: true, name: 'Lovesd', limited: '30', available: '28'}
+];
 
 export default Archive;
