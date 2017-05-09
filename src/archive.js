@@ -4,6 +4,12 @@ import Footer from './components/footer';
 // import json from './data.json';
 
 // Create Component
+class ProductCategory extends React.Component {
+  render(){
+    return (<li><a>{this.props.category}</a></li>)
+  }
+}
+
 class ProductItem extends React.Component {
   render(){
     const name = this.props.product.stocked ?
@@ -37,6 +43,24 @@ class ProductItem extends React.Component {
   }
 }
 
+class FilterProducts extends React.Component {
+  render(){
+    var cat = [];
+    var lastCategory = null;
+    this.props.products.forEach(function(product){
+      if(product.category !== lastCategory) {
+        cat.push(<ProductCategory category={product.category} key={product.category} />);
+      }
+      lastCategory = product.category;
+    });
+    return (
+      <div>
+        <ul className="filterList">{cat}</ul>
+      </div>
+    )
+  }
+}
+
 class ProductContainer extends React.Component {
   render(){
     var items = [];
@@ -63,11 +87,7 @@ class Archive extends React.Component {
         <Menu />
         <div className="archive-container">
           <div className="archive-wrapper">
-            <ul className="filterList">
-              <li>paintings</li>
-              <li>pints</li>
-              <li>places</li>
-            </ul>
+            <FilterProducts products={PRODUCTS}/>
             <br/><br/>
             <ProductContainer products={PRODUCTS}/>
           </div>
