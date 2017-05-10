@@ -29,20 +29,45 @@ class App extends React.Component {
     window.addEventListener('load', this.handleLoad);
   }
 
+  hashLinkScroll = () => {
+    const { hash } = window.location;
+    if (hash !== '') {
+      // Push onto callback queue so it runs after the DOM is updated,
+      // this is required when navigating from a different page so that
+      // the element is rendered on the page before trying to getElementById.
+
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView();
+      }, 100);
+
+      // var ROOT = $('html, body');
+      //
+      // $('.goTo').click(function() {
+      //   ROOT.animate({
+      //       scrollTop: $( $(this).children('a').attr('href')).offset().top-130
+      //   }, 600);
+      //   return false;
+      // });
+    }
+  }
+
   render() {
     return (
       <div>
         <div className="loaderSmall">
-          <img className="loadingImg" src={require("./img/tits.gif")} width="400"/>
+          <img className="loadingImg" src={require("./images/tits.gif")} width="400"/>
         </div>
-        <Router history={browserHistory}>
-          <Route path={'/'} component={Home} />
+        <Router history={browserHistory} onUpdate={this.hashLinkScroll}>
           <Route path={'/archive'} component={Archive} />
+          <Route path={'*'} component={Home} />
         </Router>
       </div>
-    )
-  }
-}
+    );
+  };
+
+};
 
 class Home extends React.Component {
 
@@ -54,13 +79,13 @@ class Home extends React.Component {
         <div className="container">
           <div className="hero-bckgound"></div>
           <About />
-          <Contact url="php/mailer.php"/>
+          <Contact />
           <Footer />
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 ReactDOM.render (
   <App/>,

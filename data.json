@@ -1,45 +1,45 @@
 {
-    "products": [
-        {
-            "title": "Moby",
-            "id": 1,
-            "category": "paint",
-            "stocked": true,
-            "price": 600,
-            "img": "./img/cloud.jpg",
-            "ex": "Original"
-        }, {
-            "title": "Oby",
-            "id": 2,
-            "category": "paint",
-            "stocked": true,
-            "price": 600,
-            "img": "./img/cloud.jpg",
-            "ex": "Original"
-        }, {
-            "title": "Cloud",
-            "id": 3,
-            "category": "paint",
-            "stocked": true,
-            "price": 600,
-            "img": "./img/cloud.jpg",
-            "ex": "Original"
-        }, {
-            "title": "Mimi second edition",
-            "id": 4,
-            "category": "paint",
-            "stocked": true,
-            "price": 600,
-            "img": "./img/cloud.jpg",
-            "ex": "4/16"
-        }, {
-            "title": "Optical",
-            "id": 5,
-            "category": "paint",
-            "stocked": true,
-            "price": 600,
-            "img": "./img/cloud.jpg",
-            "ex": "33/50"
-        }
-    ]
+  "products": [
+    {
+      "title": "Moby",
+      "id": 1,
+      "category": "paint",
+      "stocked": true,
+      "price": 600,
+      "img": "./img/cloud.jpg",
+      "ex": "Original"
+    }, {
+      "title": "Oby",
+      "id": 2,
+      "category": "paint",
+      "stocked": true,
+      "price": 600,
+      "img": "./img/cloud.jpg",
+      "ex": "Original"
+    }, {
+      "title": "Cloud",
+      "id": 3,
+      "category": "paint",
+      "stocked": true,
+      "price": 600,
+      "img": "./img/cloud.jpg",
+      "ex": "Original"
+    }, {
+      "title": "Mimi second edition",
+      "id": 4,
+      "category": "paint",
+      "stocked": true,
+      "price": 600,
+      "img": "./img/cloud.jpg",
+      "ex": "4/16"
+    }, {
+      "title": "Optical",
+      "id": 5,
+      "category": "paint",
+      "stocked": true,
+      "price": 600,
+      "img": "./img/cloud.jpg",
+      "ex": "33/50"
+    }
+  ]
 }

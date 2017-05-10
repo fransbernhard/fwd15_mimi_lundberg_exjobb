@@ -7,25 +7,46 @@ const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const entry = PRODUCTION
-	// if production is true
-	?	[ 	'./src/app.js' 	]
-	// if false: development
+	// true
+	?	{ app: path.join(process.cwd(), 'src/app.js') }
+	// false: development
 	:	[
 				'./src/app.js',
 				'webpack-dev-server/client?http://localhost:8080',
 				'webpack/hot/only-dev-server'
 		];
 
+const output = PRODUCTION
+	// true
+	?	{
+			path: path.join(__dirname, 'dist'),
+			filename: 'bundle.[hash:12].min.js'
+	}
+	// false: development
+	:	{
+			path: path.join(__dirname, 'dist'),
+			publicPath: '/dist',
+			filename: 'bundle.js'
+	}
+
 var plugins = PRODUCTION
   ? [
-				// "tree shakin" remove unused code from bundle
-				new webpack.optimize.UglifyJsPlugin(),
-				new ExtractTextPlugin('style-[contenthash:10].css'),
-				new HTMLWebpackPlugin({
-						template: 'index-template.html',
-				})
+			// "tree shakin" remove unused code from bundle
+			new webpack.DefinePlugin({
+		    "process.env.NODE_ENV": JSON.stringify("production")
+		  }),
+			new webpack.optimize.UglifyJsPlugin(),
+			new ExtractTextPlugin('style-[contenthash:10].css'),
+			new HTMLWebpackPlugin({
+					template: 'index-template.html'
+			})
 		]
-  : [ new webpack.HotModuleReplacementPlugin() ];
+  : [
+			new webpack.HotModuleReplacementPlugin(),
+			new webpack.DefinePlugin({
+				"process.env.NODE_ENV": JSON.stringify("development")
+			}),
+	];
 
 plugins.push (
 		new webpack.DefinePlugin({
@@ -46,7 +67,7 @@ const cssLoader = PRODUCTION
 
 config = {
 		externals: {
-				'jquery': 'jQuery' //jquery is external and available at the global variable jQuery
+				'jquery': 'jQuery',
 		},
 		entry: entry,
 	  plugins: plugins,
@@ -66,17 +87,8 @@ config = {
 						loader: 'json-loader',
 				}]
 	  },
-	  output: {
-				path: path.join(__dirname, 'dist'),
-				publicPath: PRODUCTION
-				? 	'/'
-				: 	'/dist/',
-
-				filename: PRODUCTION
-				? 	'bundle.[hash:12].min.js'
-				: 	'bundle.js'
-	  },
-		devtool: 'source-map',
+	  output: output,
+		devtool: 'cheap-module-eval-source-map',
 };
 
 module.exports = config;
