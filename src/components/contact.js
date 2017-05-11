@@ -53,6 +53,7 @@ class Contact extends React.Component {
         $('#formContact').after('<h1>Tack för ditt mejl!</h1><p>Återkommer så fort som möjligt.</p>');
         console.log('success', data);
       }.bind(this),
+      // Fail..
       error: function(xhr, status, err) {
         console.log(xhr, status);
         console.log(err);
@@ -62,9 +63,7 @@ class Contact extends React.Component {
         });
         console.log(this.state.contactEmail + this.state.contactMessage + 'fail');
       }.bind(this)
-
     });
-
   }
 
   render() {

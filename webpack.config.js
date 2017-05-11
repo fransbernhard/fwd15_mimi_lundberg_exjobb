@@ -66,9 +66,6 @@ const cssLoader = PRODUCTION
 	:		['style-loader', 'css-loader?localIdentName=' + cssIdentifier + '!postcss-loader', 'sass-loader' ];
 
 config = {
-		externals: {
-				'jquery': 'jQuery',
-		},
 		entry: entry,
 	  plugins: plugins,
 	  module: {
