@@ -72,7 +72,7 @@ class Home extends React.Component {
         <div className="background-img"></div>
         <Menu />
         <div className="container">
-          <div className="hero-bckgound"></div>
+          <div className="hero" id="top"></div>
           <About />
           <Contact />
           <Footer />

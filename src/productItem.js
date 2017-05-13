@@ -4,11 +4,28 @@ import React, { Component } from 'react';
 //   super(props);
 //   this.state = {};
 // }
+
 class ProductItem extends React.Component {
   state = {};
+  constructor(props) {
+    super(props);
+    this.openPreview = this.openPreview.bind(this);
+  }
+
+  openPreview(id){
+      console.log(id);
+      /*
+        foreach product i this.props.products
+          if id ===product.id i product
+            skapa modul/popup med data i product
+            <modul>
+            <img> product.previewImage
+            <p> product.titel
+      */
+  }
 
   componentDidMount() {
-    this.props.product.url && import(`./images/${this.props.product.url}`).then((image) =>
+    this.props.product.thumbnail && import(`./images/${this.props.product.thumbnail}`).then((image) =>
       this.setState({image: image}))
   }
 
@@ -19,29 +36,29 @@ class ProductItem extends React.Component {
         {this.props.product.name}
       </span>;
 
-    const limited = this.props.product.limited ?
+    var limited = this.props.product.limited ?
       <p>begränsad upplaga: {this.props.product.limited}</p> :
-      <span>{this.props.product.limited}</span>;
+      null;
 
-    if(this.props.product.available){
-      var available = 'tillgängliga: ' + this.props.product.available + ' ex';
-    }
+    var available = this.props.product.available ?
+      <p>tillgängliga: {this.props.product.available} ex</p> :
+      null;
 
     if(this.props.product.price){
       var price = this.props.product.price + ' kr';
     }
 
-    // const img = this.props.product.url;
-    // var img = import(`./img/${this.props.product.url}`).then(img => img);
+    // const img = this.props.product.thumbnail;
+    // var img = import(`./img/${this.props.product.thumbnail}`).then(img => img);
     // <img src={img ? img : null} />
 
     return (
-      <div className="product hvr-sink">
-        {this.state.image ? <img src={this.state.image}/> : this.props.product.url}
+      <div className="product hvr-sink" onClick={this.openPreview(this.props.product.id)}>
+        {this.state.image ? <img src={this.state.image}/> : this.props.product.thumbnail}
         <h3>{name}</h3>
         <p>{this.props.product.type}</p>
         {limited}
-        <p>{available}</p>
+        {available}
         <p>{price}</p>
       </div>
     );
