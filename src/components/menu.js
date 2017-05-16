@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
 
-//Create AddItem component
+//Menu component renders menu Links
 class Menu extends React.Component {
   render() {
     return (

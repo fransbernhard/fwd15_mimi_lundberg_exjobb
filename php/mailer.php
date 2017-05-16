@@ -1,7 +1,17 @@
 <?php
 
-  $email = $_POST["form_email"];
-  $message = $_POST["form_msg"];
+  // trim() function strips any white space from beginning and end of the string
+  $email = filter_var(trim($_POST["form_email"]), FILTER_SANITIZE_EMAIL);
+  //  strip_tags() function strips all HTML and PHP tags from a variable.
+  $message = strip_tags($_POST["form_msg"]);
+
+  // Check that data was sent to the mailer.
+  if ( empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // Set a 400 (bad request) response code and exit.
+    http_response_code(400);
+    echo "Oops! There was a problem with your submission. Please complete the form and try again.";
+    exit;
+  }
 
   // Set the recipient email address.
   $recipient = "mimilundberg@icloud.com";

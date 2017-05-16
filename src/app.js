@@ -1,11 +1,13 @@
+// Code will be executed in "strict mode". For example, you can not use undeclared variables. Makes it easier to write "secure" JavaScript and strict mode changes previously accepted "bad syntax" into real errors.
 "use strict";
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
+import Modal from 'react-modal';
 import './scss/app.scss';
 
-// Module requires
+// Component imports
 import Menu from './components/menu';
 import Archive from './archive';
 import About from './components/about';
@@ -13,43 +15,23 @@ import Contact from './components/contact';
 import Footer from './components/footer';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleLoad = this.handleLoad.bind(this);
-  }
 
-  handleLoad() {
-  	$(".loader").delay(100).fadeOut("slow");
-  	$(".loaderSmall").delay(200).fadeOut("slow");
-  }
-
-  componentDidMount() {
-    window.addEventListener('load', this.handleLoad);
-  }
-
-  hashLinkScroll = () => {
+  // function for anchorlinks (scroll to section with specific id)
+  hashLinkScroll() {
     const { hash } = window.location;
     if (hash !== '') {
       // Push onto callback queue so it runs after the DOM is updated,
       // this is required when navigating from a different page so that
-      // the element is rendered on the page before trying to getElementById.
+      // the element is rendered on the page before trying to getElementById
       setTimeout(() => {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) element.scrollIntoView();
       }, 100);
-
-      // var ROOT = $('html, body');
-      //
-      // $('.goTo').click(function() {
-      //   ROOT.animate({
-      //       scrollTop: $( $(this).children('a').attr('href')).offset().top-130
-      //   }, 600);
-      //   return false;
-      // });
     }
   }
 
+  // React Router render link to home & archive component + hashLinkScroll function "onUpdate" so anchorlinks will work
   render() {
     return (
       <div>
@@ -63,16 +45,27 @@ class App extends React.Component {
       </div>
     );
   };
+
+  // After render add event "load" to "window"-tag and call handleLoad function
+  componentDidMount() {
+    window.addEventListener('load', this.handleLoad);
+  }
+
+  // Fade out site-loader
+  handleLoad() {
+    $(".loaderSmall").delay(100).fadeOut("slow");
+  }
 };
 
+// Render home page
 class Home extends React.Component {
   render() {
     return(
       <div>
         <div className="background-img"></div>
         <Menu />
-        <div className="container">
-          <div className="hero" id="top"></div>
+        <div className="container" id="top">
+          <div className="hero"></div>
           <About />
           <Contact />
           <Footer />

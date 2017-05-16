@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// Create Component
+// Contact component render contact form
 class Contact extends React.Component {
   constructor(props){
     super(props);
@@ -14,21 +14,21 @@ class Contact extends React.Component {
     this.handleChangeMsg = this.handleChangeMsg.bind(this);
   }
 
-  handleChange(event) {
+  // Change state of input field so text is updated while typing
+  handleChange(e) {
     this.setState({
-      contactEmail: event.target.value,
+      contactEmail: e.target.value,
+    });
+  }
+  // Change state of input field so text is updated while typing
+  handleChangeMsg(e) {
+    this.setState({
+      contactMessage: e.target.value
     });
   }
 
-  handleChangeMsg(event) {
-    this.setState({
-      contactMessage: event.target.value
-    });
-  }
-
-  handleSubmit(event) {
-
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
     this.setState({
       contactEmail: '',
       contactMessage: ''
