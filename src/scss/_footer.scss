@@ -1,11 +1,11 @@
-
+// Footer styling
 footer {
-	width: 100%;
+	width: $fullSizePercent;
 	text-align: center;
-	padding: 5px;
+	padding: $xs-space;
 	position: relative;
-	border-top: 1px solid darkgrey;
-	background: white;
+	border-top: 1px solid $darkGrey;
+	background: $white;
 
 	p {
 		font-size: 9px;

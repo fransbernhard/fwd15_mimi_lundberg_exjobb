@@ -1,69 +1,81 @@
+// Archive styling
+// MOBILE STYLING
 .archive-container {
   padding-top: 50px;
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: $fullWidthVp;
 }
 
 .archive-wrapper {
-  width: 940px;
+  width: $wrapper;
 }
 
 .filterList {
   display: flex;
-  margin-top: 30px;
+  margin-top: $xl-space;
   justify-content: space-around;
 
   li {
     font-size: 12px;
-    padding: 10px 15px;
-    border-bottom: 4px solid #fff;
+    padding: $sm-space $m-space;
+    border-bottom: 4px solid $white;
   }
 
   li:hover {
-    border-bottom: 4px solid pink;
+    border-bottom: 4px solid $pink;
   }
 }
 
 .prodContainer {
   display: flex;
   flex-flow: wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-around;
 }
 
 .product {
-  margin: 15px;
+  margin: $m-space;
   display: flex;
   flex-flow: column;
 
   img {
-    margin-bottom: 10px;
-    width: 100%;
-    box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.3);
+    margin-bottom: $sm-space;
+    width: $fullSizePercent;
+    box-shadow: 0px 6px 8px 0px $blackOpacity;
     border-radius: 2px;
   }
 }
 
+// Modal/Popup image functionality styling
 .modal-img {
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 75vw;
+  max-height: 75vh;
 }
 
 .close {
-  color: white;
   font-weight: bold;
   font-size: 25px;
   text-align: right;
-  margin-bottom: 20px;
+  margin: $xl-space 0;
+  transition: all .30s ease;
+  height: $l-space;
+}
+
+.close:hover {
+  font-size: 33px;
 }
 
 .close:active {
-  transform: rotateX(40deg);
+  color: $black;
 }
 
-@media screen and (min-width: 700px) {
+.modal-box {
+  color: $white;
+}
 
+// DESKTOP STYLING
+@media screen and (min-width: 700px) {
   .prodContainer {
     justify-content: space-between;
     margin-bottom: 80px;
@@ -74,7 +86,12 @@
     justify-content: space-between;
   }
 
-  /* Sink */
+  .product {
+    margin: $m-space 0;
+    max-width: 200px;
+  }
+
+  // Sink product effect on product-hover
   .hvr-sink {
     display: inline-block;
     vertical-align: middle;
@@ -92,10 +109,5 @@
   .hvr-sink:hover, .hvr-sink:focus, .hvr-sink:active {
     -webkit-transform: translateY(8px);
     transform: translateY(8px);
-  }
-
-  .product {
-    margin: 15px 0;
-    max-width: 200px;
   }
 }

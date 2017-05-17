@@ -26,7 +26,6 @@ class ProductItem extends React.Component {
       modalIsOpen: false
     };
 
-    // this.openPreview = this.openPreview.bind(this);
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -47,50 +46,19 @@ class ProductItem extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
-  // openPreview(){
-  //   // const hihi = [...new Set(this.props.product.map(prod => prod.id))]
-  //   // e.preventDefault();
-  //   // console.log(this.props.product.id);
-  //   var img = this.props.product.thumbnail;
-  //   var modalImg = this.props.product.previewImg;
-  //   var captionText = this.props.product.name;
-  //
-  //   if (this.props.product.id){
-  //     console.log('nu måste du göra någor');
-  //     return this.props.product.previewImg;
-  //   } else {
-  //     console.log('noho');
-  //   }
-  //
-  //
-  //   // this.props.product.map((product) => {
-  //   //   if(id === this.props.product.id){
-  //   //     console.log("funkar");
-  //   //   }
-  //   // })
-  //
-  //   /*
-  //     foreach product in this.props.products
-  //       if id ===product.id in product
-  //         skapa modul/popup med data i product
-  //         <modul>
-  //         <img> product.previewImage
-  //         <p> product.titel
-  //   */
-  //
-  // }
-
   render(){
-    var img = this.state.image ? <img src={this.state.image} /> : this.props.product.thumbnail;
+    var img = this.state.image ?
+      <img src={this.state.image} /> :
+      this.props.product.thumbnail;
 
     const name = this.props.product.stocked ?
       <h3>{this.props.product.name}</h3> :
-      <span style={{color: 'red'}}>
+      <h3><span style={{color: 'red'}}>
         {this.props.product.name}
-      </span>;
+      </span></h3>;
 
     var limited = this.props.product.limited ?
-      <p>begränsad upplaga: {this.props.product.limited}</p> :
+      <p>begränsad upplaga: {this.props.product.limited} ex</p> :
       null;
 
     var available = this.props.product.available ?
@@ -103,6 +71,22 @@ class ProductItem extends React.Component {
 
     var type = this.props.product.type ?
       <p>{this.props.product.type}</p> :
+      null;
+
+    var size = this.props.product.size ?
+      <p>{this.props.product.size} cm</p> :
+      null;
+
+    var desc = this.props.product.desc ?
+      <p>{this.props.product.desc}</p> :
+      null;
+
+    var modalName = this.props.product.name ?
+      <h2>{this.props.product.name}</h2> :
+      null;
+
+    var modalDesc = this.props.product.desc ?
+      <h2>{this.props.product.desc}</h2> :
       null;
 
     // const img = this.props.product.thumbnail;
@@ -118,9 +102,11 @@ class ProductItem extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <div>
-            <div className="close" onClick={this.closeModal}>X</div>
-            <img className="modal-img" src={this.state.image}/>
+          <div className="modal-box" onClick={this.closeModal}>
+            <div className="close" onClick={this.closeModal}>x</div>
+            <img className="modal-img" src={this.state.previewImg}/>
+            {modalName}
+            {modalDesc}
           </div>
         </Modal>
         {img}
@@ -128,7 +114,9 @@ class ProductItem extends React.Component {
         {type}
         {limited}
         {available}
+        {size}
         {price}
+        {desc}
       </div>
     );
   };
@@ -137,6 +125,11 @@ class ProductItem extends React.Component {
     this.props.product.thumbnail && import(`./images/${this.props.product.thumbnail}`).then(
       (image) => this.setState({
         image: image
+      })
+    )
+    this.props.product.previewImg && import(`./images/${this.props.product.previewImg}`).then(
+      (previewImg) => this.setState({
+        previewImg: previewImg
       })
     )
   }

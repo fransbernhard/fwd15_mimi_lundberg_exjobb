@@ -1,15 +1,18 @@
+// Contaft function
+// MOBILE FIRST (only maillinkto functionality)
 .contact {
   height: 50vh;
 }
 
+// DESKTOP STYLING
 @media screen and (min-width: 700px) {
   .contact, .filter {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: column;
-    min-height: 100vh;
-    width: 100vw;
+    min-height: $fullHeightVp;
+    width: $fullWidthVp;
   }
 
   .contact {
@@ -17,14 +20,15 @@
 
   }
 
+  // layer to see contact form more clear
   .filter {
-    min-height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
+    min-height: $fullHeightVp;
+    background: $blackOpacity;
   }
 
-  // form
+  // form styling
   form {
-    font-size: 9px;
+    font-size: $sm-space;
     position: relative;
   }
 
@@ -34,15 +38,15 @@
     width: 90%;
     text-align: left;
     max-width: 500px;;
-    font-size: 10px;
+    font-size: $sm-space;
 
     label {
-      margin: 10px 0 5px 0;
+      margin: $sm-space 0 $xs-space 0;
     }
 
     #btn-submit {
-      margin-top: 15px;
-      width: 100%;
+      margin-top: $m-space;
+      width: $fullSizePercent;
     }
 
     input,
@@ -50,7 +54,7 @@
       background: $fieldcolor;
       border: none;
       // border-bottom: 0.1rem solid #efefef;
-      border-radius: 5px;
+      border-radius: $xs-space;
       transition: all 200ms ease-in-out;
       padding: 0.5rem 1rem calc(1rem - 0.2rem) 1rem;
 

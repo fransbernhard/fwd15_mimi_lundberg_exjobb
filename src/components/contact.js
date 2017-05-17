@@ -50,7 +50,7 @@ class Contact extends React.Component {
           contactMessage: 'We have received your message and will get in touch shortly. Thanks!'
         });
         $('#formContact').slideUp();
-        $('#formContact').after('<h1>Tack för ditt mejl!</h1><p>Återkommer så fort som möjligt.</p>');
+        $('#formContact').after('<h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p>');
         console.log('success', data);
       }.bind(this),
       // Fail..

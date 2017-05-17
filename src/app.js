@@ -4,7 +4,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import Modal from 'react-modal';
 import './scss/app.scss';
 
 // Component imports

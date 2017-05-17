@@ -1,3 +1,5 @@
+// About section on Home page styling
+// MOBILE STYLING
 .about, .wrapper-about, .wrapper-a{
 	display: flex;
 	align-items: center;
@@ -5,13 +7,13 @@
 }
 
 .about {
-	width: 100vw;
+	width: $fullWidthVp;
 	z-index: 10;
 
 	.wrapper-about {
-		width: 100%;
+		width: $fullSizePercent;
 		flex-flow: column;
-		background: white;
+		background: $white;
 	}
 
 	.wrapper-cv {
@@ -21,17 +23,18 @@
 	.wrapper-a {
 		text-align: center;
 		flex-flow: column;
-		padding: 2rem;
+		padding: $l-space;
 
 		.about-img {
-			box-shadow: 0 0 20px rgba(0,0,0,0.4);
+			box-shadow: 0 0 $l-space $blackOpacity;
 			border-radius: 50%;
 			max-width: 250px;
-			margin: 15px auto;
+			margin: $l-space auto;
 		}
 	}
 }
 
+// DESKTOP STYLING
 @media screen and (min-width: 700px) {
 	.about {
 			flex-flow: row;
@@ -41,17 +44,17 @@
 			}
 
 			.wrapper-a {
-				border-right: 1px dotted black;
+				border-right: 1px dotted $black;
 			}
 
 			.wrapper-cv {
 				display: flex;
 				flex-flow: column;
 				align-content: center;
-				padding: 2rem;
+				padding: $l-space;
 
 				p {
-					line-height: 15px;
+					line-height: $m-space;
 				}
 			}
 		}
