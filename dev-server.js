@@ -19,4 +19,6 @@ var server = new WebpackDevServer(compiler, {
 });
 
 // its gonna listen to port 8080
-server.listen(8080, 'localhost', function() {});
+server.listen(8080, 'localhost', function() {
+	console.log("Starting server on http://localhost:8080");
+});

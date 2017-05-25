@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
+import Scrollchor from 'react-scrollchor';
 import './scss/app.scss';
 
 // Component imports
@@ -29,6 +30,8 @@ class App extends React.Component {
       }, 100);
     }
   }
+
+  // <Router history={browserHistory} onUpdate={this.hashLinkScroll}>
 
   // React Router render link to home & archive component + hashLinkScroll function "onUpdate" so anchorlinks will work
   render() {

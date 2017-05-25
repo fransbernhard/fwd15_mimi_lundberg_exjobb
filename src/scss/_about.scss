@@ -43,15 +43,13 @@
 				flex-flow: row;
 			}
 
-			.wrapper-a {
-				border-right: 1px dotted $black;
-			}
-
 			.wrapper-cv {
+				border-left: 1px dotted $black;
 				display: flex;
 				flex-flow: column;
 				align-content: center;
-				padding: $l-space;
+				padding: $xs-space $l-space;
+				margin: $l-space 0;
 
 				p {
 					line-height: $m-space;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // Create Component
 class About extends React.Component {
+
   render() {
     return (
       <div className="about" >
@@ -13,33 +14,30 @@ class About extends React.Component {
           </div>
           <div className="wrapper-cv">
             <h5>2017</h5>
-            <p>Utställning Nividas/Adornment | Stockholm </p><br/>
+            <p>Försäljning genom Young Art | Stockholm <br/>
+            Utställning Nividas/Adornment | Stockholm</p><br/>
 
             <h5>2016</h5>
             <p>Vernissage DÅLIG SIKT | Stockholm <br/>
             Utställning | L´homme rouge, Stockholm<br/>
-            Artwork "Dying for you" | Otto Knows</p>
+            Artwork "Dying for you" | Otto Knows</p><br/>
 
-            <br/>
             <h5>2015</h5>
             <p>Vernissage STRÖSSEL | Stockholm<br/>
             Utställning | Kaffebaren, Malmö<br/>
             Utställning | Scandic hotel, Malmö<br/>
-            Artwork "Next to me" | Otto Knows</p>
+            Artwork "Next to me" | Otto Knows</p><br/>
 
-            <br/>
             <h5>2014</h5>
             <p>Vernissage BOKSLUT | Stockholm<br/>
             Utställning | Brillo, Stockholm<br/>
             Utställning | Mood gallerian, Stockholm<br/>
-            Utställning | Höganäs konsthall, Höganäs</p>
+            Utställning | Höganäs konsthall, Höganäs</p><br/>
 
-            <br/>
             <h5>2013</h5>
             <p>Vernissage TORSK | Stockholm<br/>
-            Utställning | East, Stockholm</p>
+            Utställning | East, Stockholm</p><br/>
 
-            <br/>
             <p>2011-2012 Lunds Konst och Designskola | Lund<br/>
             2012-2013 Beckmans kvällsskola | Stockholm</p>
           </div>

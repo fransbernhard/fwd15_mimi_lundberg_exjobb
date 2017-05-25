@@ -94,8 +94,7 @@ class Archive extends React.Component {
         {id: 48, category: 'places', stocked: true, desc: 'Chili @ Nybergsgatan, sthml 2015', thumbnail: '13.png', previewImg: "13.png"},
         {id: 49, category: 'places', stocked: true, desc: 'Chili | Twink | Agnes @ Klippgatan, sthlm 2016', thumbnail: '14.png', previewImg: "14.png"},
         {id: 50, category: 'places', stocked: true, desc: 'Mimi | Dig in @ Bråvallagatan, sthlm 2016', thumbnail: '15.png', previewImg: "15.png"},
-        {id: 51, category: 'places', stocked: true, desc: 'Headaches @ Sturegatan, sthlm 2015', thumbnail: '16.png', previewImg: "16.png"},
-
+        {id: 51, category: 'places', stocked: true, desc: 'Headaches @ Sturegatan, sthlm 2015', thumbnail: '16.png', previewImg: "16.png"}
       ],
       category: ""
     };
@@ -119,7 +118,7 @@ class Archive extends React.Component {
           <div className="archive-wrapper">
             <CategoryContainer categories={[]} filterHandler={this.filterHandler} products={this.state.products}/>
             <br/><br/>
-            <ProductContainer products={this.state.category.length ? this.state.products.filter((prod) => prod.category === this.state.category) : this.state.products}/>
+            <ProductContainer products={this.state.category.length ? this.state.products.filter((prod) => prod.category === this.state.category) : this.state.products }/>
           </div>
         </div>
         <Footer />
