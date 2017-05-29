@@ -7,10 +7,12 @@ A responsive website that presents information about the artist Magda Lundberg a
 #### npm install OR yarn install
 To download node_module dependencies necessary for project
 
-#### npm run build
-To compile src into dist file
-
 #### npm run start
-To start server
+To view project in development environment and start dev server
 
-### Navigate to http://localhost:8080/ in browser to see app
+#### npm run build
+To compile src into production dist file
+
+
+
+#### Navigate to http://localhost:8080/ in browser to see app
