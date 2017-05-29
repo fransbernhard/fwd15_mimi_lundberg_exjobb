@@ -13,9 +13,8 @@ const customStyles = {
     width                 : '100vw',
     height                : '100vh',
     display               : 'flex',
-    'justify-content'     : 'center',
-    'align-items'         : 'center',
-    'flex-flow'           : 'column'
+    justifyContent        : 'center',
+    alignItems            : 'center'
   }
 };
 
@@ -27,8 +26,8 @@ class ProductItem extends React.Component {
     };
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.responsiveClass = this.responsiveClass.bind(this);
   }
 
   openModal() {
@@ -36,14 +35,12 @@ class ProductItem extends React.Component {
     console.log('OpenModal');
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    console.log(this.props.product.id);
-    console.log('It is now open');
-  }
-
   closeModal() {
     this.setState({modalIsOpen: false});
+  }
+
+  responsiveClass(){
+    
   }
 
   render(){
@@ -89,15 +86,10 @@ class ProductItem extends React.Component {
       <h2>{this.props.product.desc}</h2> :
       null;
 
-    // const img = this.props.product.thumbnail;
-    // var img = import(`./img/${this.props.product.thumbnail}`).then(img => img);
-    // <img src={img ? img : null} />
-
     return (
       <div className="product hvr-sink" onClick={this.openModal}>
         <Modal
           isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"

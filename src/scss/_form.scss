@@ -23,7 +23,7 @@
   // layer to see contact form more clear
   .filter {
     min-height: $fullHeightVp;
-    background: $blackOpacity;
+    // background: $blackOpacity;
   }
 
   // form styling
@@ -51,7 +51,8 @@
 
     input,
     textarea {
-      background: $fieldcolor;
+      // background: $fieldcolor;
+      background: $white;
       border: none;
       // border-bottom: 0.1rem solid #efefef;
       border-radius: $xs-space;

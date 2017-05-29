@@ -5,8 +5,8 @@ class About extends React.Component {
 
   render() {
     return (
-      <div className="about" >
-        <div className="wrapper-about" id="about">
+      <div className="about" id="about">
+        <div className="wrapper-about" >
           <div className="wrapper-a" >
             <img className="mySlides about-img" src={require('../images/magden.jpg')} />
             <p>Magda har massa csn lån och nästan en kandidat  <br/>i företagsekonomi. För daglig uppdatering --><br/> <a target="_blank" href="https://www.instagram.com/magdenmagden/?hl=sv">@magdenmagden</a>

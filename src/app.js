@@ -31,8 +31,6 @@ class App extends React.Component {
     }
   }
 
-  // <Router history={browserHistory} onUpdate={this.hashLinkScroll}>
-
   // React Router render link to home & archive component + hashLinkScroll function "onUpdate" so anchorlinks will work
   render() {
     return (
@@ -82,9 +80,7 @@ ReactDOM.render (
   document.getElementById('app')
 )
 
-// Hot module reloader (injecting code)
-if(DEVELOPMENT){
-	if (module.hot) {
-		module.hot.accept();
-	}
+// Hot Module Replacement API (injecting code)
+if (module.hot) {
+	module.hot.accept();
 }

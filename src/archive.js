@@ -42,19 +42,19 @@ class Archive extends React.Component {
     super(props);
     this.state = {
       products: [
-        {id: 1, category: 'paint', name: 'clowd', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '23.png', previewImg: "23.png"},
-        {id: 2, category: 'paint', name: 'dålig sikt', type: 'matt emulsion/olja/akryl', stocked: true, size: '100x130', thumbnail: '24.png', previewImg: "24.png"},
-        {id: 3, category: 'paint', name: 'dålig sikt', type: 'matt emulsion/olja/akryl', stocked: true, size: '100x130', thumbnail: '25.png', previewImg: "25.png"},
-        {id: 4, category: 'paint', name: 'pink', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '1.png', previewImg: "1.png"},
-        {id: 5, category: 'paint', name: 'pink', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '27.png', previewImg: "27.png"},
-        {id: 6, category: 'paint', name: 'pinks', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '2.png', previewImg: "2.png"},
-        {id: 7, category: 'paint', name: 'pink', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '3.png', previewImg: "3.png"},
-        {id: 8, category: 'paint', name: 'pinks', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '4.png', previewImg: "4.png"},
-        {id: 9, category: 'paint', name: 'pinks', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '5.png', previewImg: "5.png"},
-        {id: 10, category: 'paint', name: 'strechmarks', type: 'matt emulsion/olja/akryl', stocked: true,  size: '100x130', thumbnail: '19.png', previewImg: "19.png"},
-        {id: 11, category: 'paint', name: 'clowd', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '20.png', previewImg: "20.png"},
-        {id: 12, category: 'paint', name: 'dålig sikt', type: 'matt emulsion/olja/akryl', stocked: true, size: '100x130', thumbnail: '21.png', previewImg: "21.png"},
-        {id: 13, category: 'paint', name: 'dålig sikt', type: 'matt emulsion/olja/akryl', stocked: true, size: '100x130', thumbnail: '22.png', previewImg: "22.png"},
+        {id: 1, category: 'paint', name: 'clowd', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '23-sm.png', previewImg: "23.png"},
+        {id: 2, category: 'paint', name: 'dålig sikt', type: 'matt emulsion/olja/akryl', stocked: true, size: '100x130', thumbnail: '24-sm.png', previewImg: "24.png"},
+        {id: 3, category: 'paint', name: 'dålig sikt', type: 'matt emulsion/olja/akryl', stocked: true, size: '100x130', thumbnail: '25-sm.png', previewImg: "25.png"},
+        {id: 4, category: 'paint', name: 'pink', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '1-sm.png', previewImg: "1.png"},
+        {id: 5, category: 'paint', name: 'pink', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '27-sm.png', previewImg: "27.png"},
+        {id: 6, category: 'paint', name: 'pinks', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '2-sm.png', previewImg: "2.png"},
+        {id: 7, category: 'paint', name: 'pink', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '3-sm.png', previewImg: "3.png"},
+        {id: 8, category: 'paint', name: 'pinks', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '4-sm.png', previewImg: "4.png"},
+        {id: 9, category: 'paint', name: 'pinks', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '5-sm.png', previewImg: "5.png"},
+        {id: 10, category: 'paint', name: 'strechmarks', type: 'matt emulsion/olja/akryl', stocked: true,  size: '100x130', thumbnail: '19-sm.png', previewImg: "19.png"},
+        {id: 11, category: 'paint', name: 'clowd', type: 'matt emulsion', stocked: true, size: '100x130', thumbnail: '20-sm.png', previewImg: "20.png"},
+        {id: 12, category: 'paint', name: 'dålig sikt', type: 'matt emulsion/olja/akryl', stocked: true, size: '100x130', thumbnail: '21-sm.png', previewImg: "21.png"},
+        {id: 13, category: 'paint', name: 'dålig sikt', type: 'matt emulsion/olja/akryl', stocked: true, size: '100x130', thumbnail: '22-sm.png', previewImg: "22.png"},
         {id: 14, category: 'paint', name: 'vertical', type: 'matt emulsion', size: '100x130', stocked: false, thumbnail: 'vertical-sm.jpg', previewImg: "vertical.jpg"},
         {id: 15, category: 'paint', name: 'optics', type: 'matt emulsion/akryl', stocked: true, size: '100x150', thumbnail: 'optics-sm.jpg', previewImg: "optics.jpg"},
         {id: 16, category: 'paint', name: 'moby', type: 'matt emulsion', stocked: true,  size: '100x130', thumbnail: 'moby-sm.jpg', previewImg: "main.jpg"},
@@ -118,7 +118,7 @@ class Archive extends React.Component {
           <div className="archive-wrapper">
             <CategoryContainer categories={[]} filterHandler={this.filterHandler} products={this.state.products}/>
             <br/><br/>
-            <ProductContainer products={this.state.category.length ? this.state.products.filter((prod) => prod.category === this.state.category) : this.state.products }/>
+            <ProductContainer products={this.state.category.length ? this.state.products.filter((prod) => prod.category === this.state.category) : this.state.products.filter((prod) => prod.category === 'paint') }/>
           </div>
         </div>
         <Footer />

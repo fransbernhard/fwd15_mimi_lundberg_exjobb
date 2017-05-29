@@ -38,6 +38,7 @@
 @media screen and (min-width: 700px) {
 	.about {
 			flex-flow: row;
+			height: 100vh;
 
 			.wrapper-about {
 				flex-flow: row;
@@ -49,7 +50,7 @@
 				flex-flow: column;
 				align-content: center;
 				padding: $xs-space $l-space;
-				margin: $l-space 0;
+				margin: $xl-space+40 0;
 
 				p {
 					line-height: $m-space;

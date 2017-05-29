@@ -1,91 +1,62 @@
-var path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
-const DEVELOPMENT = process.env.NODE_ENV === 'development';
-const PRODUCTION = process.env.NODE_ENV === 'production';
+const entry = [
+	'webpack-dev-server/client?http://localhost:8080', // bundle the client for webpack-dev-server and connect to the provided endpoint
+	'webpack/hot/only-dev-server', // bundle the client for hot reloading only- means to only hot reload for successful updates
+	'./app.js'
+]
 
-const entry = PRODUCTION
-	// true
-	?	{ app: path.join(process.cwd(), 'src/app.js') }
-	// false: development
-	:	[
-				'./src/app.js',
-				'webpack-dev-server/client?http://localhost:8080',
-				'webpack/hot/only-dev-server'
-		];
+const output = {
+	path: path.join(__dirname, 'dist'),
+	publicPath: '/dist',
+  filename: 'bundle.min.js'
+}
 
-const output = PRODUCTION
-	// true
-	?	{
-			path: path.join(__dirname, 'dist'),
-			filename: 'bundle.[hash:12].min.js'
-	}
-	// false: development
-	:	{
-			path: path.join(__dirname, 'dist'),
-			publicPath: '/dist',
-			filename: 'bundle.js'
-	}
+const plugins = [
+	new webpack.HotModuleReplacementPlugin(), // enable HMR globally
+	new webpack.NamedModulesPlugin() // prints more readable module names in the browser console on HMR updates
+]
 
-var plugins = PRODUCTION
-  ? [
-			// "tree shakin" remove unused code from bundle
-			new webpack.DefinePlugin({
-		    "process.env.NODE_ENV": JSON.stringify("production")
-		  }),
-			new webpack.optimize.UglifyJsPlugin(),
-			new ExtractTextPlugin('style-[contenthash:10].css'),
-			new HTMLWebpackPlugin({
-					template: 'index-template.html'
-			})
+const config = {
+  context: path.join(__dirname, 'src'),
+  entry: entry,
+	output: output,
+	devtool: "cheap-eval-source-map",
+  module: {
+    rules: [
+			{
+	      test: /\.(js|jsx)$/,
+	      include: path.join(__dirname, 'src'),
+	      use: [{
+	        loader: 'babel-loader',
+	        options: {
+	          presets: [
+	            ['es2015', { modules: false }],
+							"stage-0",
+							'react'
+	          ]
+	        }
+	      }]
+    	},
+      {
+			  test: /\.(png|jpg|gif)$/,
+			  use: [{
+			    loader: 'url-loader',
+          options: { limit: 10000, name: './img/[name].[ext]' }
+			  }]
+			},
+			{
+				test: /\.(sass|scss)$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					'sass-loader'
+				]
+			}
 		]
-  : [
-			new webpack.HotModuleReplacementPlugin(),
-			new webpack.DefinePlugin({
-				"process.env.NODE_ENV": JSON.stringify("development")
-			}),
-	];
+  },
+	plugins: plugins
+}
 
-plugins.push (
-		new webpack.DefinePlugin({
-				DEVELOPMENT: JSON.stringify(DEVELOPMENT),
-				PRODUCTION: JSON.stringify(PRODUCTION)
-		})
-)
-
-const cssIdentifier = PRODUCTION
-	? 	'[hash:base64:10]'
-	: 	'[path].[name]---[local]';
-
-const cssLoader = PRODUCTION
-	? 	ExtractTextPlugin.extract({
-					loader: ['css-loader?localIdentName=' + cssIdentifier + '!postcss-loader', 'sass-loader']
-			})
-	:		['style-loader', 'css-loader?localIdentName=' + cssIdentifier + '!postcss-loader', 'sass-loader' ];
-
-config = {
-		entry: entry,
-	  plugins: plugins,
-	  module: {
-	      rules: [{
-	          test: /\.(js|jsx)$/,
-	          loaders: 'babel-loader',
-	          exclude: /node_modules/
-	      }, {
-						test: /\.(png|jpg|gif)$/,
-						loader: 'url-loader?limit=10000&name=images/[hash:12].[ext]',
-				}, {
-						test: /\.(sass|scss)$/,
-						loader: cssLoader,
-				}, {
-						test: /\.json$/,
-						loader: 'json-loader',
-				}]
-	  },
-	  output: output,
-		devtool: 'cheap-module-eval-source-map',
-};
-
-module.exports = config;
+module.exports = config
