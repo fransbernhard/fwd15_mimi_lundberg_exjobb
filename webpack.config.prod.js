@@ -13,7 +13,12 @@ const output = {
 }
 
 const plugins = [
-	new webpack.optimize.UglifyJsPlugin(),
+	new webpack.DefinePlugin({
+	  'process.env': {
+	    NODE_ENV: JSON.stringify('production')
+	  }
+	}),
+	new webpack.optimize.UglifyJsPlugin({mangle: false, compress: {warnings: false}}),
   new ExtractTextPlugin('bundle.[hash:6].css'), // creation of HTML files to serve your webpack bundles
 	new HtmlWebpackPlugin({
 		template: 'index-template.html'
@@ -24,7 +29,7 @@ const config = {
   context: path.join(__dirname, 'src'),
   entry: entry,
 	output: output,
-	devtool: "cheap-eval-source-map",
+	devtool: "source-map",
   module: {
     rules: [
 			{
