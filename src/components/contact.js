@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'react';
 
 // Contact component render contact form
 class Contact extends React.Component {
@@ -9,25 +10,25 @@ class Contact extends React.Component {
       contactMessage: ''
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleChangeMsg = this.handleChangeMsg.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
+    this._handleChange = this._handleChange.bind(this);
+    this._handleChangeMsg = this._handleChangeMsg.bind(this);
   }
 
   // Change state of input field so text is updated while typing
-  handleChange(e) {
+  _handleChange(e) {
     this.setState({
       contactEmail: e.target.value,
     });
   }
   // Change state of input field so text is updated while typing
-  handleChangeMsg(e) {
+  _handleChangeMsg(e) {
     this.setState({
       contactMessage: e.target.value
     });
   }
 
-  handleSubmit(e) {
+  _handleSubmit(e) {
     e.preventDefault();
     this.setState({
       contactEmail: '',
@@ -35,7 +36,6 @@ class Contact extends React.Component {
     });
 
     $.ajax({
-
       url: process.env.NODE_ENV !== "production" ? '/getMail' : "http://www.fransbernhard.se/magden/php/mailer.php",
       type: 'POST',
       data: {
@@ -47,10 +47,10 @@ class Contact extends React.Component {
         // Success..
         this.setState({
           contactEmail: 'success',
-          contactMessage: 'We have received your message and will get in touch shortly. Thanks!'
+          contactMessage: '<h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p>'
         });
         $('#formContact').slideUp();
-        $('#formContact').after('<h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p>');
+        $('#formContact').after(this.state.contactMessage);
         console.log('success', data);
       }.bind(this),
       // Fail..
@@ -59,7 +59,7 @@ class Contact extends React.Component {
         console.log(err);
         this.setState({
           contactEmail: 'danger',
-          contactMessage: 'Sorry, there has been an error.'
+          contactMessage: '<h1>Sorry det blev fel</h1><p>Försök gärna igen, eller mejla mig direkt på magdamargaretha@gmail.com</p>'
         });
         console.log(this.state.contactEmail + this.state.contactMessage + 'fail');
       }.bind(this)
@@ -70,11 +70,11 @@ class Contact extends React.Component {
     return (
       <div className="contact" id="contact">
         <div className="filter">
-          <form className="form" onSubmit={this.handleSubmit} id="formContact">
+          <form className="form" onSubmit={this._handleSubmit} id="formContact">
             <label>Email</label>
-            <input id="formEmail" type="email" name="formEmail" value={this.state.contactEmail} onChange={this.handleChange} required/>
+            <input id="formEmail" type="email" name="formEmail" value={this.state.contactEmail} onChange={this._handleChange} required/>
             <label>Meddelande</label>
-            <textarea id="formMsg" name="formMsg" rows="8" cols="40" value={this.state.contactMessage} onChange={this.handleChangeMsg} required></textarea>
+            <textarea id="formMsg" name="formMsg" rows="8" cols="40" value={this.state.contactMessage} onChange={this._handleChangeMsg} required></textarea>
             <input type="submit" value="Submit" className="btn--cta" id="btn-submit" />
           </form>
         </div>

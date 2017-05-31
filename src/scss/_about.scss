@@ -8,6 +8,7 @@
 
 .about {
 	width: $fullWidthVp;
+	height: 100vh;
 	z-index: 10;
 
 	.wrapper-about {
@@ -38,7 +39,6 @@
 @media screen and (min-width: 700px) {
 	.about {
 			flex-flow: row;
-			height: 100vh;
 
 			.wrapper-about {
 				flex-flow: row;

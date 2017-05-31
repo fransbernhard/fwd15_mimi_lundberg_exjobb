@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import Scrollchor from 'react-scrollchor';
-import './scss/app.scss';
+// import './scss/app.scss';
 
 // Component imports
 import Menu from './components/menu';
@@ -26,11 +26,21 @@ class App extends React.Component {
       setTimeout(() => {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
-        if (element) element.scrollIntoView();
+        if (element) {
+          element.scrollIntoView();
+        } else {
+          console.log('error in scrolling');
+        }
       }, 100);
     }
   }
 
+  //
+  // if (element) {
+  //   element.scrollIntoView();
+  // } else {
+  //   console.log('error in scrolling')
+  // }
   // React Router render link to home & archive component + hashLinkScroll function "onUpdate" so anchorlinks will work
   render() {
     return (
@@ -66,7 +76,7 @@ class Home extends React.Component {
         <Menu />
         <div className="container" id="top">
           <div className="hero"></div>
-          <About />
+          <About img="magden.jpg"/>
           <Contact />
           <Footer />
         </div>

@@ -36,14 +36,7 @@ const config = {
 	      test: /\.(js|jsx)$/,
 	      include: path.join(__dirname, 'src'),
 	      use: [{
-	        loader: 'babel-loader',
-	        options: {
-	          presets: [
-	            ['es2015', { modules: false }],
-							"stage-0",
-							'react'
-	          ]
-	        }
+	        loader: 'babel-loader'
 	      }]
     	},
       {

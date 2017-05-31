@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 
 // Create Component
 class About extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
   render() {
     return (
       <div className="about" id="about">
         <div className="wrapper-about" >
           <div className="wrapper-a" >
-            <img className="mySlides about-img" src={require('../images/magden.jpg')} />
+            <img className="mySlides about-img" src={require("../images/" + this.props.img)}/>
             <p>Magda har massa csn lån och nästan en kandidat  <br/>i företagsekonomi. För daglig uppdatering --><br/> <a target="_blank" href="https://www.instagram.com/magdenmagden/?hl=sv">@magdenmagden</a>
             </p><br/>
           </div>

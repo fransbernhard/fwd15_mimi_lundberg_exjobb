@@ -27,7 +27,6 @@ class ProductItem extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.responsiveClass = this.responsiveClass.bind(this);
   }
 
   openModal() {
@@ -37,10 +36,6 @@ class ProductItem extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
-  }
-
-  responsiveClass(){
-    
   }
 
   render(){

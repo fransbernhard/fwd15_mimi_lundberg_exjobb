@@ -4,7 +4,6 @@ import Scrollchor from 'react-scrollchor';
 
 //Menu component renders menu Link
 class Menu extends React.Component {
-
   render() {
     return (
       <header>

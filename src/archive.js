@@ -24,9 +24,9 @@ class CategoryContainer extends React.Component {
   render(){
     // 1. "Set objects" are a collections of unique values. "...new Set" saves every unique category (in products.categories) in the const "categories".
     const categories = [...new Set(this.props.products.map(cat => cat.category))];
-    // 2. Map over const "categories". For every cat in "categories" => Create CategoryItem component.
+    // 2. Map over "categories". For every cat in "categories" => Create CategoryItem component.
     // 3. CategoryItem property handleClick is triggered with onClick event. Property handleClick calls anonymous function "filterHandler" with clicked "cat" as parameter.
-    // 4. Set CategoryItem[i] property category[i] and key[i] to parameter "cat[i]".
+    // 4. Set CategoryItem[i] property category[i] and key[i] to parameter cat[i].
     return (
       <div>
         <ul className="filterList">{categories.map(cat => <CategoryItem handleClick={

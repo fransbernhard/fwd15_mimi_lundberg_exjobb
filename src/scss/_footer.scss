@@ -2,13 +2,13 @@
 footer {
 	width: $fullSizePercent;
 	text-align: center;
-	padding: $xs-space;
+	padding: $sm-space 0 $m-space 0;
 	position: relative;
 	border-top: 1px solid $darkGrey;
 	background: $white;
 
-	p {
+	p, a {
 		font-size: 9px;
-		line-height: normal;
+		letter-spacing: 1px;
 	}
 }

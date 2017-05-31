@@ -4,11 +4,9 @@ class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <p>
-          magdamargaretha@gmail.com<br/>
-          +46735139012<br/>
-          Kristianstadsgatan 7, 334 56 Malmö
-        </p>
+        <a href="mailto:magdamargaretha@gmail.com">magdamargaretha@gmail.com, </a>
+        <a href="tel:+46735139012">+46735139012</a>
+        <p>Kristianstadsgatan 7, 334 56 Malmö</p>
       </footer>
     );
   }
