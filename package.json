@@ -10,10 +10,15 @@
     "build": "rimraf dist && NODE_ENV=production webpack --config webpack.config.prod.js",
     "test": "jest --no-cache --watch",
     "jest": {
+      "moduleNameMapper": {
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+        "\\.(css|sass)$": "<rootDir>/__mocks__/styleMock.js"
+      },
       "transform": {
         "^.+\\.(js|jsx$)": "<rootDir>/node_modules/babel-jest",
         "^.+\\.css$": "<rootDir>/config/jest/styleTransform.js",
-        "^(?!.*\\.(js|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+        "^(?!.*\\.(js|css|json)$)": "<rootDir>/config/jest/fileTransform.js",
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileTransformer.js"
       }
     }
   },
@@ -38,6 +43,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.28.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-import Home from '../src/app';
+import About from '../src/components/about';
 
 describe('components', () => {
-  describe('<Home/>', () => {
+  describe('<About/>', () => {
     it('renders correctly', () => {
       const tree = renderer.create(
-        <Home />
+        <About
+          src="../images/magden.jpg"
+        />
       ).toJSON();
       expect(tree).toMatchSnapshot();
     });

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-
-// Component imports
-import CategoryContainer from '../src/archive';
-import Archive from '../src/archive';
-import CategoryItem from '../src/productItem';
+import { CategoryContainer } from '../src/archive';
 
 describe('components', () => {
   describe('<CategoryContainer/>', () => {
@@ -12,9 +8,11 @@ describe('components', () => {
       const tree = renderer
         .create(
           <CategoryContainer
-            categories={[]}
-            filterHandler={"paint"}
-            products={[0]}
+            filterHandler={jest.fn}
+            products={[
+              {category: "fruit"},
+              {category: "fish"}
+            ]}
           />
         )
         .toJSON();

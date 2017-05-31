@@ -26,11 +26,7 @@ class App extends React.Component {
       setTimeout(() => {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView();
-        } else {
-          console.log('error in scrolling');
-        }
+        if (element) element.scrollIntoView();
       }, 100);
     }
   }
@@ -76,7 +72,7 @@ class Home extends React.Component {
         <Menu />
         <div className="container" id="top">
           <div className="hero"></div>
-          <About img="magden.jpg"/>
+          <About />
           <Contact />
           <Footer />
         </div>

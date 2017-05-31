@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import magdaImg from '../images/magden.jpg';
 
 // Create Component
 class About extends React.Component {
@@ -11,7 +12,7 @@ class About extends React.Component {
       <div className="about" id="about">
         <div className="wrapper-about" >
           <div className="wrapper-a" >
-            <img className="mySlides about-img" src={require("../images/" + this.props.img)}/>
+            <img className="mySlides about-img" src={magdaImg}/>
             <p>Magda har massa csn lån och nästan en kandidat  <br/>i företagsekonomi. För daglig uppdatering --><br/> <a target="_blank" href="https://www.instagram.com/magdenmagden/?hl=sv">@magdenmagden</a>
             </p><br/>
           </div>

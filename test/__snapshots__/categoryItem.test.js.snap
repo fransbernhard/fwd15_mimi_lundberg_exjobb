@@ -5,6 +5,8 @@ exports[`components <CategoryItem/> renders correctly 1`] = `
   <li
     className="category"
     onClick={undefined}
-  />
+  >
+    paint
+  </li>
 </div>
 `;

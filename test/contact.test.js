@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Contact from '../src/components/contact';
 import renderer from 'react-test-renderer';
-// import {shallow} from 'enzyme';
+import Contact from '../src/components/contact';
 
 describe('components', () => {
   describe('<Contact/>', () => {
@@ -36,20 +35,3 @@ test('Input field updates on email input', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 })
-
-//
-// test('Input field updates on input', () => {
-//   const component = shallow(
-//      <Contact />
-//   );
-//
-//   const input = component.find('#formEmail');
-//   expect(input.text()).toEqual("");
-//   // expect(input.text()).toEqual('');
-//   input.simulate('change',
-//     {target: { value: "My new value"}}
-//   );
-//   const val = input.node.value;
-//
-//   expect(input.text()).toEqual(val);
-// });
