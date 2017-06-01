@@ -4,15 +4,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import Scrollchor from 'react-scrollchor';
 // import './scss/app.scss';
 
 // Component imports
-import Menu from './components/menu';
+import Home from './home';
 import Archive from './archive';
-import About from './components/about';
-import Contact from './components/contact';
-import Footer from './components/footer';
 
 class App extends React.Component {
 
@@ -31,12 +27,6 @@ class App extends React.Component {
     }
   }
 
-  //
-  // if (element) {
-  //   element.scrollIntoView();
-  // } else {
-  //   console.log('error in scrolling')
-  // }
   // React Router render link to home & archive component + hashLinkScroll function "onUpdate" so anchorlinks will work
   render() {
     return (
@@ -63,24 +53,6 @@ class App extends React.Component {
   }
 };
 
-// Render home page
-class Home extends React.Component {
-  render() {
-    return(
-      <div>
-        <div className="background-img"></div>
-        <Menu />
-        <div className="container" id="top">
-          <div className="hero"></div>
-          <About />
-          <Contact />
-          <Footer />
-        </div>
-      </div>
-    );
-  };
-};
-
 ReactDOM.render (
   <App/>,
   document.getElementById('app')
@@ -90,3 +62,5 @@ ReactDOM.render (
 if (module.hot) {
 	module.hot.accept();
 }
+
+export default App;

@@ -22,7 +22,9 @@ class ProductItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      image: '',
+      previewImg: ''
     };
 
     this.openModal = this.openModal.bind(this);
@@ -113,12 +115,17 @@ class ProductItem extends React.Component {
       (image) => this.setState({
         image: image
       })
-    )
+    ).catch((err) => {
+      console.log('error thumbnail' + err);
+    });
+
     this.props.product.previewImg && import(`./images/${this.props.product.previewImg}`).then(
       (previewImg) => this.setState({
         previewImg: previewImg
       })
-    )
+    ).catch((err) => {
+      console.log('error previewImg' + err);
+    });
   }
 };
 

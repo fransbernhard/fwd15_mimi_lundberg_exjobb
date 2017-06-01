@@ -11,8 +11,13 @@ export class ProductContainer extends React.Component {
   render(){
     return (
       <div>
-        <div className="prodContainer">{
-          this.props.products.map(product => <ProductItem product={product} key={product.id} />)}
+        <div className="prodContainer">
+          {this.props.products.map(product =>
+            <ProductItem
+              product={product}
+              key={product.id}
+            />
+          )}
         </div>
       </div>
     );
@@ -29,9 +34,14 @@ export class CategoryContainer extends React.Component {
     // 4. Set CategoryItem[i] property category[i] and key[i] to parameter cat[i].
     return (
       <div>
-        <ul className="filterList">{categories.map(cat => <CategoryItem handleClick={
-          () => this.props.filterHandler(cat)} category={cat} key={cat} />)}
-        </ul>
+        <ul className="filterList">{
+          categories.map(cat =>
+            <CategoryItem
+              handleClick={() => this.props.filterHandler(cat)}
+              category={cat}
+              key={cat}
+            />)
+        }</ul>
       </div>
     );
   };
@@ -116,9 +126,17 @@ class Archive extends React.Component {
         <Menu />
         <div className="archive-container">
           <div className="archive-wrapper">
-            <CategoryContainer filterHandler={this.filterHandler} products={this.state.products}/>
+            <CategoryContainer
+              filterHandler={this.filterHandler}
+              products={this.state.products}
+            />
             <br/><br/>
-            <ProductContainer products={this.state.category.length ? this.state.products.filter((prod) => prod.category === this.state.category) : this.state.products.filter((prod) => prod.category === 'paint') }/>
+            <ProductContainer
+              products={this.state.category.length
+                ? this.state.products.filter((prod) => prod.category === this.state.category)
+                : this.state.products.filter((prod) => prod.category === 'paint')
+              }
+            />
           </div>
         </div>
         <Footer />
