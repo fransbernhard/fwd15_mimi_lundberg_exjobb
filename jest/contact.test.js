@@ -35,3 +35,4 @@ test('Input field updates on email input', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 })
+ 

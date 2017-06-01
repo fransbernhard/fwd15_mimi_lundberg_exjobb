@@ -11,4 +11,4 @@ describe('components', () => {
       expect(tree).toMatchSnapshot();
     });
   });
-});
+}); 

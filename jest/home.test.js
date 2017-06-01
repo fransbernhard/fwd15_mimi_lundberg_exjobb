@@ -6,6 +6,8 @@ import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
 import Home from '../src/home';
 
+jest.mock("react-dom", () => ({ render: () => jest.fn() }));
+
 describe('components', () => {
   describe('<Home/>', () => {
     it('renders correctly', () => {
@@ -18,3 +20,4 @@ describe('components', () => {
     });
   });
 });
+ 

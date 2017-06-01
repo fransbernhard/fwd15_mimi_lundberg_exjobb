@@ -8,7 +8,7 @@ import Contact from './components/contact';
 import Footer from './components/footer';
 
 // Render home page
-export class Home extends React.Component {
+class Home extends React.Component {
   render() {
     return(
       <div>
