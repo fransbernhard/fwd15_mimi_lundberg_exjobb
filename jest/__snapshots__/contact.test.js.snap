@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input field updates on email input 1`] = `
+<div
+  className="contact"
+  id="contact"
+>
+  <div
+    className="filter"
+  >
+    <form
+      className="form"
+      id="formContact"
+      onSubmit={[Function]}
+    >
+      <label>
+        Email
+      </label>
+      <input
+        id="formEmail"
+        name="formEmail"
+        onChange={[Function]}
+        required={true}
+        type="email"
+        value="New email"
+      />
+      <label>
+        Meddelande
+      </label>
+      <textarea
+        cols="40"
+        id="formMsg"
+        name="formMsg"
+        onChange={[Function]}
+        required={true}
+        rows="8"
+        value=""
+      />
+      <input
+        className="btn--cta"
+        id="btn-submit"
+        type="submit"
+        value="Submit"
+      />
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Input field updates on msg input 1`] = `
+<div
+  className="contact"
+  id="contact"
+>
+  <div
+    className="filter"
+  >
+    <form
+      className="form"
+      id="formContact"
+      onSubmit={[Function]}
+    >
+      <label>
+        Email
+      </label>
+      <input
+        id="formEmail"
+        name="formEmail"
+        onChange={[Function]}
+        required={true}
+        type="email"
+        value=""
+      />
+      <label>
+        Meddelande
+      </label>
+      <textarea
+        cols="40"
+        id="formMsg"
+        name="formMsg"
+        onChange={[Function]}
+        required={true}
+        rows="8"
+        value="New msg"
+      />
+      <input
+        className="btn--cta"
+        id="btn-submit"
+        type="submit"
+        value="Submit"
+      />
+    </form>
+  </div>
+</div>
+`;
+
+exports[`components <Contact/> renders correctly 1`] = `
+<div
+  className="contact"
+  id="contact"
+>
+  <div
+    className="filter"
+  >
+    <form
+      className="form"
+      id="formContact"
+      onSubmit={[Function]}
+    >
+      <label>
+        Email
+      </label>
+      <input
+        id="formEmail"
+        name="formEmail"
+        onChange={[Function]}
+        required={true}
+        type="email"
+        value=""
+      />
+      <label>
+        Meddelande
+      </label>
+      <textarea
+        cols="40"
+        id="formMsg"
+        name="formMsg"
+        onChange={[Function]}
+        required={true}
+        rows="8"
+        value=""
+      />
+      <input
+        className="btn--cta"
+        id="btn-submit"
+        type="submit"
+        value="Submit"
+      />
+    </form>
+  </div>
+</div>
+`;
