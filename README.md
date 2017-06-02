@@ -34,7 +34,7 @@ $ npm run build
 
 ---
 
-### Testing React components with Jest
+### Testing React components
 
 ```
 $ yarn test
