@@ -20,6 +20,16 @@ $ npm run start
 
 Navigate to http://localhost:8080/ in browser to view project in development environment.
 
+#### Testing React components
+
+```
+$ yarn test
+```
+OR
+```
+$ npm run test
+```
+
 ---
 
 ### Build project
@@ -32,16 +42,5 @@ OR
 $ npm run build
 ```
 
----
-
-### Testing React components
-
-```
-$ yarn test
-```
-OR
-```
-$ npm run test
-```
 
 ---
