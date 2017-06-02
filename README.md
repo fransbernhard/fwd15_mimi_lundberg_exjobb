@@ -12,7 +12,7 @@ $ cd yourLocalRepositoryRoot
 $ yarn install
 $ yarn start
 ```
-OR
+*or*
 ```
 $ npm run install
 $ npm run start
@@ -20,12 +20,13 @@ $ npm run start
 
 Navigate to http://localhost:8080/ in browser to view project in development environment.
 
-#### Testing React components
+#### Testing 
+To test functions and that the React components are rendering correctly the project uses **Jest**:
 
 ```
 $ yarn test
 ```
-OR
+*or*
 ```
 $ npm run test
 ```
@@ -37,7 +38,7 @@ Compile development files in folder **src** into production files in folder **di
 ```
 $ yarn build
 ```
-OR
+*or*
 ```
 $ npm run build
 ```
