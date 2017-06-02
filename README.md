@@ -1,18 +1,14 @@
-# Web based art gallery in React
-A responsive website that presents information about the artist Magda Lundberg and the products she provides. The goal of the website is to build a visual gallery where customers can read about the artist, access her visual profile, filter products and contact Magda Lundberg. The website is built with the JavaScript framework React.js and the technical solution include HTML5, CSS3, Webpack2 and the jQuery library.
+# magdenmagden
+This is a responsive website that presents information about the artist Magda Lundberg and the products she provides. The website is built with the JavaScript framework React.js and the technical solution include HTML5, CSS3, ES6, jQuery, Webpack2 and Jest for testing.
 
-### 1. Clone project
-### 2. Run the following commands in your terminal
+## Run the application/website
+Clone the project to you're local repository.
 
-#### npm install OR yarn install
+#### *yarn install* OR *npm install* in CLI
 To download node_module dependencies necessary for project
 
-#### npm run start
-To view project in development environment and start dev server
+#### *npm run start* OR *yarn start* in CLI
+To start backend dev server and view project in development environment. Navigate to http://localhost:8080/ in browser to see app.
 
-#### npm run build
+#### *yarn build* OR *npm run build* in CLI
 To compile src into production dist file
-
-
-
-#### Navigate to http://localhost:8080/ in browser to see app

@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
-// import './scss/app.scss';
+import './scss/app.scss';
 
 // Component imports
 import Home from './home';
