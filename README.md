@@ -9,13 +9,9 @@ This is a responsive website that presents information about the artist Magda Lu
 Clone the project to you're local repository. Install the dependencies + devDependencies and start the backend server:
 ```
 $ cd yourLocalRepositoryRoot
-```
-```
 $ yarn install
 $ yarn start
-```
-*or*
-```
+or
 $ npm run install
 $ npm run start
 ```
@@ -27,9 +23,7 @@ To test functions and that the React components are rendering correctly the proj
 
 ```
 $ yarn test
-```
-*or*
-```
+or
 $ npm run test
 ```
 
@@ -39,9 +33,7 @@ $ npm run test
 Compile development files in folder **src** into production files in folder **dist**:
 ```
 $ yarn build
-```
-*or*
-```
+or
 $ npm run build
 ```
 
