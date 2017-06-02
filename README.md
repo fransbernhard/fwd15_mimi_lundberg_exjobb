@@ -4,7 +4,9 @@ This is a responsive website that presents information about the artist Magda Lu
 ---
 
 ### Installation
-Project requires Node.js v4+ to run. Clone the project to you're local repository. Install the dependencies + devDependencies and start the backend server:
+> Project requires Node.js v6+ to run.
+
+Clone the project to you're local repository. Install the dependencies + devDependencies and start the backend server:
 ```
 $ cd yourLocalRepositoryRoot
 ```
