@@ -3,7 +3,7 @@ This is a responsive website that presents information about the artist Magda Lu
 
 ---
 
-### Installation
+## Installation
 > Project requires Node.js v6+ to run.
 
 Clone the project to you're local repository. Install the dependencies + devDependencies and start the backend server:
@@ -22,7 +22,7 @@ $ npm run start
 
 Navigate to http://localhost:8080/ in browser to view project in development environment.
 
-#### Testing 
+### Testing 
 To test functions and that the React components are rendering correctly the project uses **Jest**:
 
 ```
@@ -35,7 +35,7 @@ $ npm run test
 
 ---
 
-### Build project
+## Build project
 Compile development files in folder **src** into production files in folder **dist**:
 ```
 $ yarn build
@@ -45,3 +45,4 @@ $ yarn build
 $ npm run build
 ```
 
+Enjoy!
