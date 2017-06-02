@@ -47,4 +47,4 @@ $ npm run build
 
 ---
 
-### Enjoy!
+### <Enjoy />
