@@ -33,3 +33,15 @@ $ npm run build
 ```
 
 ---
+
+### Testing React components with Jest
+
+```
+$ yarn test
+```
+OR
+```
+$ npm run test
+```
+
+---
