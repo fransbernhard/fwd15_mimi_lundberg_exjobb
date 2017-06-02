@@ -11,7 +11,9 @@ Clone the project to you're local repository. Install the dependencies + devDepe
 $ cd yourLocalRepositoryRoot
 $ yarn install
 $ yarn start
+
 or
+
 $ npm run install
 $ npm run start
 ```
@@ -23,7 +25,9 @@ To test functions and that the React components are rendering correctly the proj
 
 ```
 $ yarn test
+
 or
+
 $ npm run test
 ```
 
@@ -33,7 +37,9 @@ $ npm run test
 Compile development files in folder **src** into production files in folder **dist**:
 ```
 $ yarn build
+
 or
+
 $ npm run build
 ```
 
