@@ -1,8 +1,6 @@
 # magdenmagden
 This is a responsive website that presents information about the artist Magda Lundberg and the products she provides. The website is built with the JavaScript framework React.js and the technical solution include HTML5, CSS3, ES6, jQuery, Webpack2 and Jest for testing.
 
----
-
 ## Installation
 > Project requires Node.js v6+ to run.
 
