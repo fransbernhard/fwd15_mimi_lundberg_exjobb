@@ -28,8 +28,8 @@ or
 
 $ npm run test
 ```
-
----
+*Activate eslint*
+To activate eslint function, go to webpack.config.js file and comment in the "eslint-loader" section.
 
 ## Build project
 Compile development files in folder **src** into production files in folder **dist**:
@@ -41,6 +41,3 @@ or
 $ npm run build
 ```
 
----
-
-### >>> Enjoy <<<
