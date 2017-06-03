@@ -1,8 +1,9 @@
+/*global $:true*/
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import './scss/app.scss';
-import $ from 'jquery';
 
 // Component imports
 import Home from './home';

@@ -28,16 +28,16 @@ const config = {
   module: {
     rules: [
 			{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				include: path.join(__dirname, 'src'),
-				use: {
-					loader: "eslint-loader",
-					options: {
-	          failOnWarning: false,
-	          failOnError: false
-					}
-				}
+				// test: /\.(js|jsx)$/,
+				// exclude: /node_modules/,
+				// include: path.join(__dirname, 'src'),
+				// use: {
+				// 	loader: "eslint-loader",
+				// 	options: {
+	      //     failOnWarning: false,
+	      //     failOnError: false
+				// 	}
+				// }
     	},
 			{
 				test: /\.(js|jsx)$/,

@@ -1,5 +1,6 @@
+/*global $:true*/
+
 import React, { Component } from 'react';
-import $ from 'jquery';
 
 // Contact component render contact form
 class Contact extends Component {
