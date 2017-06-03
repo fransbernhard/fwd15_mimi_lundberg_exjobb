@@ -28,7 +28,7 @@ or
 
 $ npm run test
 ```
-*Activate eslint*
+#### Activate eslint
 To activate eslint function, go to webpack.config.js file and comment in the "eslint-loader" section.
 
 ## Build project
