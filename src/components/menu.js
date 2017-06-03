@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 //Menu component renders menu Link
-class Menu extends React.Component {
+class Menu extends Component {
   render() {
     return (
       <header>

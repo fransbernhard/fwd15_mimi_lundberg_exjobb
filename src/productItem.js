@@ -18,7 +18,7 @@ const customStyles = {
   }
 };
 
-class ProductItem extends React.Component {
+class ProductItem extends Component {
   constructor(props) {
     super(props);
     this.state = {

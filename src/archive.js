@@ -7,7 +7,7 @@ import ProductItem from "./productItem";
 import CategoryItem from './components/categoryItem';
 
 // Map through Archives this.state array "products" and create a ProductItem component for every object. "Key" property is to use a string that uniquely identifies a list item among its siblings (product.id)
-export class ProductContainer extends React.Component {
+export class ProductContainer extends Component {
   render(){
     return (
       <div>
@@ -24,7 +24,7 @@ export class ProductContainer extends React.Component {
   };
 };
 
-export class CategoryContainer extends React.Component {
+export class CategoryContainer extends Component {
 
   render(){
     // 1. "Set objects" are a collections of unique values. "...new Set" saves every unique category (in products.categories) in the const "categories".

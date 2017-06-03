@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import magdaImg from '../images/magden.jpg';
 
 // Create Component
-class About extends React.Component {
+class About extends Component {
   constructor(props){
     super(props);
   }

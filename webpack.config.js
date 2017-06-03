@@ -1,3 +1,5 @@
+// DEVELOPMENT
+
 const webpack = require('webpack');
 const path = require('path');
 
@@ -22,16 +24,30 @@ const config = {
   context: path.join(__dirname, 'src'),
   entry: entry,
 	output: output,
-	devtool: "cheap-eval-source-map",
+	devtool: "inline-source-map",
   module: {
     rules: [
+			// eslint for checking errors and warnings
+			// {
+			// 	test: /\.(js|jsx)$/,
+			// 	exclude: /node_modules/,
+			// 	include: path.join(__dirname, 'src'),
+			// 	use: {
+			// 		loader: "eslint-loader",
+			// 		options: {
+	    //       failOnWarning: false,
+	    //       failOnError: false
+			// 		}
+			// 	}
+    	// },
 			{
-	      test: /\.(js|jsx)$/,
-	      include: path.join(__dirname, 'src'),
-	      use: [{
-	        loader: 'babel-loader'
-	      }]
-    	},
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				include: path.join(__dirname, 'src'),
+				use: {
+					loader: "babel-loader"
+				}
+			},
       {
 			  test: /\.(png|jpg|gif)$/,
 			  use: [{
@@ -49,7 +65,10 @@ const config = {
 			}
 		]
   },
-	plugins: plugins
+	plugins: plugins,
+	externals: {
+	  jquery: 'jQuery'
+	}
 }
 
 module.exports = config

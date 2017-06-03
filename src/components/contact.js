@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'react';
+import $ from 'jquery';
 
 // Contact component render contact form
-class Contact extends React.Component {
+class Contact extends Component {
   constructor(props){
     super(props);
     this.state = {

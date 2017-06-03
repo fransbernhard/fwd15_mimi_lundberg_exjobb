@@ -1,3 +1,5 @@
+//  PRODUCTION
+
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -9,19 +11,26 @@ const entry = {
 
 const output = {
 	path: path.join(__dirname, 'dist'),
-	filename: 'bundle.[hash:6].min.js'
+	filename: 'bundle.min.js',
 }
 
 const plugins = [
 	new webpack.DefinePlugin({
-	  'process.env': {
-	    NODE_ENV: JSON.stringify('production')
-	  }
+	  'process.env.NODE_ENV': JSON.stringify('production')
 	}),
-	new webpack.optimize.UglifyJsPlugin({mangle: false, compress: {warnings: false}}),
-  new ExtractTextPlugin('bundle.[hash:6].css'), // creation of HTML files to serve your webpack bundles
+	new webpack.optimize.UglifyJsPlugin({
+		mangle: false,
+		compress: {
+			warnings: false
+		}
+	}),
+  new ExtractTextPlugin('bundle.css'), // creation of HTML files to serve your webpack bundles
 	new HtmlWebpackPlugin({
 		template: 'index-template.html'
+	}),
+	new webpack.optimize.CommonsChunkPlugin({
+		name: 'bundle',
+		filename: '[name].common.js'
 	})
 ]
 
@@ -33,18 +42,17 @@ const config = {
   module: {
     rules: [
 			{
-	      test: /\.(js|jsx)$/,
-	      include: path.join(__dirname, 'src'),
-	      use: [{
-	        loader: 'babel-loader'
-	      }]
-    	},
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				include: path.join(__dirname, 'src'),
+				use: "babel-loader"
+			},
       {
 			  test: /\.(png|jpg|gif)$/,
 			  use: [{
-			    loader: 'url-loader',
-          options: { limit: 10000, name: './img/[name].[ext]' } // Convert images < 10k to base64 strings
-			  }]
+					loader: 'url-loader',
+					options: { limit: 10000, name: './img/[name].[ext]' } // Convert images < 10k to base64 strings (all in img folder)
+				}]
 			},
 			{
 				test: /\.(sass|scss)$/,
@@ -52,14 +60,22 @@ const config = {
 			    fallback: 'style-loader',
 			    use: [
 			      'css-loader',
-			      { loader: 'postcss-loader', options: { plugins: (loader) => [ require('autoprefixer')() ] } },
+			      {
+							loader: 'postcss-loader',
+							options: {
+								plugins: (loader) => [ require('autoprefixer')() ]
+							}
+						},
 			      'sass-loader',
 			    ]
 			  })
 			}
 		]
   },
-	plugins: plugins
+	plugins: plugins,
+	externals: {
+	  jquery: 'jQuery'
+	}
 }
 
 module.exports = config;

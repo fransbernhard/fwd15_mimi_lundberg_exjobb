@@ -1,16 +1,14 @@
-// Code will be executed in "strict mode". For example, you can not use undeclared variables. Makes it easier to write "secure" JavaScript and strict mode changes previously accepted "bad syntax" into real errors.
-"use strict";
-
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import './scss/app.scss';
+import $ from 'jquery';
 
 // Component imports
 import Home from './home';
 import Archive from './archive';
 
-class App extends React.Component {
+class App extends Component {
 
   // function for anchorlinks (scroll to section with specific id)
   hashLinkScroll() {

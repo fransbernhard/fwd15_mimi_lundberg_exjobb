@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 import Scrollchor from 'react-scrollchor';
 
 //Menu component renders menu Link
-class MenuB extends React.Component {
+class MenuB extends Component {
   render() {
     return (
       <header>

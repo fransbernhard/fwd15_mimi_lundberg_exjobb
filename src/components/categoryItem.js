@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-class CategoryItem extends React.Component {
+class CategoryItem extends Component {
 
   // Render li element for every category with onClick event that calls function "handleClick"
   render(){
