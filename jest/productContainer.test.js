@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-import ProductContainer from '../src/archive';
+import ProductContainer from '../src/components/productContainer';
 
 describe('components', () => {
   describe('<ProductContainer/>', () => {
@@ -17,4 +17,3 @@ describe('components', () => {
     });
   });
 });
- 

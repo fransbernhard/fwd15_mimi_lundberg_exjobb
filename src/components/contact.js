@@ -2,13 +2,13 @@
 
 import React, { Component } from 'react';
 
-// Contact component render contact form
 class Contact extends Component {
   constructor(props){
     super(props);
     this.state = {
       contactEmail: '',
-      contactMessage: ''
+      contactMessage: '',
+      successMsg: ''
     };
 
     this._handleSubmit = this._handleSubmit.bind(this);
@@ -16,53 +16,50 @@ class Contact extends Component {
     this._handleChangeMsg = this._handleChangeMsg.bind(this);
   }
 
-  // Change state of input field so text is updated while typing
+  // Change <input> value state onUpdate (while typing) so input is updated
   _handleChange(e) {
     this.setState({
       contactEmail: e.target.value,
     });
   }
-  // Change state of input field so text is updated while typing
+  // Change <textarea> value state onUpdate (while typing) so input is updated
   _handleChangeMsg(e) {
     this.setState({
       contactMessage: e.target.value
     });
   }
 
+  // Handle form onSubmit
   _handleSubmit(e) {
+    // Prevent form default action "load onSubmit" to be triggered
     e.preventDefault();
-    this.setState({
-      contactEmail: '',
-      contactMessage: ''
-    });
 
+    // Perform an asynchronous HTTP (Ajax) request.
     $.ajax({
+      // A string containing the URL to which the request is sent. If not production environment, send request to './getMail'
       url: process.env.NODE_ENV !== "production" ? '/getMail' : "http://www.fransbernhard.se/magden/php/mailer.php",
+      // POST request
       type: 'POST',
+      // Submit content in contactEmail and contactMessage state
       data: {
         'form_email': this.state.contactEmail,
         'form_msg': this.state.contactMessage
       },
-      cache: false,
+      // If success..
       success: function(data) {
-        // Success..
         this.setState({
-          contactEmail: 'success',
-          contactMessage: '<h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p>'
+          successMsg: '<h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p>'
         });
         $('#formContact').slideUp();
-        $('#formContact').after(this.state.contactMessage);
-        console.log('success', data);
+        $('#formContact').after(this.state.successMsg);
       }.bind(this),
-      // Fail..
+      // If fail/error..
       error: function(xhr, status, err) {
         console.log(xhr, status);
         console.log(err);
         this.setState({
-          contactEmail: 'danger',
-          contactMessage: '<h1>Sorry det blev fel</h1><p>Försök gärna igen, eller mejla mig direkt på magdamargaretha@gmail.com</p>'
+          contactMessage: 'Sorry det blev fel. Försök gärna igen, eller mejla mig direkt på magdamargaretha@gmail.com',
         });
-        console.log(this.state.contactEmail + this.state.contactMessage + 'fail');
       }.bind(this)
     });
   }

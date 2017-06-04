@@ -1,8 +1,8 @@
 <?php
 
-  // trim() function strips any white space from beginning and end of the string
+  // trim() strips any white space from beginning and end of the string
   $email = filter_var(trim($_POST["form_email"]), FILTER_SANITIZE_EMAIL);
-  //  strip_tags() function strips all HTML and PHP tags from a variable.
+  //  strip_tags() strips all HTML and PHP tags from a variable.
   $message = strip_tags($_POST["form_msg"]);
 
   // Check that data was sent to the mailer.

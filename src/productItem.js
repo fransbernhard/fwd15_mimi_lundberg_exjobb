@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 
+// Custom styles for Modal image
 const customStyles = {
   content : {
     top                   : '50%',
@@ -31,19 +33,25 @@ class ProductItem extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  // Set state object "modalIsOpen" to true when click on <ProductItem/> component
   openModal() {
-    this.setState({modalIsOpen: true});
-    console.log('OpenModal');
+    this.setState({
+      modalIsOpen: true
+    });
   }
 
+  // Set state object "modalIsOpen" to false when click on <Modal/> component
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({
+      modalIsOpen: false
+    });
   }
 
   render(){
+    // Create variables for all <ProductItem/> description options. If <PoductItem/> object has props or state, render it. Otherwise return null.
     var img = this.state.image ?
       <img src={this.state.image} /> :
-      this.props.product.thumbnail;
+      null;
 
     const name = this.props.product.stocked ?
       <h3>{this.props.product.name}</h3> :
@@ -89,7 +97,7 @@ class ProductItem extends Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Modal image"
         >
           <div className="modal-box" onClick={this.closeModal}>
             <div className="close" onClick={this.closeModal}>x</div>
@@ -110,16 +118,16 @@ class ProductItem extends Component {
     );
   };
 
+  // Import all thumbnail + previewImg images and then() put them into state. If rejection occures catch() returns rejection reasen (err).
   componentDidMount() {
-    this.props.product.thumbnail && import(`./images/${this.props.product.thumbnail}`).then(
+    import(`./images/${this.props.product.thumbnail}`).then(
       (image) => this.setState({
         image: image
       })
     ).catch((err) => {
       console.log('error thumbnail' + err);
     });
-
-    this.props.product.previewImg && import(`./images/${this.props.product.previewImg}`).then(
+    import(`./images/${this.props.product.previewImg}`).then(
       (previewImg) => this.setState({
         previewImg: previewImg
       })
@@ -128,5 +136,10 @@ class ProductItem extends Component {
     });
   }
 };
+
+// Components expected proptypes
+ProductItem.propTypes = {
+  product: PropTypes.object.isRequired
+}
 
 export default ProductItem;

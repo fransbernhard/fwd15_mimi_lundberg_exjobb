@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-import Home from '../src/home';
+import Home from '../src/components/home';
 
 jest.mock("react-dom", () => ({ render: () => jest.fn() }));
 
@@ -20,4 +20,3 @@ describe('components', () => {
     });
   });
 });
- 

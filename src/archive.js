@@ -3,49 +3,8 @@ import React, { Component } from 'react';
 // Component import
 import Menu from './components/menu';
 import Footer from './components/footer';
-import ProductItem from "./productItem";
-import CategoryItem from './components/categoryItem';
-
-// Map through Archives this.state array "products" and create a ProductItem component for every object. "Key" property is to use a string that uniquely identifies a list item among its siblings (product.id)
-export class ProductContainer extends Component {
-  render(){
-    return (
-      <div>
-        <div className="prodContainer">
-          {this.props.products.map(product =>
-            <ProductItem
-              product={product}
-              key={product.id}
-            />
-          )}
-        </div>
-      </div>
-    );
-  };
-};
-
-export class CategoryContainer extends Component {
-
-  render(){
-    // 1. "Set objects" are a collections of unique values. "...new Set" saves every unique category (in products.categories) in the const "categories".
-    const categories = [...new Set(this.props.products.map(cat => cat.category))];
-    // 2. Map over "categories". For every cat in "categories" => Create CategoryItem component.
-    // 3. CategoryItem property handleClick is triggered with onClick event. Property handleClick calls anonymous function "filterHandler" with clicked "cat" as parameter.
-    // 4. Set CategoryItem[i] property category[i] and key[i] to parameter cat[i].
-    return (
-      <div>
-        <ul className="filterList">{
-          categories.map(cat =>
-            <CategoryItem
-              handleClick={() => this.props.filterHandler(cat)}
-              category={cat}
-              key={cat}
-            />)
-        }</ul>
-      </div>
-    );
-  };
-};
+import ProductContainer from './components/productContainer';
+import CategoryContainer from './components/categoryContainer';
 
 class Archive extends React.Component {
   constructor(props){
@@ -111,7 +70,7 @@ class Archive extends React.Component {
     this.filterHandler = this.filterHandler.bind(this);
   }
 
-  // Set state to the "cat" parameter from CatogoryItem
+  // Set component state to the currently clicked "cat" (CategoryItem)
   filterHandler(tag){
     this.setState({
       category: tag
@@ -119,8 +78,8 @@ class Archive extends React.Component {
   }
 
   render() {
-    // 1. Render CategoryContainer with props: empty array object "categories", filterHandler function and state "product object array"
-    // 2. Render ProductContainer. If this.state.category.length is true (an array) - "filter" function calls anonymous function with parameter "prod" & where prod.categories is same type and name as this.state.category, render these objects : else render all this.state.products.
+    // 1. Render CategoryContainer with props products and filterHandler function to show all uniqe CategoryItems and filter products based on category
+    // 2. Render ProductContainer based on category. If this.state.category.length is true - filter "prod" & where prod.categories is same type and name as this.state.category : else render all this.state.products.categories that matches "paint".
     return (
       <div>
         <Menu />

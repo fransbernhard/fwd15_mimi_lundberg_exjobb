@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-class CategoryItem extends Component {
+import PropTypes from 'prop-types';
 
-  // Render li element for every category with onClick event that calls function "handleClick"
+class CategoryItem extends Component {
+  // Render a li element with onClick event - for every uniqe category - that calls property function "handleClick" in parent component CategoryContainer
   render(){
     return (
       <div>
@@ -12,5 +13,11 @@ class CategoryItem extends Component {
     );
   };
 };
+
+// Components expected proptypes
+CategoryItem.propTypes = {
+  handleClick: PropTypes.func,
+  category: PropTypes.string.isRequired
+}
 
 export default CategoryItem;

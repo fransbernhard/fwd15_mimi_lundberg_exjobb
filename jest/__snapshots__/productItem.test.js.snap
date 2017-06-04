@@ -6,7 +6,6 @@ exports[`components <ProductItem/> renders correctly 1`] = `
   onClick={[Function]}
 >
   <noscript />
-  23-sm.png
   <h3>
     clowd
   </h3>

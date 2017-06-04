@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-import { CategoryContainer } from '../src/archive';
+import CategoryContainer from '../src/components/categoryContainer';
 
 describe('components', () => {
   describe('<CategoryContainer/>', () => {
@@ -20,4 +20,3 @@ describe('components', () => {
     });
   });
 });
- 
