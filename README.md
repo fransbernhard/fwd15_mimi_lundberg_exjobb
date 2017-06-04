@@ -12,7 +12,7 @@ $ yarn start
 
 or
 
-$ npm run install
+$ npm install
 $ npm run start
 ```
 
