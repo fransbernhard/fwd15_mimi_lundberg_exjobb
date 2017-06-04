@@ -1,6 +1,5 @@
 node_modules/
 dist/
-jest/__snapshots__/
 *.log
 yarn.error.log*
 yarn.lock*
