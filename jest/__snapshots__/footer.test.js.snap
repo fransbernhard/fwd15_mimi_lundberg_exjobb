@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components <Footer/> renders correctly 1`] = `
+<footer>
+  <a
+    href="mailto:magdamargaretha@gmail.com"
+  >
+    magdamargaretha@gmail.com, 
+  </a>
+  <a
+    href="tel:+46735139012"
+  >
+    +46735139012
+  </a>
+  <p>
+    Kristianstadsgatan 7, 334 56 Malmö
+  </p>
+</footer>
+`;

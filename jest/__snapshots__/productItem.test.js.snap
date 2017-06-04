@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components <ProductItem/> renders correctly 1`] = `
+<div
+  className="product hvr-sink"
+  onClick={[Function]}
+>
+  <noscript />
+  <h3>
+    clowd
+  </h3>
+  <p>
+    matt emulsion
+  </p>
+  <p>
+    100x130
+     cm
+  </p>
+</div>
+`;
