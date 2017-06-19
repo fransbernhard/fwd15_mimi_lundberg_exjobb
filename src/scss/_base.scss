@@ -39,7 +39,7 @@ li {
 	height: $fullHeightVp;
   background: url(../images/main.jpg) no-repeat center center scroll;
   background-size: cover;
-  z-index: 0;
+  // z-index: 0;
 }
 
 .hero {
@@ -60,4 +60,8 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ReactModalPortal {
+  z-index: 1000;
 }

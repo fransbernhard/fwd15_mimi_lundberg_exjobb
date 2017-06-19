@@ -16,7 +16,10 @@ const output = {
 
 const plugins = [
 	new webpack.DefinePlugin({
-	  'process.env.NODE_ENV': JSON.stringify('production')
+	  // 'process.env.NODE_ENV': JSON.stringify('production')
+		'process.env': {
+	    NODE_ENV: JSON.stringify('production')
+	  }
 	}),
 	new webpack.optimize.UglifyJsPlugin({
 		mangle: false,
@@ -51,7 +54,7 @@ const config = {
 			  test: /\.(png|jpg|gif)$/,
 			  use: [{
 					loader: 'url-loader',
-					options: { limit: 10000, name: './img/[name].[ext]' } // Convert images < 10k to base64 strings (all in img folder)
+					options: { limit: 10000, name: './images/[name].[ext]' } // Convert images < 10k to base64 strings (all in images folder)
 				}]
 			},
 			{

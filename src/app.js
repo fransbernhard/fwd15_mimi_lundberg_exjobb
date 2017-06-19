@@ -50,7 +50,7 @@ class App extends Component {
 
   // Fade out site-loader
   handleLoad() {
-    $(".loaderSmall").delay(3000).fadeOut("slow");
+    $(".loaderSmall").delay(500).fadeOut("slow");
   }
 };
 

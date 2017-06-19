@@ -25,8 +25,8 @@ class ProductItem extends Component {
     super(props);
     this.state = {
       modalIsOpen: false,
-      image: '',
-      previewImg: ''
+      image: "",
+      previewImg: ""
     };
 
     this.openModal = this.openModal.bind(this);
@@ -55,9 +55,10 @@ class ProductItem extends Component {
 
     const name = this.props.product.stocked ?
       <h3>{this.props.product.name}</h3> :
-      <h3><span style={{color: 'red'}}>
-        {this.props.product.name}
-      </span></h3>;
+      // <h3><span style={{color: 'red'}}>
+      //   {this.props.product.name}
+      // </span></h3>;
+      null;
 
     var limited = this.props.product.limited ?
       <p>begränsad upplaga: {this.props.product.limited} ex</p> :
@@ -125,14 +126,14 @@ class ProductItem extends Component {
         image: image
       })
     ).catch((err) => {
-      console.log('error thumbnail' + err);
+      console.log('Could not import thumbnail: ' + err);
     });
     import(`./images/${this.props.product.previewImg}`).then(
       (previewImg) => this.setState({
         previewImg: previewImg
       })
     ).catch((err) => {
-      console.log('error previewImg' + err);
+      console.log('Could not import thumbnail: previewImg ' + err);
     });
   }
 };
