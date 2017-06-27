@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ProductItem from "../productItem";
 import PropTypes from 'prop-types';
 
+// key={product.id}
+
 // Map through products and create a ProductItem component for every object. ProductItems property "key" gives every ProductItem a unique id value.
 class ProductContainer extends Component {
   render(){
@@ -11,7 +13,7 @@ class ProductContainer extends Component {
           {this.props.products.map(product =>
             <ProductItem
               product={product}
-              key={product.id}
+              key={product.itemId}
             />
           )}
         </div>
