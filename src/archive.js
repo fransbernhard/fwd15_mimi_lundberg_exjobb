@@ -45,6 +45,13 @@ class Archive extends React.Component {
       });
   }
 
+  // <ProductContainer
+  //   products={this.state.category.length
+  //     ? this.state.products.filter((prod) => prod.category === this.state.category)
+  //     : this.state.products.filter((prod) => prod.category === 'paint')
+  //   }
+  // />
+
   render() {
     // 1. Render CategoryContainer with props products and filterHandler function to show all uniqe CategoryItems and filter products based on category
     // 2. Render ProductContainer based on category. If this.state.category.length is true - filter "prod" & where prod.categories is same type and name as this.state.category : else render all this.state.categories that matches "paint".

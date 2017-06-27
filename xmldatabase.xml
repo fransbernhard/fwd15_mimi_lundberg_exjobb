@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: localhost:3306
-- Generation Time: Jun 27, 2017 at 10:09 PM
+- Generation Time: Jun 27, 2017 at 10:35 PM
 - Server version: 5.6.34
 - PHP Version: 7.1.0
 -->
@@ -16,13 +16,6 @@
     -->
     <pma:structure_schemas>
         <pma:database name="maggan" collation="utf8_general_ci" charset="utf8">
-            <pma:table name="Categories">
-                CREATE TABLE `Categories` (
-                  `catId` int(11) NOT NULL AUTO_INCREMENT,
-                  `catName` varchar(15) NOT NULL,
-                  PRIMARY KEY (`catId`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-            </pma:table>
             <pma:table name="Items">
                 CREATE TABLE `Items` (
                   `itemId` int(11) NOT NULL AUTO_INCREMENT,
@@ -37,7 +30,7 @@
                   `price` varchar(30) DEFAULT NULL,
                   `available` varchar(30) DEFAULT NULL,
                   `size` varchar(30) DEFAULT NULL,
-                  `catName` varchar(15) NOT NULL,
+                  `category` varchar(15) NOT NULL,
                   PRIMARY KEY (`itemId`),
                   KEY `fk_cat` (`catId`),
                   CONSTRAINT `fk_cat` FOREIGN KEY (`catId`) REFERENCES `Categories` (`catId`)
@@ -50,19 +43,6 @@
     - Database: 'maggan'
     -->
     <database name="maggan">
-        <!-- Table Categories -->
-        <table name="Categories">
-            <column name="catId">1</column>
-            <column name="catName">Print</column>
-        </table>
-        <table name="Categories">
-            <column name="catId">2</column>
-            <column name="catName">Paint</column>
-        </table>
-        <table name="Categories">
-            <column name="catId">3</column>
-            <column name="catName">Places</column>
-        </table>
         <!-- Table Items -->
         <table name="Items">
             <column name="itemId">7</column>
@@ -77,7 +57,7 @@
             <column name="price">NULL</column>
             <column name="available">NULL</column>
             <column name="size">100x130</column>
-            <column name="catName">Paint</column>
+            <column name="category">Paint</column>
         </table>
         <table name="Items">
             <column name="itemId">8</column>
@@ -92,7 +72,7 @@
             <column name="price">3,000</column>
             <column name="available">28</column>
             <column name="size">NULL</column>
-            <column name="catName">Print</column>
+            <column name="category">Print</column>
         </table>
         <table name="Items">
             <column name="itemId">9</column>
@@ -107,7 +87,7 @@
             <column name="price">NULL</column>
             <column name="available">NULL</column>
             <column name="size">NULL</column>
-            <column name="catName">Places</column>
+            <column name="category">Places</column>
         </table>
         <table name="Items">
             <column name="itemId">10</column>
@@ -122,7 +102,7 @@
             <column name="price">NULL</column>
             <column name="available">NULL</column>
             <column name="size">NULL</column>
-            <column name="catName">Places</column>
+            <column name="category">Places</column>
         </table>
     </database>
 </pma_xml_export>
