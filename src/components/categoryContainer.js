@@ -3,6 +3,7 @@ import CategoryItem from './categoryItem';
 import PropTypes from 'prop-types';
 
 class CategoryContainer extends Component {
+
   render(){
     // 1. "Set" are a collections of unique values. "new Set" creates a array of uniqe categories (from the products array) and saves it in the const "categories".
     const categories = [...new Set(this.props.products.map(cat => cat.catId))];

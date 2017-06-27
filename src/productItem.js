@@ -89,16 +89,16 @@ class ProductItem extends Component {
       <p>{this.props.product.size} cm</p> :
       null;
 
-    var desc = this.props.product.desc ?
-      <p>{this.props.product.desc}</p> :
+    var desc = this.props.product.description ?
+      <p>{this.props.product.description}</p> :
       null;
 
     var modalName = this.props.product.name ?
       <h2>{this.props.product.name}</h2> :
       null;
 
-    var modalDesc = this.props.product.desc ?
-      <h2>{this.props.product.desc}</h2> :
+    var modalDesc = this.props.product.description ?
+      <h2>{this.props.product.description}</h2> :
       null;
 
     return (

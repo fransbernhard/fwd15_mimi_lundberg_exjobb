@@ -71,7 +71,27 @@ exports[`components <App/> renders correctly 1`] = `
     >
       <div
         className="hero"
-      />
+      >
+        <div
+          className="news"
+        >
+          <h1>
+            V E R N I S A G E
+          </h1>
+          <p>
+            Vernisage @ Medborgarplatsen hos supercoola 
+            <a
+              href="http://layered.se/"
+              target="_blank"
+            >
+              Layered Official
+            </a>
+             
+            <br />
+            Kom drick klappa djuren, säg något kul
+          </p>
+        </div>
+      </div>
       <div
         className="about"
         id="about"
@@ -108,6 +128,8 @@ exports[`components <App/> renders correctly 1`] = `
               2017
             </h5>
             <p>
+              Vernisage @ Layered Official | Stockholm 
+              <br />
               Försäljning genom Young Art | Stockholm 
               <br />
               Utställning Nividas/Adornment | Stockholm
@@ -179,25 +201,21 @@ exports[`components <App/> renders correctly 1`] = `
             id="formContact"
             onSubmit={[Function]}
           >
-            <label>
-              Email
-            </label>
             <input
               id="formEmail"
               name="formEmail"
               onChange={[Function]}
+              placeholder="email"
               required={true}
               type="email"
               value=""
             />
-            <label>
-              Meddelande
-            </label>
             <textarea
               cols="40"
               id="formMsg"
               name="formMsg"
               onChange={[Function]}
+              placeholder="meddelande"
               required={true}
               rows="8"
               value=""
@@ -206,7 +224,7 @@ exports[`components <App/> renders correctly 1`] = `
               className="btn--cta"
               id="btn-submit"
               type="submit"
-              value="Submit"
+              value="Skicka"
             />
           </form>
         </div>

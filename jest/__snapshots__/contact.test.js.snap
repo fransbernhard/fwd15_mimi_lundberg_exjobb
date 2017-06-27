@@ -13,25 +13,21 @@ exports[`Input field updates on email input 1`] = `
       id="formContact"
       onSubmit={[Function]}
     >
-      <label>
-        Email
-      </label>
       <input
         id="formEmail"
         name="formEmail"
         onChange={[Function]}
+        placeholder="email"
         required={true}
         type="email"
         value="New email"
       />
-      <label>
-        Meddelande
-      </label>
       <textarea
         cols="40"
         id="formMsg"
         name="formMsg"
         onChange={[Function]}
+        placeholder="meddelande"
         required={true}
         rows="8"
         value=""
@@ -40,7 +36,7 @@ exports[`Input field updates on email input 1`] = `
         className="btn--cta"
         id="btn-submit"
         type="submit"
-        value="Submit"
+        value="Skicka"
       />
     </form>
   </div>
@@ -60,25 +56,21 @@ exports[`Input field updates on msg input 1`] = `
       id="formContact"
       onSubmit={[Function]}
     >
-      <label>
-        Email
-      </label>
       <input
         id="formEmail"
         name="formEmail"
         onChange={[Function]}
+        placeholder="email"
         required={true}
         type="email"
         value=""
       />
-      <label>
-        Meddelande
-      </label>
       <textarea
         cols="40"
         id="formMsg"
         name="formMsg"
         onChange={[Function]}
+        placeholder="meddelande"
         required={true}
         rows="8"
         value="New msg"
@@ -87,7 +79,7 @@ exports[`Input field updates on msg input 1`] = `
         className="btn--cta"
         id="btn-submit"
         type="submit"
-        value="Submit"
+        value="Skicka"
       />
     </form>
   </div>
@@ -107,25 +99,21 @@ exports[`components <Contact/> renders correctly 1`] = `
       id="formContact"
       onSubmit={[Function]}
     >
-      <label>
-        Email
-      </label>
       <input
         id="formEmail"
         name="formEmail"
         onChange={[Function]}
+        placeholder="email"
         required={true}
         type="email"
         value=""
       />
-      <label>
-        Meddelande
-      </label>
       <textarea
         cols="40"
         id="formMsg"
         name="formMsg"
         onChange={[Function]}
+        placeholder="meddelande"
         required={true}
         rows="8"
         value=""
@@ -134,7 +122,7 @@ exports[`components <Contact/> renders correctly 1`] = `
         className="btn--cta"
         id="btn-submit"
         type="submit"
-        value="Submit"
+        value="Skicka"
       />
     </form>
   </div>

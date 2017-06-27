@@ -48,6 +48,7 @@ class Archive extends React.Component {
   render() {
     // 1. Render CategoryContainer with props products and filterHandler function to show all uniqe CategoryItems and filter products based on category
     // 2. Render ProductContainer based on category. If this.state.category.length is true - filter "prod" & where prod.categories is same type and name as this.state.category : else render all this.state.categories that matches "paint".
+    console.log(this.state.products);
     return (
       <div>
         <Menu />
@@ -70,6 +71,7 @@ class Archive extends React.Component {
       </div>
     );
   };
+
 };
 
 export default Archive;
