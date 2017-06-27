@@ -69,7 +69,7 @@ class Archive extends React.Component {
             <ProductContainer
               products={this.state.category.length
                 ? this.state.products.filter((prod) => prod.category === this.state.category)
-                : this.state.products.filter((prod) => prod.category === 'paint')
+                : this.state.products.filter((prod) => prod.category === 'Paint')
               }
             />
           </div>
