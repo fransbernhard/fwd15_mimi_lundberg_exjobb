@@ -18,7 +18,8 @@ class About extends Component {
           </div>
           <div className="wrapper-cv">
             <h5>2017</h5>
-            <p>Försäljning genom Young Art | Stockholm <br/>
+            <p>Vernisage @ Layered Official | Stockholm <br/>
+            Försäljning genom Young Art | Stockholm <br/>
             Utställning Nividas/Adornment | Stockholm</p><br/>
 
             <h5>2016</h5>

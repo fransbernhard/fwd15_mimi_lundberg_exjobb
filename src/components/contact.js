@@ -69,11 +69,9 @@ class Contact extends Component {
       <div className="contact" id="contact">
         <div className="filter">
           <form className="form" onSubmit={this._handleSubmit} id="formContact">
-            <label>Email</label>
-            <input id="formEmail" type="email" name="formEmail" value={this.state.contactEmail} onChange={this._handleChange} required/>
-            <label>Meddelande</label>
-            <textarea id="formMsg" name="formMsg" rows="8" cols="40" value={this.state.contactMessage} onChange={this._handleChangeMsg} required></textarea>
-            <input type="submit" value="Submit" className="btn--cta" id="btn-submit" />
+            <input id="formEmail" type="email" placeholder="email" name="formEmail" value={this.state.contactEmail} onChange={this._handleChange} required/>
+            <textarea id="formMsg" name="formMsg" placeholder="meddelande" rows="8" cols="40" value={this.state.contactMessage} onChange={this._handleChangeMsg} required></textarea>
+            <input type="submit" value="Skicka" className="btn--cta" id="btn-submit" />
           </form>
         </div>
       </div>

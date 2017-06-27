@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import data from '../data.json';
+console.log(data);
+
 // Component import
 import Menu from './components/menu';
 import Footer from './components/footer';
@@ -10,7 +13,7 @@ class Archive extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      products: [],
+      products: data.products,
       category: ""
     }
     this.filterHandler = this.filterHandler.bind(this);
@@ -21,28 +24,6 @@ class Archive extends React.Component {
     this.setState({
       category: tag
     })
-  }
-
-  componentDidMount(){
-
-    const myInit = {
-      method: "GET",
-      headers: {
-         "Content-Type": "application/json"
-      }
-    };
-
-    fetch("/getProducts", myInit)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        this.state.products = data;
-        this.setState(this.state);
-      })
-      .catch(function(err) {
-        console.log('ERROR!!! ' + err.message);
-      });
   }
 
   render() {
