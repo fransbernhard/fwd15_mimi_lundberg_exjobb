@@ -22,10 +22,8 @@ li {
 }
 
 .container {
+  @include flexColumnCenter;
   padding-top: 50px;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
 }
 
 .wrapper {
@@ -42,23 +40,18 @@ li {
 }
 
 .hero {
+  @include flexCenterCenter;
   z-index: 0;
   min-height: 90vh;
   width: $fullWidthVp;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .news {
+  @include flexColumnCenterCenter;
   background: rgba(255, 228, 225, 0.75);
   height: 300px;
   min-width: 500px;
   padding: 30px;
-  display: flex;
-  justify-content: center;
-  flex-flow: column;
-  align-items: center;
   text-align: center;
   border-radius: 20px;
 
@@ -75,16 +68,14 @@ li {
 
 // Loader styling
 .loaderSmall {
-	position: fixed;
+	@include flexCenterCenter;
+  position: fixed;
 	left: 0px;
 	top: 0px;
 	width: $fullSizePercent;
 	height: $fullSizePercent;
 	z-index: 9999;
 	background: $loaderSmallBg;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .ReactModalPortal {

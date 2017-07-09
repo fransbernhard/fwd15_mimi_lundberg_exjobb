@@ -19,19 +19,22 @@
   li {
     font-size: 12px;
     padding: $sm-space $m-space;
+
+  }
+
+  .inActive {
     border-bottom: 4px solid $white;
   }
 
-  li:hover {
-    border-bottom: 4px solid $pink;
-  }
+}
+
+.active {
+  border-bottom: 4px solid $pink;
 }
 
 .prodContainer {
-  display: flex;
+  @include flexCenterSB;
   flex-flow: wrap;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .product {

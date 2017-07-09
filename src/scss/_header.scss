@@ -8,9 +8,7 @@ nav {
   width: $fullWidthVp;
 
   ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexCenterSB;
 
     .contactWeb {
       display: none;

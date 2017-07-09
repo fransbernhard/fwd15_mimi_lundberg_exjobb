@@ -75,11 +75,6 @@ const config = {
 			}
 		]
   },
-	performance: {
-		maxAssetSize: 100000000000000000,
-		maxEntrypointSize: 3000000000000000,
-		hints: 'warning'
-	},
 	plugins: plugins,
 	externals: {
 	  jquery: 'jQuery'

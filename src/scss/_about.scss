@@ -1,9 +1,7 @@
 // About section on Home page styling
 // MOBILE STYLING
 .about, .wrapper-about, .wrapper-a{
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include flexCenterCenter;
 }
 
 .about {
@@ -45,10 +43,8 @@
 			}
 
 			.wrapper-cv {
+				@include flexColumnCenter;
 				border-left: 1px dotted $black;
-				display: flex;
-				flex-flow: column;
-				align-content: center;
 				padding: $xs-space $l-space;
 				margin: $xl-space+40 0;
 
