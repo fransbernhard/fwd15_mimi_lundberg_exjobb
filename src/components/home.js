@@ -15,13 +15,11 @@ import Footer from './footer';
 class Home extends Component {
   render() {
     return(
-      <div>
+      <div className="home">
         <div className="background-img"></div>
         <MenuB />
         <div className="container" id="top">
-          <div className="hero">
-
-          </div>
+          <div className="hero"></div>
           <About />
           <Contact />
           <Footer />

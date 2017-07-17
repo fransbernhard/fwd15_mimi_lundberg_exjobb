@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 // Map through products and create a ProductItem component for every object. ProductItems property "key" gives every ProductItem a unique id value.
 class ProductContainer extends Component {
-  
+
   render(){
     return (
       <div>
