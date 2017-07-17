@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components <Home/> renders correctly 1`] = `
-<div>
+<div
+  className="home"
+>
   <div
     className="background-img"
   />
@@ -60,27 +62,7 @@ exports[`components <Home/> renders correctly 1`] = `
   >
     <div
       className="hero"
-    >
-      <div
-        className="news"
-      >
-        <h1>
-          V E R N I S A G E
-        </h1>
-        <p>
-          Vernisage @ Medborgarplatsen hos supercoola 
-          <a
-            href="http://layered.se/"
-            target="_blank"
-          >
-            Layered Official
-          </a>
-           
-          <br />
-          Kom drick klappa djuren, säg något kul
-        </p>
-      </div>
-    </div>
+    />
     <div
       className="about"
       id="about"

@@ -3,7 +3,7 @@
 exports[`components <CategoryItem/> renders correctly 1`] = `
 <div>
   <li
-    className="category"
+    className="category inActive"
     onClick={undefined}
   >
     paint

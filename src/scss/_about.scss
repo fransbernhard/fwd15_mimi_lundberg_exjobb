@@ -1,0 +1,56 @@
+// About section on Home page styling
+// MOBILE STYLING
+.about, .wrapper-about, .wrapper-a{
+	@include flexCenterCenter;
+}
+
+.about {
+	width: $fullWidthVp;
+	height: 100vh;
+	z-index: 1;
+
+	.wrapper-about {
+		width: $fullSizePercent;
+		flex-flow: column;
+		background: $white;
+	}
+
+	.wrapper-cv {
+		display: none;
+	}
+
+	.wrapper-a {
+		text-align: center;
+		flex-flow: column;
+		padding: $l-space;
+
+		.about-img {
+			box-shadow: 0 0 $l-space $blackOpacity;
+			border-radius: 50%;
+			max-width: 250px;
+			margin: $l-space auto;
+		}
+	}
+}
+
+// DESKTOP STYLING
+@media screen and (min-width: 700px) {
+	.about {
+			flex-flow: row;
+
+			.wrapper-about {
+				flex-flow: row;
+			}
+
+			.wrapper-cv {
+				@include flexColumn;
+				border-left: 1px dotted $black;
+				padding: $xs-space $l-space;
+				margin: $xl-space+40 0;
+
+				p {
+					line-height: $m-space;
+				}
+			}
+		}
+}

@@ -3,38 +3,45 @@
   "viewports": [
     {
       "name": "phone",
-      "width": 320,
-      "height": 480
+      "width": 400,
+      "height": 2000
     },
     {
-      "name": "tablet_v",
-      "width": 568,
-      "height": 1024
-    },
-    {
-      "name": "tablet_h",
-      "width": 1024,
-      "height": 768
+      "name": "desktop",
+      "width": 1100,
+      "height": 2000
     }
   ],
   "scenarios": [
     {
       "label": "magdenmagden testing",
       "url": "./dist/index.html",
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "selectorExpansion": true,
       "selectors": [
         "nav",
         ".home",
-        "#about"
+        ".form",
+        ".form input",
+        ".form textarea",
+        ".about",
+        ".wrapper-about",
+        ".wrapper-cv",
+        ".wrapper-a.about-img",
+        ".archive-wrapper",
+        ".archive-container",
+        ".filterList",
+        ".prodContainer",
+        ".product",
+        "footer"
       ],
+      "selectorExpansion": true,
+      "hideSelectors": [],
+      "removeSelectors": [],
       "readyEvent": null,
       "delay": 1000,
       "misMatchThreshold" : 0.1,
       "requireSameDimensions" : true,
       "onBeforeScript": null,
-      "onReadyScript": null
+      "onReadyScript": "onReady.js"
     }
   ],
   "paths": {
@@ -47,5 +54,5 @@
   "casperFlags": [],
   "engine": "phantomjs",
   "report": ["browser"],
-  "debug": false
+  "debug": true
 }
