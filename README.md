@@ -30,19 +30,19 @@ $ npm run test
 ```
 
 ### Visual regression testing with backstop.js
-Project uses backstopJS to visually present edits to client. Navigate to magdenmagden/node_modules/backstopjs/ in terminal and run:
+Project uses backstopJS to visually present edits to client. Navigate to *magdenmagden/node_modules/backstopjs/* in terminal and run:
 
 ```
 $ npm run reference
 ```
 
-this will generate a folder in *magdenmagden/backstopdata* called "bitmaps_reference" that contains images of projects current state. Then, when you have made edits, run:
+this will generate a folder in *magdenmagden/backstopdata* called "bitmaps_reference" that contains images of projects current state. After you've made edits, run:
 
 ```
 $ npm run test
 ```
 
-this will generate another folder in *magdenmagden/backstopdata* called "bitmaps_test". Inside that folder, there will be a date-named folder with the differences and your browser will automatically open and display those differences to you. 
+this will generate another folder called "bitmaps_test" and inside there will be a date-named folder with the differences and your browser will automatically open and display comparisons from initial state to edited state. 
 
 #### Activate eslint
 To activate eslint - go to webpack.config.js file and comment in the "eslint-loader" section.
