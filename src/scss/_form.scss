@@ -20,12 +20,6 @@
     z-index: 0;
   }
 
-  // // layer to see contact form more clear
-  // .filter {
-  //   min-height: $fullHeightVp;
-  //   // background: $blackOpacity;
-  // }
-
   // form styling
   form {
     font-size: $sm-space;
@@ -55,6 +49,7 @@
       border-radius: $xs-space;
       transition: all 200ms ease-in-out;
       padding: 0.5rem 1rem calc(1rem - 0.2rem) 1rem;
+      width: $fullSizePercent;
 
       &:focus {
         background: $fieldcolorHover;

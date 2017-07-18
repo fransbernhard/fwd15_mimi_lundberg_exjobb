@@ -35,8 +35,14 @@ li {
   position: fixed;
 	width: $fullWidthVp;
 	height: $fullHeightVp;
-  background: url(../images/main.jpg) no-repeat center center scroll;
+  // background: url(../images/main.jpg) no-repeat center center scroll;
+  background: url(../images/main.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  // center
+  background-attachment: scroll;
   background-size: cover;
+  z-index: -1;
 }
 
 .hero {

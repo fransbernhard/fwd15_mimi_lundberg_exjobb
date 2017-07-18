@@ -16,19 +16,18 @@
     {
       "label": "magdenmagden testing",
       "url": "./dist/index.html",
+      "selectorExpansion": true,
       "selectors": [
         "nav",
-        ".home",
-        ".form",
-        ".form input",
-        ".form textarea",
-        ".about",
+        "form",
+        "form input",
+        "form textarea",
         ".wrapper-about",
+        ".wrapper-a",
         ".wrapper-cv",
-        ".wrapper-a.about-img",
+        ".filterList li",
         ".archive-wrapper",
         ".archive-container",
-        ".filterList",
         ".prodContainer",
         ".product",
         "footer"
@@ -37,11 +36,11 @@
       "hideSelectors": [],
       "removeSelectors": [],
       "readyEvent": null,
-      "delay": 1000,
+      "delay": 2000,
       "misMatchThreshold" : 0.1,
       "requireSameDimensions" : true,
       "onBeforeScript": null,
-      "onReadyScript": "onReady.js"
+      "onReadyScript": null
     }
   ],
   "paths": {
