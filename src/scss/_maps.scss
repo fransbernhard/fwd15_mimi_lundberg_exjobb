@@ -1,27 +1,7 @@
 // COLOR MAP
 
-// $colors: (
-//   white: (
-//     base: rgb(255,255,255),
-//     opacity: rgba(255,255,255, 0.95),
-//     loaderSmallBg: #f1f1f1,
-//     fieldcolor: rgba(255, 255, 255, .6),
-//     fieldcolorHover: rgba(255, 255, 255, .8)
-//   ),
-//   black: (
-//     base: rgb(0,0,0),
-//     opacity: rgba(0,0,0,0.3)
-//   ),
-//   grey: (
-//     base: darkgrey
-//   ),
-//   pink: (
-//     base: pink
-//   )
-// );
-
 $colors: (
-  white: (255,255,255),
+  white: #FFF,
   whiteOpacity: rgba(255,255,255, 0.95),
   loaderSmallBg: #f1f1f1,
   fieldcolor: rgba(255, 255, 255, .6),
@@ -35,18 +15,3 @@ $colors: (
 @function colors($key: 'white') {
   @return map-get($colors, $key);
 }
-
-// Color variables
-
-$fieldcolor: rgba(255, 255, 255, .6);
-$fieldcolorHover: rgba(255, 255, 255, .8);
-
-$white: rgb(255,255,255);
-$black: rgb(0,0,0);
-$pink: pink;
-$darkGrey: darkgrey;
-
-$whiteOpacity: rgba(255,255,255, 0.95);
-$blackOpacity: rgba(0,0,0,0.3);
-
-$loaderSmallBg: #f1f1f1;

@@ -23,13 +23,13 @@
   }
 
   .inActive {
-    border-bottom: 4px solid $white;
+    border-bottom: 4px solid map-get($colors, white);
   }
 
 }
 
 .active {
-  border-bottom: 4px solid $pink;
+  border-bottom: 4px solid map-get($colors, pink);
 }
 
 .prodContainer {
@@ -45,7 +45,7 @@
   img {
     margin-bottom: $sm-space;
     width: $fullSizePercent;
-    box-shadow: 0px 6px 8px 0px $blackOpacity;
+    box-shadow: 0px 6px 8px 0px map-get($colors, blackOpacity);
     border-radius: 2px;
   }
 }
@@ -70,11 +70,11 @@
 }
 
 .close:active {
-  color: $black;
+  color: map-get($colors, black);
 }
 
 .modal-box {
-  color: $white;
+  color: map-get($colors, white);
 }
 
 // DESKTOP STYLING

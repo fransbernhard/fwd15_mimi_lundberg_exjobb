@@ -11,12 +11,14 @@ class ProductContainer extends Component {
     return (
       <div>
         <div className="prodContainer">
-          {this.props.products.map(product =>
-            <ProductItem
-              product={product}
-              key={product.itemId}
-            />
-          )}
+          {
+            this.props.products.map(product =>
+              <ProductItem
+                key={product.itemId}
+                product={product}
+              />
+            )
+          }
         </div>
       </div>
     );

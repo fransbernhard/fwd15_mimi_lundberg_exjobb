@@ -33,7 +33,7 @@ class Archive extends React.Component {
     const myInit = {
       method: "GET",
       headers: {
-         "Content-Type": "application/json"
+         "Content-Type": "application/json",
       }
     };
 

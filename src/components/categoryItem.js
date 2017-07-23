@@ -12,7 +12,6 @@ class CategoryItem extends Component {
           onClick={this.props.handleClick}
         >
             {this.props.category}
-
         </li>
       </div>
     );
@@ -22,7 +21,7 @@ class CategoryItem extends Component {
 // Components expected proptypes
 CategoryItem.propTypes = {
   handleClick: PropTypes.func,
-  category: PropTypes.string.isRequired
+  category: PropTypes.string
 }
 
 export default CategoryItem;

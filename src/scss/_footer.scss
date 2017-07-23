@@ -4,8 +4,8 @@ footer {
 	text-align: center;
 	padding: $sm-space 0 $m-space 0;
 	position: relative;
-	border-top: 1px solid $darkGrey;
-	background: $white;
+	border-top: 1px solid map-get($colors, darkGrey);
+	background: map-get($colors, white);
 
 	p, a {
 		font-size: 9px;

@@ -44,7 +44,7 @@
 
     input,
     textarea {
-      background: $white;
+      background: map-get($colors, white);
       border: none;
       border-radius: $xs-space;
       transition: all 200ms ease-in-out;
@@ -52,7 +52,7 @@
       width: $fullSizePercent;
 
       &:focus {
-        background: $fieldcolorHover;
+        background: map-get($colors, fieldcolorHover);
         outline: none;
       }
     }

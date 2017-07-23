@@ -3,7 +3,7 @@
 a {
   text-decoration: none;
   letter-spacing: 2px;
-	color: $black;
+	color: map-get($colors, black);
   text-align: center;
 }
 
@@ -27,7 +27,7 @@ h3 {
 
 h4 {
   font-size: 13px;
-  color: $white;
+  color: map-get($colors, white);
   text-align: left;
 }
 

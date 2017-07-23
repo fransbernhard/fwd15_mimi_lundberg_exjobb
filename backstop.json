@@ -40,7 +40,7 @@
       "misMatchThreshold" : 0.1,
       "requireSameDimensions" : true,
       "onBeforeScript": null,
-      "onReadyScript": null
+      "onReadyScript": "onReady.js"
     }
   ],
   "paths": {

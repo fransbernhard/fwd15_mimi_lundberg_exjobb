@@ -35,12 +35,7 @@ li {
   position: fixed;
 	width: $fullWidthVp;
 	height: $fullHeightVp;
-  // background: url(../images/main.jpg) no-repeat center center scroll;
-  background: url(../images/main.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  // center
-  background-attachment: scroll;
+  background: url(../images/main.jpg) no-repeat center center scroll;
   background-size: cover;
   z-index: -1;
 }
@@ -50,6 +45,22 @@ li {
   z-index: 0;
   min-height: 90vh;
   width: $fullWidthVp;
+}
+
+// Loader styling
+.loaderSmall {
+	@include flexCenterCenter;
+  position: fixed;
+	left: 0px;
+	top: 0px;
+	width: $fullSizePercent;
+	height: $fullSizePercent;
+	z-index: 9999;
+	background: map-get($colors, loaderSmallBg);
+}
+
+.ReactModalPortal {
+  z-index: 1000;
 }
 
 // .news {
@@ -71,19 +82,3 @@ li {
 //     font-size: 12px;
 //   }
 // }
-
-// Loader styling
-.loaderSmall {
-	@include flexCenterCenter;
-  position: fixed;
-	left: 0px;
-	top: 0px;
-	width: $fullSizePercent;
-	height: $fullSizePercent;
-	z-index: 9999;
-	background: $loaderSmallBg;
-}
-
-.ReactModalPortal {
-  z-index: 1000;
-}

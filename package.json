@@ -16,6 +16,7 @@
       "^.+\\.css$": "<rootDir>/jest/config/styleTransform.js",
       "^.+\\.(jpg|jpeg|png|gif)$": "<rootDir>/jest/config/fileTransform.js"
     },
+    "moduleFileExtensions": ["js", "jsx"],
     "moduleNameMapper": {
       ".*\\.scss$": "<rootDir>/jest/config/styleTransform.js"
     }
