@@ -21,10 +21,10 @@ class Archive extends React.Component {
   }
 
   // Set component state to the currently clicked "cat" (CategoryItem)
-  filterHandler(tag, index){
+  filterHandler(cat, index){
     console.log('INDEX: ' + index);
     this.setState({
-      category: tag,
+      category: cat,
       activeIndex: index
     })
   }
@@ -33,7 +33,7 @@ class Archive extends React.Component {
     const myInit = {
       method: "GET",
       headers: {
-         "Content-Type": "application/json",
+         "Content-Type": "application/json"
       }
     };
 
