@@ -33,7 +33,7 @@
 }
 
 .prodContainer {
-  @include flexCenterSB;
+  @include flexCenterCenter;
   flex-flow: wrap;
 }
 
