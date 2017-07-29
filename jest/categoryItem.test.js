@@ -15,19 +15,3 @@ describe('components', () => {
     });
   });
 });
-
-test('Category item change class when clicked', () => {
-  const component = renderer.create(
-    <CategoryItem
-      category="paint"
-    />
-  );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-
-  // manually trigger the callback
-  tree.props.filterHandler();
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});

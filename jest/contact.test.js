@@ -2,37 +2,28 @@ import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
 import Contact from '../src/components/contact';
 
-describe('components', () => {
-  describe('<Contact/>', () => {
-    it('renders correctly', () => {
-      const tree = renderer.create(<Contact />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+describe('<Contact/>', () => {
+  it('renders correctly', () => {
+    const tree = renderer.create(
+      <Contact />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
 
-test('Input field updates on msg input', () => {
+test('Contact form updates on form input', () => {
   const component = renderer.create(
     <Contact />
   );
   component
     .getInstance()
-    ._handleChangeMsg({target: { value: "New msg"}});
-  // re-rendering
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-})
+    ._handleChange({target: { value: "New emailss hihi"}})
 
-
-test('Input field updates on email input', () => {
-  const component = renderer.create(
-    <Contact />
-  );
   component
     .getInstance()
-    ._handleChange({target: { value: "New email"}});
+    ._handleChangeMsg({target: { value: "New msg neeeeew msg"}});
+
   // re-rendering
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 })
- 

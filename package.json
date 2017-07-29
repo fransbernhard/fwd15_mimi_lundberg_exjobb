@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=development node dev-server.js --history-api-fallback",
     "build": "rimraf dist && NODE_ENV=production webpack --config webpack.config.prod.js",
-    "test": "jest --no-cache --watch"
+    "test": "rimraf jest/__snapshots__ coverage && jest --no-cache --coverage"
   },
   "jest": {
     "transform": {
@@ -16,7 +16,10 @@
       "^.+\\.css$": "<rootDir>/jest/config/styleTransform.js",
       "^.+\\.(jpg|jpeg|png|gif)$": "<rootDir>/jest/config/fileTransform.js"
     },
-    "moduleFileExtensions": ["js", "jsx"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
     "moduleNameMapper": {
       ".*\\.scss$": "<rootDir>/jest/config/styleTransform.js"
     }
@@ -41,7 +44,6 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.2",
-    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-react-app": "^1.0.4",
     "eslint-loader": "^1.7.1",

@@ -6,11 +6,6 @@ import About from './about';
 import Contact from './contact';
 import Footer from './footer';
 
-// <div className="news">
-//   <h1>V E R N I S A G E</h1>
-//   <p>Vernisage @ Medborgarplatsen hos supercoola <a href="http://layered.se/" target="_blank">Layered Official</a> <br/>Kom drick klappa djuren, säg något kul</p>
-// </div>
-
 // Render home page
 class Home extends Component {
   render() {
@@ -28,5 +23,10 @@ class Home extends Component {
     );
   };
 };
+
+// <div className="news">
+//   <h1>V E R N I S A G E</h1>
+//   <p>Vernisage @ Medborgarplatsen hos supercoola <a href="http://layered.se/" target="_blank">Layered Official</a> <br/>Kom drick klappa djuren, säg något kul</p>
+// </div>
 
 export default Home;
