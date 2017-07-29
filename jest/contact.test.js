@@ -17,11 +17,11 @@ test('Contact form updates on form input', () => {
   );
   component
     .getInstance()
-    ._handleChange({target: { value: "New emailss hihi"}})
+    ._handleChange({target: { value: "newemail@testmail.com"}})
 
   component
     .getInstance()
-    ._handleChangeMsg({target: { value: "New msg neeeeew msg"}});
+    ._handleChangeMsg({target: { value: "I am a new message"}});
 
   // re-rendering
   const tree = component.toJSON();
