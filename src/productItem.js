@@ -36,11 +36,13 @@ class ProductItem extends Component {
     this.state = {
       modalIsOpen: false,
       image: "",
-      previewImg: ""
+      previewImg: "",
+      productClass: "",
     };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.addClasses = this.addClasses.bind(this);
   }
 
   // Set state object "modalIsOpen" to true when click on <ProductItem/> component
@@ -57,17 +59,24 @@ class ProductItem extends Component {
     });
   }
 
+  addClasses(cat){
+    return (cat == 'Places') ? 'placesClass' : 'productClass';
+  }
+
   render(){
     // Create variables for all <ProductItem/> description options. If <PoductItem/> object has props or state, render it. Otherwise return null.
     var img = this.state.image ?
-      <img src={this.state.image} /> :
+      <img className={this.addClasses(this.props.product.catName)} src={this.state.image} /> :
       null;
 
-    const name = this.props.product.stocked ?
+    var stockInt = parseInt(this.props.product.stocked);
+    var name = stockInt ?
       <h3>{this.props.product.name}</h3> :
-      <h3><span style={{fontStyle: 'italic'}}>
-        {this.props.product.name}
-      </span></h3>;
+      <h3>{this.props.product.name} - SÅLD</h3>;
+
+    var desc = this.props.product.desc ?
+      <p>{this.props.product.desc}</p> :
+      null;
 
     var limited = this.props.product.limited ?
       <p>begränsad upplaga: {this.props.product.limited} ex</p> :
@@ -89,16 +98,20 @@ class ProductItem extends Component {
       <p>{this.props.product.size} cm</p> :
       null;
 
-    var desc = this.props.product.description ?
-      <p>{this.props.product.description}</p> :
+    var modalDesc = this.props.product.modalDesc ?
+      <p>{this.props.product.modalDesc}</p> :
       null;
 
     var modalName = this.props.product.name ?
-      <h2>{this.props.product.name}</h2> :
+      <h2><a className="modalDesc" href="mailto:magdamargaretha@gmail.com?subject=Fri!%20Fri!%20Fri!&body=Innan%20du%20skriver%20vill%20jag%20bara%20säga%20hej.%20Hej">{this.props.product.name}</a></h2> :
       null;
 
-    var modalDesc = this.props.product.description ?
-      <h2>{this.props.product.description}</h2> :
+    var modalDesc = this.props.product.modalDesc ?
+      <h2>{this.props.product.modalDesc}</h2> :
+      null;
+
+    var modalDescSmall = this.props.product.modalDesc ?
+      <p>{this.props.product.modalDesc}</p> :
       null;
 
     return (
@@ -125,6 +138,7 @@ class ProductItem extends Component {
         {size}
         {price}
         {desc}
+        {modalDescSmall}
       </div>
     );
   };
@@ -145,6 +159,8 @@ class ProductItem extends Component {
     ).catch((err) => {
       console.log('Could not import thumbnail: previewImg ' + err);
     });
+    var testy = typeof(this.props.product.stocked);
+    console.log('STOCKED: ' + testy)
   }
 };
 
