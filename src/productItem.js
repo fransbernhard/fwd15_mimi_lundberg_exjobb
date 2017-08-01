@@ -66,7 +66,7 @@ class ProductItem extends Component {
   render(){
     // Create variables for all <ProductItem/> description options. If <PoductItem/> object has props or state, render it. Otherwise return null.
     var img = this.state.image ?
-      <img className={this.addClasses(this.props.product.catName)} src={this.state.image} /> :
+      <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
       null;
 
     var stockInt = parseInt(this.props.product.stocked);
@@ -98,16 +98,16 @@ class ProductItem extends Component {
       <p>{this.props.product.size} cm</p> :
       null;
 
-    var modalDesc = this.props.product.modalDesc ?
-      <p>{this.props.product.modalDesc}</p> :
-      null;
+    // var modalDesc = this.props.product.modalDesc ?
+    //   <p>{this.props.product.modalDesc}</p> :
+    //   null;
 
     var modalName = this.props.product.name ?
       <h2><a className="modalDesc" href="mailto:magdamargaretha@gmail.com?subject=Fri!%20Fri!%20Fri!&body=Innan%20du%20skriver%20vill%20jag%20bara%20säga%20hej.%20Hej">{this.props.product.name}</a></h2> :
       null;
 
     var modalDesc = this.props.product.modalDesc ?
-      <h2>{this.props.product.modalDesc}</h2> :
+      <h2>{this.props.product.modalDesc} | CONTACT</h2> :
       null;
 
     var modalDescSmall = this.props.product.modalDesc ?
