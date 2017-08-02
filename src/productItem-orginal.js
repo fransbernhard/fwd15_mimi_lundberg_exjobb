@@ -43,7 +43,6 @@ class ProductItem extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.addClasses = this.addClasses.bind(this);
-    this.addBoarderClass = this.addBoarderClass.bind(this);
   }
 
   // Set state object "modalIsOpen" to true when click on <ProductItem/> component
@@ -60,31 +59,36 @@ class ProductItem extends Component {
     });
   }
 
-  addClasses(cat){
-    return (cat == 'Places') ? 'placesClass' : 'productClass';
-  }
+  // addClasses(cat){
+  //   return (cat == 'Places') ? 'placesClass' : 'productClass';
+  // }
 
-  addBoarderClass(cat){
+  addClasses(cat){
     switch(cat){
+      case 'Places': return (
+        'placesClass'
+      );
+      break;
+      case 'Paints': return (
+        'productClass'
+      );
+      break;
       case 'Prints': return (
-        'modal-img boarder'
+        'productClass boarder'
       );
       break;
       case 'Plexi': return (
-        'modal-img boarder'
+        'productClass boarder'
       );
       break;
-      default: return (
-        'modal-img'
-      )
     }
   }
 
   render(){
     // Create variables for all <ProductItem/> description options. If <PoductItem/> object has props or state, render it. Otherwise return null.
-    var img = this.state.image ?
-      <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
-      null;
+    // var img = this.state.image ?
+    //   <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
+    //   null;
 
     var img = this.state.image ?
       <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
@@ -142,7 +146,7 @@ class ProductItem extends Component {
         >
           <div className="modal-box" onClick={this.closeModal}>
             <div className="close" onClick={this.closeModal}>x</div>
-            <img className={this.addBoarderClass(this.props.product.catName)} src={this.state.previewImg}/>
+            <img className="modal-img" src={this.state.previewImg}/>
             {modalName}
             {modalDesc}
           </div>

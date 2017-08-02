@@ -9,9 +9,9 @@ class CategoryItem extends Component {
       <li
         className={this.props.active ? 'category active' : 'category inActive'}
         onClick={this.props.handleClick}
-      >
+      ><button className="btn">
           {this.props.category}
-      </li>
+      </button></li>
     );
   };
 };

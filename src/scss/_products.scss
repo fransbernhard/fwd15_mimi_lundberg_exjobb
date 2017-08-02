@@ -50,6 +50,14 @@
   }
 }
 
+.modal-img {
+  border-radius: 2px;
+}
+
+.boarder {
+  border: 2px solid map-get($colors, darkGreen);
+}
+
 // Modal/Popup image functionality styling
 .modal-img {
   max-width: 75vw;
@@ -78,7 +86,12 @@
 }
 
 .modalDesc {
-  color: white;
+  color: map-get($colors, white);
+}
+
+.btn {
+  border: none;
+  background: none;
 }
 
 // DESKTOP STYLING
@@ -92,13 +105,9 @@
     max-width: 30vw;
     justify-content: space-between;
 
-    li {
-      border-top: 1px dotted white;
-      // background: rgba(255, 192, 203, 0.2);
-    }
-    li:hover {
-      border-top: 1px dotted pink;
-      // background: rgba(255, 192, 203, 0.2);
+    .inActive:active {
+      -webkit-transform: translateY(2px);
+      transform: translateY(2px);
     }
   }
 
@@ -112,8 +121,6 @@
 
   // Sink product effect on product-hover
   .hvr-sink {
-    display: inline-block;
-    vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px transparent;
