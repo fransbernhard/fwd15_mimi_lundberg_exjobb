@@ -65,8 +65,8 @@ const config = {
 		]
   },
 	performance: {
-		maxAssetSize: 4000000,
-		maxEntrypointSize: 4000000,
+		maxAssetSize: 400000000,
+		maxEntrypointSize: 400000000,
 		hints: 'warning'
 	},
 	plugins: plugins,

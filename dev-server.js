@@ -16,6 +16,9 @@ var server = new WebpackDevServer(compiler, {
 	},
 	stats: {
 		colors: true
+	},
+	historyApiFallback: {
+	  disableDotRule: true
 	}
 });
 

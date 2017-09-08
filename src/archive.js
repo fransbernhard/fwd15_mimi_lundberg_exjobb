@@ -54,6 +54,7 @@ class Archive extends React.Component {
     // 2. Render ProductContainer based on category. If this.state.category.length is true - filter "prod" & where prod.categories is same type and name as this.state.category : else render all this.state.categories that matches "paint".
     // console.log(this.state.products);
     return (
+
       <div>
         <Menu />
         <div className="archive-container">

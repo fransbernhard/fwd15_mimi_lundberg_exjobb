@@ -44,6 +44,8 @@ class ProductItem extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.addClasses = this.addClasses.bind(this);
     this.addBoarderClass = this.addBoarderClass.bind(this);
+    this.addProductContainerClass = this.addProductContainerClass.bind(this);
+
   }
 
   // Set state object "modalIsOpen" to true when click on <ProductItem/> component
@@ -61,7 +63,7 @@ class ProductItem extends Component {
   }
 
   addClasses(cat){
-    return (cat == 'Places') ? 'placesClass' : 'productClass';
+    return (cat == 'Places') ? 'placesImgClass' : 'productImgClass';
   }
 
   addBoarderClass(cat){
@@ -78,6 +80,10 @@ class ProductItem extends Component {
         'modal-img'
       )
     }
+  }
+
+  addProductContainerClass(cat){
+    return (cat == 'Places') ? 'hvr-sink placesBoxClass' : 'hvr-sink productBoxClass';
   }
 
   render(){
@@ -132,7 +138,7 @@ class ProductItem extends Component {
       null;
 
     return (
-      <div className="product hvr-sink" onClick={this.openModal}>
+      <div className={this.addProductContainerClass(this.props.product.catName)} onClick={this.openModal}>
         <Modal
           isOpen={this.state.modalIsOpen}
           shouldCloseOnOverlayClick={true}

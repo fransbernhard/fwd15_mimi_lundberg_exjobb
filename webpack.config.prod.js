@@ -29,7 +29,20 @@ const plugins = [
 	}),
   new ExtractTextPlugin('bundle.css'), // creation of HTML files to serve your webpack bundles
 	new HtmlWebpackPlugin({
-		template: 'index-template.html'
+		template: 'index-template.html',
+		inject: true,
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      removeRedundantAttributes: true,
+      useShortDoctype: true,
+      removeEmptyAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      keepClosingSlash: true,
+      minifyJS: true,
+      minifyCSS: true,
+      minifyURLs: true,
+    }
 	}),
 	new webpack.optimize.CommonsChunkPlugin({
 		name: 'bundle',

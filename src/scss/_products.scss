@@ -18,8 +18,10 @@
 
   li {
     font-size: 12px;
-    padding: $sm-space $m-space;
 
+    .btn {
+      padding: $sm-space $m-space;
+    }
   }
 
   .inActive {
@@ -37,12 +39,24 @@
   flex-flow: wrap;
 }
 
-.product {
+.placesBoxClass {
+  width: $fullSizePercent;
+  margin: 0 $m-space $xl-space $m-space;
+
+  .placesImgClass {
+    margin-bottom: $sm-space;
+    width: $fullSizePercent;
+    box-shadow: 0px 6px 8px 0px map-get($colors, blackOpacity);
+    border-radius: 2px;
+  }
+}
+
+.productBoxClass{
   margin: $m-space;
   display: flex;
   flex-flow: column;
 
-  .productClass, .placesClass {
+  .productImgClass {
     margin-bottom: $sm-space;
     width: $fullSizePercent;
     box-shadow: 0px 6px 8px 0px map-get($colors, blackOpacity);
@@ -95,7 +109,7 @@
 }
 
 // DESKTOP STYLING
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .prodContainer {
     justify-content: space-between;
     margin-bottom: 80px;
@@ -111,11 +125,23 @@
     }
   }
 
-  .product {
+  .productBoxClass{
     margin: $m-space 0;
+    max-width: 22%;
 
-    .productClass {
-      max-width: 200px;
+    .productImgClass {
+      width: $fullSizePercent;
+    }
+  }
+
+  .placesBoxClass {
+    max-width: 30%;
+
+    .placesImgClass {
+      margin-bottom: $sm-space;
+      width: $fullSizePercent;
+      box-shadow: 0px 6px 8px 0px map-get($colors, blackOpacity);
+      border-radius: 2px;
     }
   }
 

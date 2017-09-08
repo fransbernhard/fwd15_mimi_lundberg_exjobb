@@ -13,7 +13,12 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM Items, Categories WHERE Items.catid_ = Categories.catId";
+  $sql =
+    "SELECT *
+    FROM Items, Categories
+    WHERE Items.catid_ = Categories.catId";
+    // ORDER BY itemId DESC";
+
   $result = $conn->query($sql);
   while($row = mysqli_fetch_assoc($result))
   $items[] = $row;
