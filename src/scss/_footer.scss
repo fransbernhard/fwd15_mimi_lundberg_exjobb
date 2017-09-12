@@ -2,10 +2,10 @@
 footer {
 	width: $fullSizePercent;
 	text-align: center;
-	padding: $sm-space 0 $m-space 0;
+	padding: $xs-space 0 $sm-space 0;
 	position: relative;
 	border-top: 1px solid map-get($colors, darkGrey);
-	background: map-get($colors, white);
+	background: rgba(255,255,255, 0.95);
 
 	p, a {
 		font-size: 9px;

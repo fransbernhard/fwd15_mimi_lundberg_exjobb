@@ -43,7 +43,7 @@ class ProductItem extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.addClasses = this.addClasses.bind(this);
-    this.addBoarderClass = this.addBoarderClass.bind(this);
+    // this.addBoarderClass = this.addBoarderClass.bind(this);
     this.addProductContainerClass = this.addProductContainerClass.bind(this);
 
   }
@@ -66,21 +66,21 @@ class ProductItem extends Component {
     return (cat == 'Places') ? 'placesImgClass' : 'productImgClass';
   }
 
-  addBoarderClass(cat){
-    switch(cat){
-      case 'Prints': return (
-        'modal-img boarder'
-      );
-      break;
-      case 'Plexi': return (
-        'modal-img boarder'
-      );
-      break;
-      default: return (
-        'modal-img'
-      )
-    }
-  }
+  // addBoarderClass(cat){
+  //   switch(cat){
+  //     case 'Prints': return (
+  //       'modal-img boarder'
+  //     );
+  //     break;
+  //     case 'Plexi': return (
+  //       'modal-img boarder'
+  //     );
+  //     break;
+  //     default: return (
+  //       'modal-img'
+  //     )
+  //   }
+  // }
 
   addProductContainerClass(cat){
     return (cat == 'Places') ? 'hvr-sink placesBoxClass' : 'hvr-sink productBoxClass';
@@ -137,6 +137,7 @@ class ProductItem extends Component {
       <p>{this.props.product.modalDesc}</p> :
       null;
 
+      // <img className={this.addBoarderClass(this.props.product.catName)} src={this.state.previewImg}/>
     return (
       <div className={this.addProductContainerClass(this.props.product.catName)} onClick={this.openModal}>
         <Modal
@@ -148,7 +149,7 @@ class ProductItem extends Component {
         >
           <div className="modal-box" onClick={this.closeModal}>
             <div className="close" onClick={this.closeModal}>x</div>
-            <img className={this.addBoarderClass(this.props.product.catName)} src={this.state.previewImg}/>
+            <img src={this.state.previewImg}/>
             {modalName}
             {modalDesc}
           </div>
@@ -182,8 +183,8 @@ class ProductItem extends Component {
     ).catch((err) => {
       console.log('Could not import thumbnail: previewImg ' + err);
     });
-    var testy = typeof(this.props.product.stocked);
-    console.log('STOCKED: ' + testy)
+    // var testy = typeof(this.props.product.stocked);
+    // console.log('STOCKED: ' + testy)
   }
 };
 

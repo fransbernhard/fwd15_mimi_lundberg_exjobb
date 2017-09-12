@@ -8,7 +8,6 @@
 	width: $fullWidthVp;
 	height: 100vh;
 	z-index: 0;
-
 	@include respond-to(medium) {
     flex-flow: row;
   }

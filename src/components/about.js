@@ -3,9 +3,6 @@ import magdaImg from '../images/magden.jpg';
 
 // Create Component
 class About extends Component {
-  constructor(props){
-    super(props);
-  }
 
   render() {
     return (

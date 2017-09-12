@@ -33,9 +33,10 @@ li {
 // Backgound styling for Home page
 .background-img {
   position: fixed;
+  margin-top: 7vh;
 	width: $fullWidthVp;
-	height: $fullHeightVp;
-  background: url(../images/main.jpg) no-repeat center center scroll;
+	height: 93vh;
+  background: url(../images/nerve-bg.jpg) no-repeat center center scroll;
   background-size: cover;
   z-index: -1;
 }
