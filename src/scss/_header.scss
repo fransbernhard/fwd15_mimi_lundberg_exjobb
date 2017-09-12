@@ -15,16 +15,16 @@ nav {
     }
 
     li {
-      padding: $m-space;
+      padding: 2rem;
       a {
-        font-size: 12px;
+        font-size: 22px;
       }
     }
   }
 }
 
 // DESKTOP STYLING
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1100px) and (min-height: 400px){
   nav {
     ul {
       justify-content: center;
@@ -34,6 +34,12 @@ nav {
       }
       .contactMobile {
         display: none;
+      }
+      li {
+        padding: $l-space;
+        a {
+          font-size: 12px;
+        }
       }
     }
   }

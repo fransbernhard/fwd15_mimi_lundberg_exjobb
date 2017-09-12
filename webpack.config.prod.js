@@ -46,7 +46,7 @@ const plugins = [
 	}),
 	new webpack.optimize.CommonsChunkPlugin({
 		name: 'bundle',
-		filename: '[name].common.js'
+		filename: 'bundle.common.js'
 	})
 ]
 
@@ -67,7 +67,7 @@ const config = {
 			  test: /\.(png|jpg|gif)$/,
 			  use: [{
 					loader: 'url-loader',
-					options: { limit: 10000, name: './images/[name].[ext]' } // Convert images < 10k to base64 strings (all in images folder)
+					options: { limit: 100000, name: './images/[name].[ext]' } // Convert images < 10k to base64 strings (all in images folder)
 				}]
 			},
 			{

@@ -33,11 +33,13 @@ class Archive extends React.Component {
     const myInit = {
       method: "GET",
       headers: {
-         "Content-Type": "application/json"
+         "Content-Type": "application/json",
+         'Accept': 'application/json'
       }
     };
 
-    fetch("/getProducts", myInit)
+    fetch("./php/products.php", myInit)
+    // fetch("/getProducts", myInit)
       .then((res) => {
         return res.json();
       })
@@ -45,7 +47,7 @@ class Archive extends React.Component {
         this.setState({products:data});
       })
       .catch(function(err) {
-        console.log('ERROR!!! ' + err.message);
+        console.log('Error cannot get products: ' + err.message);
       });
   }
 

@@ -2,6 +2,11 @@
 // MOBILE FIRST (only maillinkto functionality)
 .contact {
   height: 50vh;
+  // display: none;
+}
+
+.filter {
+  display: none;
 }
 
 #formEmail {
@@ -9,7 +14,11 @@
 }
 
 // DESKTOP STYLING
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1100px) and (min-height: 400px){
+  .filter {
+    display: block;
+  }
+
   .contact, .filter {
     @include flexColumnCenterCenter;
     min-height: $fullHeightVp;

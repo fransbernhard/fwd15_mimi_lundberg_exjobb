@@ -5,6 +5,11 @@
   $password = "root";
   $dbname = "maggan";
 
+  // $servername = "magdalundberg.se.mysql";
+  // $username = "magdalundberg_se_fri";
+  // $password = "3etTfdDg";
+  // $dbname = "magdalundberg_se_fri";
+
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -12,6 +17,8 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
+
+  // echo '<script>console.log("Connection good")</script>';
 
   $sql =
     "SELECT *
