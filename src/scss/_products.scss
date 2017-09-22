@@ -4,20 +4,29 @@
   padding-top: 50px;
   display: flex;
   justify-content: center;
-  width: $fullSizePercent;
+  width: 100%;
+  min-height: 90vh;
 }
 
 .archive-wrapper {
-  width: $wrapper;
+  width: 1000px;
 }
 
 .filterList {
   display: flex;
   margin-top: 4rem;
   justify-content: space-around;
+  @include respond-to(medium) {
+    max-width: 31vw;
+    justify-content: space-between;
+    padding-left: 0.7em;
+  }
 
   li {
     font-size: 20px;
+    @include respond-to(medium) {
+      font-size: 12px;
+    }
 
     .btn {
       padding: $sm-space $m-space;
@@ -29,54 +38,85 @@
     border-bottom: 4px solid map-get($colors, white);
   }
 
+  .inActive:active {
+    @include respond-to(medium) {
+      -webkit-transform: translateY(2px);
+      transform: translateY(2px);
+    }
+  }
+
 }
 
 .active {
   border-bottom: 4px solid map-get($colors, pink);
 }
 
-.prodContainer {
-  @include flexCenterCenter;
-  flex-flow: wrap;
-}
-
 .placesBoxClass {
   width: $fullSizePercent;
   margin: 0 $m-space $xl-space $m-space;
+  @include respond-to(medium) {
+    max-width: 30%;
+  }
 
   .placesImgClass {
     margin-bottom: $sm-space;
     width: $fullSizePercent;
     box-shadow: 0px 6px 8px 0px map-get($colors, blackOpacity);
     border-radius: 2px;
+    @include respond-to(medium) {
+      margin-bottom: $sm-space;
+      width: $fullSizePercent;
+      box-shadow: 0px 6px 8px 0px map-get($colors, blackOpacity);
+      border-radius: 2px;
+    }
+  }
+}
+
+.prodContainer {
+  @include flexCenterCenter;
+  flex-flow: wrap;
+  @include respond-to(medium) {
+    @include flexCenterSB;
+    align-items: stretch;
+    margin-bottom: 80px;
+  }
+}
+
+.prodContainer:after {
+  @include respond-to(medium) {
+    content: "";
+    flex: auto;
   }
 }
 
 .productBoxClass{
-  margin: $m-space;
+  margin: $sm-space;
   display: flex;
   flex-flow: column;
+  @include respond-to(medium) {
+    margin: $m-space 0;
+    max-width: 25%;
+    padding: 0.7em;
+  }
 
   .productImgClass {
     margin-bottom: $sm-space;
-    width: $fullSizePercent;
+    width: 100%;
     box-shadow: 0px 6px 8px 0px map-get($colors, blackOpacity);
     border-radius: 2px;
+    @include respond-to(medium) {
+      width: $fullSizePercent;
+    }
   }
 }
 
-.modal-img {
-  border-radius: 2px;
-}
-
-.boarder {
-  border: 2px solid map-get($colors, darkGreen);
-}
+// .boarder {
+//   border: 2px solid map-get($colors, darkGreen);
+// }
 
 // Modal/Popup image functionality styling
 .modal-img {
-  max-width: 75vw;
-  max-height: 75vh;
+  border-radius: 2px;
 }
 
 .close {
@@ -85,20 +125,15 @@
   text-align: right;
   margin: $l-space 0;
   cursor: pointer;
-  // transition: all .30s ease;
-  // height: $l-space;
 }
-
-.close:hover {
-  color: map-get($colors, darkgrey)!important;
-}
-
-// .close:active {
-//   color: map-get($colors, black);
-// }
 
 .modal-box {
   color: map-get($colors, white);
+  padding: 2rem;
+  img {
+    max-width: 75vw;
+    max-height: 75vh;
+  }
 }
 
 .modalDesc {
@@ -112,44 +147,6 @@
 
 // DESKTOP STYLING
 @media screen and (min-width: 1100px) and (min-height: 400px){
-  .prodContainer {
-    justify-content: space-between;
-    margin-bottom: 80px;
-  }
-
-  .filterList {
-    max-width: 30vw;
-    justify-content: space-between;
-
-    li {
-      font-size: 12px;
-    }
-
-    .inActive:active {
-      -webkit-transform: translateY(2px);
-      transform: translateY(2px);
-    }
-  }
-
-  .productBoxClass{
-    margin: $m-space 0;
-    max-width: 22%;
-
-    .productImgClass {
-      width: $fullSizePercent;
-    }
-  }
-
-  .placesBoxClass {
-    max-width: 30%;
-
-    .placesImgClass {
-      margin-bottom: $sm-space;
-      width: $fullSizePercent;
-      box-shadow: 0px 6px 8px 0px map-get($colors, blackOpacity);
-      border-radius: 2px;
-    }
-  }
 
   // Sink product effect on product-hover
   .hvr-sink {

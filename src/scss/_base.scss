@@ -33,12 +33,11 @@ li {
 // Backgound styling for Home page
 .background-img {
   position: fixed;
-  margin-top: 7vh;
-	width: $fullWidthVp;
-	height: 93vh;
-  background: url(../images/nerve-bg.jpg) no-repeat center center scroll;
+	width: 100vw;
+	height: 100vh;
+  background: url(../images/vys.jpg) no-repeat center center scroll;
   background-size: cover;
-  z-index: -1;
+  // z-index: -1;
 }
 
 .hero {
@@ -56,9 +55,16 @@ li {
 	top: 0px;
 	width: $fullSizePercent;
 	height: $fullSizePercent;
-	z-index: 9999;
+	z-index: 99;
 	background: map-get($colors, loaderSmallBg);
+  img {
+    @include respond-to(medium) {
+      width: 400px;
+    }
+  }
 }
+
+
 
 .ReactModalPortal {
   z-index: 1000;

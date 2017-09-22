@@ -30,6 +30,12 @@
   align-items: center;
 }
 
+@mixin flexSACenter {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 // Mixins for breakpoints
 
 @mixin respond-to($breakpoint) {

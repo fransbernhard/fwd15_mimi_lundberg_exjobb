@@ -36,25 +36,20 @@ class Contact extends Component {
 
     // Perform an asynchronous HTTP (Ajax) request.
     $.ajax({
-      // A string containing the URL to which the request is sent. If not production environment, send request to './getMail'
       url: process.env.NODE_ENV !== "production" ? '/getMail' : "./php/mailer.php",
       // url: "./php/mailer.php",
-      // POST request
       type: 'POST',
-      // Submit content in contactEmail and contactMessage state
       data: {
         'form_email': this.state.contactEmail,
         'form_msg': this.state.contactMessage
       },
-      // If success..
       success: function(data) {
         this.setState({
-          successMsg: '<h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p>'
+          successMsg: '<div class="hehe"><h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p></div>'
         });
         $('#formContact').slideUp();
         $('#formContact').after(this.state.successMsg);
       }.bind(this),
-      // If fail/error..
       error: function(xhr, status, err) {
         console.log(xhr, status);
         console.log(err);

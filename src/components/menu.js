@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+
 //Menu component renders menu Link
 class Menu extends Component {
   render() {

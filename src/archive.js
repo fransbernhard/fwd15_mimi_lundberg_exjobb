@@ -15,7 +15,7 @@ class Archive extends React.Component {
     this.state = {
       products: [],
       category: "",
-      activeIndex: 0
+      activeIndex: 3
     }
     this.filterHandler = this.filterHandler.bind(this);
   }
@@ -38,13 +38,13 @@ class Archive extends React.Component {
       }
     };
 
-    // fetch("./php/products.php", myInit)
-    fetch("/getProducts", myInit)
+    fetch("./php/products.php", myInit)
+    // fetch("/getProducts", myInit)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        this.setState({products:data});
+        this.setState({products: data});
       })
       .catch(function(err) {
         console.log('Error cannot get products: ' + err.message);
@@ -70,7 +70,7 @@ class Archive extends React.Component {
             <ProductContainer
               products={this.state.category.length
                 ? this.state.products.filter((prod) => prod.catName === this.state.category)
-                : this.state.products.filter((prod) => prod.catName === 'Paints')
+                : this.state.products.filter((prod) => prod.catName === 'Places')
               }
             />
           </div>

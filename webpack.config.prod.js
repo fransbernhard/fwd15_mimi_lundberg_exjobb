@@ -66,8 +66,12 @@ const config = {
       {
 			  test: /\.(png|jpg|gif)$/,
 			  use: [{
-					loader: 'url-loader',
-					options: { limit: 100000, name: './images/[name].[ext]' } // Convert images < 10k to base64 strings (all in images folder)
+					loader: 'file-loader',
+					options: {
+						name: '[path][name].[ext]'
+					} // Convert images < 10k to base64 strings (all in images folder)
+					// loader: 'url-loader',
+					// options: { limit: 100000, name: './images/[name].[ext]' } // Convert images < 10k to base64 strings (all in images folder)
 				}]
 			},
 			{

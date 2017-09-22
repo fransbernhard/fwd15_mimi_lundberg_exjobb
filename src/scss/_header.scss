@@ -2,42 +2,36 @@
 // MOBILE STYLING
 nav {
   position: fixed;
-  background-color: map-get($colors, whiteOpacity);
+  // background-color: map-get($colors, whiteOpacity);
+  // background-color: black;
+  background: rgba(26,26,26, 0.95);
   box-shadow: 0px 4px 8px 0px map-get($colors, blackOpacity);
   z-index: 2;
   width: $fullWidthVp;
 
   ul {
     @include flexCenterSB;
-
     .contactWeb {
       display: none;
     }
-
-    li {
-      padding: 2rem;
-      a {
-        font-size: 22px;
-      }
-    }
-  }
-}
-
-// DESKTOP STYLING
-@media screen and (min-width: 1100px) and (min-height: 400px){
-  nav {
-    ul {
+    @include respond-to(medium) {
       justify-content: center;
-
-      .contactWeb {
-        display: block;
-      }
       .contactMobile {
         display: none;
       }
-      li {
+      .contactWeb {
+        display: block;
+      }
+    }
+    li {
+      padding: 2rem 1rem;
+      @include respond-to(medium) {
         padding: $l-space;
-        a {
+      }
+      a {
+        font-size: 22px;
+        color: lightgrey;
+        @include respond-to(medium) {
           font-size: 12px;
         }
       }

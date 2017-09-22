@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import magdaImg from '../images/magden.jpg';
+import magdaImg from '../images/magi.png';
+import Slider from './slider';
 
 // Create Component
 class About extends Component {

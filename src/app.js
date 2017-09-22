@@ -33,9 +33,9 @@ class App extends Component {
     return (
       <div>
         <div className="loaderSmall">
-          <img className="loadingImg" src={loadImg} width="400"/>
+          <img className="loadingImg" src={loadImg}/>
         </div>
-        <Router history={browserHistory} onUpdate={this.hashLinkScroll}>
+      <Router history={browserHistory} onUpdate={this.hashLinkScroll}>
           <Route path={'/archive'} component={Archive} />
           <Route path={'*'} component={Home} />
         </Router>
@@ -50,7 +50,7 @@ class App extends Component {
 
   // Fade out site-loader
   handleLoad() {
-    $(".loaderSmall").delay(500).fadeOut("slow");
+    $(".loaderSmall").delay(4000).fadeOut("slow");
   }
 };
 
