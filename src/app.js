@@ -23,7 +23,7 @@ class App extends Component {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) element.scrollIntoView();
-      }, 100);
+      }, 2500);
     }
   }
 
@@ -50,7 +50,7 @@ class App extends Component {
 
   // Fade out site-loader
   handleLoad() {
-    $(".loaderSmall").delay(4000).fadeOut("slow");
+    $(".loaderSmall").delay(100).fadeOut("slow");
   }
 };
 

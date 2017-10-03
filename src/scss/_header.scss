@@ -4,7 +4,8 @@ nav {
   position: fixed;
   // background-color: map-get($colors, whiteOpacity);
   // background-color: black;
-  background: rgba(26,26,26, 0.95);
+  // background: rgba(26,26,26, 0.95);
+  background: map-get($colors, whiteOpacity);
   box-shadow: 0px 4px 8px 0px map-get($colors, blackOpacity);
   z-index: 2;
   width: $fullWidthVp;
@@ -30,7 +31,7 @@ nav {
       }
       a {
         font-size: 22px;
-        color: lightgrey;
+        // color: lightgrey;
         @include respond-to(medium) {
           font-size: 12px;
         }
