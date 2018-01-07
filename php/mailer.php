@@ -1,23 +1,24 @@
 <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // trim() strips any white space from beginning and end of the string
-    $email = filter_var(trim($_POST["form_email"]), FILTER_SANITIZE_EMAIL);
+    $sender = filter_var(trim($_POST["form_email"]), FILTER_SANITIZE_EMAIL);
     //  strip_tags() strips all HTML and PHP tags from a variable.
     $message = strip_tags($_POST["form_msg"]);
 
     // Check that data was sent to the mailer.
-    if ( empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if ( empty($message)) {
       // Set a 400 (bad request) response code and exit.
       http_response_code(400);
       echo "<h1>Oops! There was a problem with your submission. Please complete the form and try again.</h1>";
       exit;
     }
 
+    $email = "me@magdalundberg.se";
     $recipient = "mimilundberg@icloud.com";
-    $subject = "Message to magdalundberg.se from: $email";
-    $body .= "Email: $email\n\n";
+    $subject = "kontaktis";
+    $body .= "Email: $sender\n\n";
     $body .= "Message: \n$message\n";
-    $email_headers = "From: $name <$email>";
+    $email_headers = "From: magdalundberg.se <$email>";
 
     $success = mail($recipient, $subject, $body, $email_headers);
 

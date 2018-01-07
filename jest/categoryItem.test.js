@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import renderer from 'react-test-renderer';
-import CategoryItem from '../src/components/categoryItem';
+import Category from '../src/components/category';
 
 describe('components', () => {
-  describe('<CategoryItem/>', () => {
+  describe('<Category/>', () => {
     it('renders correctly', () => {
       const tree = renderer.create(
-        <CategoryItem
+        <Category
           handleClick={jest.fn}
           category="paint"
         />

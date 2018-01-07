@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
-// Custom styles for Modal image
 const customStyles = {
   overlay: {
     position          : 'fixed',
@@ -30,7 +29,7 @@ const customStyles = {
   }
 };
 
-class ProductItem extends Component {
+class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,14 +44,12 @@ class ProductItem extends Component {
     this.addClasses = this.addClasses.bind(this);
   }
 
-  // Set state object "modalIsOpen" to true when click on <ProductItem/> component
   openModal() {
     this.setState({
       modalIsOpen: true
     });
   }
 
-  // Set state object "modalIsOpen" to false when click on <Modal/> component
   closeModal() {
     this.setState({
       modalIsOpen: false
@@ -85,10 +82,6 @@ class ProductItem extends Component {
   }
 
   render(){
-    // Create variables for all <ProductItem/> description options. If <PoductItem/> object has props or state, render it. Otherwise return null.
-    // var img = this.state.image ?
-    //   <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
-    //   null;
 
     var img = this.state.image ?
       <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
@@ -186,8 +179,8 @@ class ProductItem extends Component {
 };
 
 // Components expected proptypes
-ProductItem.propTypes = {
+Product.propTypes = {
   product: PropTypes.object.isRequired
 }
 
-export default ProductItem;
+export default Product;

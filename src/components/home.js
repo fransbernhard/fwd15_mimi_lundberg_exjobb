@@ -17,7 +17,6 @@ class Home extends Component {
           <div className="hero"></div>
           <About />
           <Contact />
-          <Footer />
         </div>
       </div>
     );

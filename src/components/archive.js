@@ -3,10 +3,10 @@
 import React, { Component } from 'react';
 
 // Component import
-import Menu from './components/menu';
-import Footer from './components/footer';
-import ProductContainer from './components/productContainer';
-import CategoryContainer from './components/categoryContainer';
+import Menu from './menu';
+import Footer from './footer';
+import ProductContainer from './productContainer';
+import CategoryContainer from './categoryContainer';
 
 class Archive extends React.Component {
 
@@ -20,7 +20,6 @@ class Archive extends React.Component {
     this.filterHandler = this.filterHandler.bind(this);
   }
 
-  // Set component state to the currently clicked "cat" (CategoryItem)
   filterHandler(cat, index){
     console.log('INDEX: ' + index);
     this.setState({
@@ -38,8 +37,8 @@ class Archive extends React.Component {
       }
     };
 
-    fetch("./php/products.php", myInit)
-    // fetch("/getProducts", myInit)
+    // fetch("./php/products.php", myInit)
+    fetch("/getProducts", myInit)
       .then((res) => {
         return res.json();
       })
@@ -52,9 +51,6 @@ class Archive extends React.Component {
   }
 
   render() {
-    // 1. Render CategoryContainer with props products and filterHandler function to show all uniqe CategoryItems and filter products based on category
-    // 2. Render ProductContainer based on category. If this.state.category.length is true - filter "prod" & where prod.categories is same type and name as this.state.category : else render all this.state.categories that matches "paint".
-    // console.log(this.state.products);
     return (
 
       <div>

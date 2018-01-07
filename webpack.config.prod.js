@@ -27,7 +27,7 @@ const plugins = [
 			warnings: false
 		}
 	}),
-  new ExtractTextPlugin('bundle.css'), // creation of HTML files to serve your webpack bundles
+  new ExtractTextPlugin('bundle.css'), // extract you css into seperate file files to serve your webpack bundles
 	new HtmlWebpackPlugin({
 		template: 'index-template.html',
 		inject: true,

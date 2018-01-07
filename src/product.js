@@ -30,7 +30,7 @@ const customStyles = {
   }
 };
 
-class ProductItem extends Component {
+class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -87,14 +87,19 @@ class ProductItem extends Component {
   }
 
   render(){
-    // Create variables for all <ProductItem/> description options. If <PoductItem/> object has props or state, render it. Otherwise return null.
-    var img = this.state.image ?
-      <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
-      null;
+    const divStyle = {
+      backgroundImage: 'url(' + this.state.image + ')'
+    }
 
-    var img = this.state.image ?
-      <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
-      null;
+    // Create variables for all <ProductItem/> description options. If <PoductItem/> object has props or state, render it. Otherwise return null.
+    var img = this.state.image
+      ? <div className={this.addClasses(this.props.product.catName)} style={divStyle}/>
+      : null;
+
+
+    // var img = this.state.image ?
+    //   <img className={this.addClasses(this.props.product.catName)} alt={this.props.product.name} src={this.state.image} /> :
+    //   null;
 
     var stockInt = parseInt(this.props.product.stocked);
     var name = stockInt ?
@@ -137,7 +142,7 @@ class ProductItem extends Component {
       <p>{this.props.product.modalDesc}</p> :
       null;
 
-      // <img className={this.addBoarderClass(this.props.product.catName)} src={this.state.previewImg}/>
+    // <img className={this.addBoarderClass(this.props.product.catName)} src={this.state.previewImg}/>
     return (
       <div className={this.addProductContainerClass(this.props.product.catName)} onClick={this.openModal}>
         <Modal
@@ -183,14 +188,12 @@ class ProductItem extends Component {
     ).catch((err) => {
       console.log('Could not import thumbnail: previewImg ' + err);
     });
-    // var testy = typeof(this.props.product.stocked);
-    // console.log('STOCKED: ' + testy)
   }
 };
 
 // Components expected proptypes
-ProductItem.propTypes = {
+Product.propTypes = {
   product: PropTypes.object.isRequired
 }
 
-export default ProductItem;
+export default Product;

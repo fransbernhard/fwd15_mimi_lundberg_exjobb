@@ -45,7 +45,7 @@ class Contact extends Component {
       },
       success: function(data) {
         this.setState({
-          successMsg: '<div class="hehe"><h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p></div>'
+          successMsg: '<div class="sucessMessage"><h1>Kontakt skickad!</h1><p>Återkommer så fort som möjligt.</p></div>'
         });
         $('#formContact').slideUp();
         $('#formContact').after(this.state.successMsg);
