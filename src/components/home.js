@@ -13,7 +13,7 @@ class Home extends Component {
       <div className="home">
         <div className="background-img"></div>
         <MenuB />
-        <div className="container" id="top">
+        <div className="container" id="home">
           <div className="hero"></div>
           <About />
           <Contact />

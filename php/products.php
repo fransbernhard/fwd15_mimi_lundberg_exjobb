@@ -3,7 +3,7 @@
   $servername = "localhost";
   $username = "root";
   $password = "root";
-  $dbname = "maggan";
+  $dbname = "magda";
 
   // $servername = "magdalundberg.se.mysql";
   // $username = "magdalundberg_se_fri";
@@ -17,8 +17,6 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
-
-  // echo '<script>console.log("Connection good")</script>';
 
   $sql =
     "SELECT *

@@ -68,10 +68,7 @@ const config = {
 		maxEntrypointSize: 400000000,
 		hints: 'warning'
 	},
-	plugins: plugins,
-	externals: {
-	  jquery: 'jQuery'
-	}
+	plugins: plugins
 }
 
 module.exports = config

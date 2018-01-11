@@ -6,7 +6,7 @@ nav {
   width: $fullWidthVp;
 
   ul {
-    @include flexCenterSB;
+    @include flexSACenter;
     .contactWeb {
       display: none;
     }
@@ -20,14 +20,14 @@ nav {
       }
     }
     li {
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       @include respond-to(medium) {
         padding: $l-space;
       }
       a {
-        font-size: 22px;
+        font-size: 1rem;
         @include respond-to(medium) {
-          font-size: 12px;
+          font-size: 0.7rem;
         }
       }
     }

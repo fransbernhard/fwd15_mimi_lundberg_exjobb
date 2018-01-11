@@ -93,9 +93,9 @@ const config = {
 		]
   },
 	plugins: plugins,
-	externals: {
-	  jquery: 'jQuery'
-	}
+	// externals: {
+	//   jquery: 'jQuery'
+	// }
 }
 
 module.exports = config;

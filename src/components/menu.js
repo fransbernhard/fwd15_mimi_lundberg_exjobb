@@ -9,7 +9,7 @@ class Menu extends Component {
       <header>
         <nav>
           <ul>
-            <li><Link to={'/#top'}>Home</Link></li>
+            <li><Link to={'/#home'}>Home</Link></li>
             <li><Link to={'/#about'}>About</Link></li>
             <li><Link to={'/archive'}>Archive</Link></li>
             <li className="contactMobile"><a href="mailto:magdamargaretha@gmail.com?Subject=magdenmagden">Contact</a></li>
