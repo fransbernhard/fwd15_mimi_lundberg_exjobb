@@ -74,13 +74,17 @@ class Product extends Component {
     const divStyle = {
       backgroundImage: 'url(' + this.state.image + ')'
     }
+    const testStyle = {
+      height: 'auto'
+    }
+
     const cat = this.props.product.catName;
 
     if(this.state.image){
       if(cat == 'Places'){
         var img = <div className={this.addClasses(cat)} style={divStyle}/>
       } else {
-        var img = <img className={this.addClasses(cat)} alt={this.props.product.name} src={this.state.image} />
+        var img = <img className={this.addClasses(cat)} alt={this.props.product.name} src={this.state.image} style={testStyle}/>
       }
     } else {
       var img = null;

@@ -15,7 +15,6 @@ class Category extends Component {
   };
 };
 
-// Components expected proptypes
 Category.propTypes = {
   handleClick: PropTypes.func,
   category: PropTypes.string

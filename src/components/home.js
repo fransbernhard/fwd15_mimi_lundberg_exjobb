@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
-
-// Component imports
 import MenuB from './menuB';
 import About from './about';
 import Contact from './contact';
 import Footer from './footer';
+import ScrollableAnchor, { configureAnchors, removeHash } from 'react-scrollable-anchor';
 
-// Render home page
 class Home extends Component {
+  componentWillMount(){
+    configureAnchors({offset: 0, scrollDuration: 2000});
+    removeHash();
+  }
+
   render() {
     return(
-      <div className="home">
+      <div className="home" id="home">
         <div className="background-img"></div>
         <MenuB />
-        <div className="container" id="home">
+        <div className="container">
           <div className="hero"></div>
-          <About />
-          <Contact />
+            <ScrollableAnchor id={'about'}>
+              <About />
+            </ScrollableAnchor>
+            <ScrollableAnchor id={'contact'}>
+              <Contact />
+            </ScrollableAnchor>
         </div>
       </div>
     );

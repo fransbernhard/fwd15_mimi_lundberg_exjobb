@@ -1,8 +1,6 @@
 /*global $:true*/
 
 import React, { Component } from 'react';
-
-// Component import
 import Menu from './menu';
 import Footer from './footer';
 import ProductContainer from './productContainer';

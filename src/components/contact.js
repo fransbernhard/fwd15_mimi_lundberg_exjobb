@@ -1,8 +1,6 @@
 /*global $:true*/
 
 import React, { Component } from 'react';
-import ScrollableAnchor from 'react-scrollable-anchor';
-import { configureAnchors } from 'react-scrollable-anchor';
 
 class Contact extends Component {
   constructor(props){
@@ -18,25 +16,21 @@ class Contact extends Component {
     this._handleChangeMsg = this._handleChangeMsg.bind(this);
   }
 
-  // Change <input> value state onUpdate (while typing) so input is updated
   _handleChange(e) {
     this.setState({
       contactEmail: e.target.value,
     });
   }
-  // Change <textarea> value state onUpdate (while typing) so input is updated
+
   _handleChangeMsg(e) {
     this.setState({
       contactMessage: e.target.value
     });
   }
 
-  // Handle form onSubmit
   _handleSubmit(e) {
-    // Prevent form default action "load onSubmit" to be triggered
     e.preventDefault();
 
-    // Perform an asynchronous HTTP (Ajax) request.
     $.ajax({
       url: process.env.NODE_ENV !== "production" ? '/getMail' : "./php/mailer.php",
       // url: "./php/mailer.php",
@@ -65,15 +59,13 @@ class Contact extends Component {
   render() {
     return (
       <div className="contact" id="contact">
-        <ScrollableAnchor id={'contact'}>
-          <div className="filter">
-            <form className="form" onSubmit={this._handleSubmit} id="formContact">
-              <input id="formEmail" type="email" placeholder="email" name="formEmail" value={this.state.contactEmail} onChange={this._handleChange} required/>
-              <textarea id="formMsg" name="formMsg" placeholder="meddelande" rows="8" cols="40" value={this.state.contactMessage} onChange={this._handleChangeMsg}></textarea>
-              <input type="submit" value="Skicka" className="btn--cta" id="btn-submit" />
-            </form>
-          </div>
-        </ScrollableAnchor>
+        <div className="filter">
+          <form className="form" onSubmit={this._handleSubmit} id="formContact">
+            <input id="formEmail" type="email" placeholder="email" name="formEmail" value={this.state.contactEmail} onChange={this._handleChange} required/>
+            <textarea id="formMsg" name="formMsg" placeholder="meddelande" rows="8" cols="40" value={this.state.contactMessage} onChange={this._handleChangeMsg}></textarea>
+            <input type="submit" value="Skicka" className="btn--cta" id="btn-submit" />
+          </form>
+        </div>
       </div>
     )
   }

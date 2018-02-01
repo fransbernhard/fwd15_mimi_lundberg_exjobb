@@ -23,7 +23,6 @@ class CategoryContainer extends Component {
   };
 };
 
-// Components expected proptypes
 CategoryContainer.propTypes = {
   products: PropTypes.array.isRequired,
   filterHandler: PropTypes.func.isRequired
