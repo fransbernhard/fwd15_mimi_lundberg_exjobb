@@ -20,12 +20,12 @@ nav {
       }
     }
     li {
-      padding: 1.5rem 1rem;
+      padding: 1.5rem 0rem;
       @include respond-to(medium) {
         padding: $l-space;
       }
       a {
-        font-size: 1rem;
+        font-size: 0.8rem;
         @include respond-to(medium) {
           font-size: 0.7rem;
         }

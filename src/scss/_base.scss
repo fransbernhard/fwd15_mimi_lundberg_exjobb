@@ -56,104 +56,54 @@ li {
 	background: map-get($colors, loaderSmallBg);
 }
 
-.loader-container {
-  height:150px;
-  width:170px;
-  position:relative;
-  margin:50px 10px;
-  display:inline-block;
+.pixel-loader {
+  width: 10px;
+  height: 10px;
+  background: #f35626;
+  color: #f35626;
+  margin: 80px auto;
+  box-shadow: 15px 15px  0 0,
+                -15px -15px  0 0,
+                15px -15px  0 0,
+                -15px 15px  0 0,
+                0 15px  0 0,
+                15px 0  0 0,
+                -15px 0  0 0,
+                0 -15px 0 0;
+  animation: anim 2s linear infinite;
 }
 
-$n:10;//play??
+@keyframes anim {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  50% {
+    box-shadow: 20px 20px  0 0,
+                -20px -20px  0 0,
+                20px -20px  0 0,
+                -20px 20px  0 0,
+                0 10px  0 0,
+                10px 0  0 0,
+                -10px 0  0 0,
+                0 -10px 0 0;
+  }
 
-.after {
-  background:#2c3e50;
-  height:50px;
-  width:50px;
-  -webkit-animation: load 2s infinite;
-  animation: load 2s infinite;
-  margin:auto;
-  display:inline-block;
+  75% {
+    box-shadow: 20px 20px  0 0,
+                -20px -20px  0 0,
+                20px -20px  0 0,
+                -20px 20px  0 0,
+                0 10px  0 0,
+                10px 0  0 0,
+                -10px 0  0 0,
+                0 -10px 0 0;
+  }
 
- //the XD Part!! XD containerS!!
-  @for $i from 0 to $n {
-    &:nth-child(#{$i + 1}) {
-        -webkit-animation-delay:($i* 1s / $n);
-      -o-animation-delay:($i* 1s / $n);
-       -moz-animation-delay:($i* 1s / $n);
-       -animation-delay:($i* 1s / $n);
-    }
+  100% {
+    transform: rotate(360deg);
+    -webkit-filter: hue-rotate(360deg);
   }
 }
-
-.after{
-  width:100px;
-  height:10px;
-}
-
-//all by scaling
-@-webkit-keyframes load{
-  0%{transform:scale(0.1);}
-  50%{transform:scale(1);}
-  100%{transform:scale(0.1);}
-}
-@keyframes load{
-  0%{transform:scale(0.1);}
-  50%{transform:scale(1);}
-  100%{transform:scale(0.1);}
-}
-//animation
-
-
-//
-// .pixel-loader {
-//   width: 10px;
-//   height: 10px;
-//   background: #f35626;
-//   color: #f35626;
-//   margin: 80px auto;
-//   box-shadow: 15px 15px  0 0,
-//                 -15px -15px  0 0,
-//                 15px -15px  0 0,
-//                 -15px 15px  0 0,
-//                 0 15px  0 0,
-//                 15px 0  0 0,
-//                 -15px 0  0 0,
-//                 0 -15px 0 0;
-//   animation: anim 2s linear infinite;
-// }
-//
-// @keyframes anim {
-//   0% {
-//     -webkit-filter: hue-rotate(0deg);
-//   }
-//   50% {
-//     box-shadow: 20px 20px  0 0,
-//                 -20px -20px  0 0,
-//                 20px -20px  0 0,
-//                 -20px 20px  0 0,
-//                 0 10px  0 0,
-//                 10px 0  0 0,
-//                 -10px 0  0 0,
-//                 0 -10px 0 0;
-//   }
-//
-//   75% {
-//     box-shadow: 20px 20px  0 0,
-//                 -20px -20px  0 0,
-//                 20px -20px  0 0,
-//                 -20px 20px  0 0,
-//                 0 10px  0 0,
-//                 10px 0  0 0,
-//                 -10px 0  0 0,
-//                 0 -10px 0 0;
-//   }
-//
-//   100% {
-//     transform: rotate(360deg);
-//     -webkit-filter: hue-rotate(360deg);
-//   }
-// }
 
 // .news {
 //   @include flexColumnCenterCenter;

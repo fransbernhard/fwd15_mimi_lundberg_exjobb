@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class CategoryContainer extends Component {
   render(){
-    const categories = [...new Set(this.props.products.map(cat => cat.catName))];
+    const categories = [...new Set(this.props.products.map(prod => prod.catName))];
 
     return (
       <ul className="filterList">

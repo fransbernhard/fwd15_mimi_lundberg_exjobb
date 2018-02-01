@@ -1,20 +1,7 @@
-.slideshow {
-    position: relative;
-    height: 290px;
-}
-
-.slideshow > div {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
 .about-img {
   box-shadow: 0 0 $l-space map-get($colors, blackOpacity);
   border-radius: 50%;
-  max-width: 40vw;
+  max-width: 60vw;
   margin: $l-space auto;
   @include respond-to(medium) {
     max-width: 250px;
@@ -45,7 +32,6 @@
 
 	.wrapper-cv {
 		display: none;
-
 		@include respond-to(medium) {
 			@include flexColumn;
 			border-left: 1px dotted map-get($colors, black);
@@ -60,8 +46,7 @@
 		padding: $l-space;
 
 		p {
-			font-size: 1.3rem;
-			line-height: 2rem;
+			font-size: 1rem;
 			@include respond-to(medium) {
 				font-size: 0.65rem;
 				letter-spacing: 1px;

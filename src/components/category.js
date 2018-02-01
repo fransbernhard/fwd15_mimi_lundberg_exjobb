@@ -6,10 +6,11 @@ class Category extends Component {
     return (
       <li
         className={this.props.active ? 'category active' : 'category inActive'}
-        onClick={this.props.handleClick}
-      ><button className="btn">
+        onClick={this.props.handleClick} >
+        <button className="btn">
           {this.props.category}
-      </button></li>
+        </button>
+      </li>
     );
   };
 };

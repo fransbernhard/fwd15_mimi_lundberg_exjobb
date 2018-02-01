@@ -43,7 +43,7 @@ class Archive extends React.Component {
         return res.json();
       })
       .then((data) => {
-        this.setState({products: data});
+        this.setState({ products: data });
       })
       .catch(function(err) {
         console.log('Error cannot get products: ' + err.message);
@@ -56,7 +56,7 @@ class Archive extends React.Component {
       <div>
         <Menu />
         <div className="archive-container">
-          <div className="archive-wrapper">
+          <div className="archive-wrapper" id="archive">
             <CategoryContainer
               filterHandler={this.filterHandler}
               products={this.state.products}

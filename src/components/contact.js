@@ -1,6 +1,8 @@
 /*global $:true*/
 
 import React, { Component } from 'react';
+import ScrollableAnchor from 'react-scrollable-anchor';
+import { configureAnchors } from 'react-scrollable-anchor';
 
 class Contact extends Component {
   constructor(props){
@@ -63,13 +65,15 @@ class Contact extends Component {
   render() {
     return (
       <div className="contact" id="contact">
-        <div className="filter">
-          <form className="form" onSubmit={this._handleSubmit} id="formContact">
-            <input id="formEmail" type="email" placeholder="email" name="formEmail" value={this.state.contactEmail} onChange={this._handleChange} required/>
-            <textarea id="formMsg" name="formMsg" placeholder="meddelande" rows="8" cols="40" value={this.state.contactMessage} onChange={this._handleChangeMsg}></textarea>
-            <input type="submit" value="Skicka" className="btn--cta" id="btn-submit" />
-          </form>
-        </div>
+        <ScrollableAnchor id={'contact'}>
+          <div className="filter">
+            <form className="form" onSubmit={this._handleSubmit} id="formContact">
+              <input id="formEmail" type="email" placeholder="email" name="formEmail" value={this.state.contactEmail} onChange={this._handleChange} required/>
+              <textarea id="formMsg" name="formMsg" placeholder="meddelande" rows="8" cols="40" value={this.state.contactMessage} onChange={this._handleChangeMsg}></textarea>
+              <input type="submit" value="Skicka" className="btn--cta" id="btn-submit" />
+            </form>
+          </div>
+        </ScrollableAnchor>
       </div>
     )
   }
