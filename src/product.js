@@ -74,9 +74,6 @@ class Product extends Component {
     const divStyle = {
       backgroundImage: 'url(' + this.state.image + ')'
     }
-    const testStyle = {
-      height: 'auto'
-    }
 
     const cat = this.props.product.catName;
 
@@ -84,7 +81,7 @@ class Product extends Component {
       if(cat == 'Places'){
         var img = <div className={this.addClasses(cat)} style={divStyle}/>
       } else {
-        var img = <img className={this.addClasses(cat)} alt={this.props.product.name} src={this.state.image} style={testStyle}/>
+        var img = <img className={this.addClasses(cat)} alt={this.props.product.name} src={this.state.image} />
       }
     } else {
       var img = null;
@@ -184,7 +181,6 @@ class Product extends Component {
   }
 };
 
-// Components expected proptypes
 Product.propTypes = {
   product: PropTypes.object.isRequired
 }
