@@ -160,8 +160,6 @@ class Product extends Component {
     );
   };
 
-  // <Router history={browserHistory} onUpdate={this.hashLinkScroll}>
-
   componentDidMount() {
     import(`./images/${this.props.product.thumbnail}`).then(
       (image) => this.setState({

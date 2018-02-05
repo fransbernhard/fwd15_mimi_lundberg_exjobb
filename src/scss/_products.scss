@@ -51,10 +51,9 @@
 
 .placesBoxClass {
   width: $fullSizePercent;
-  // margin: 0 $m-space $xl-space $m-space;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   @include respond-to(medium) {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
   p {
     @include respond-to(medium) {
@@ -100,7 +99,7 @@
 }
 
 .productBoxClass{
-  margin: $sm-space;
+  margin-bottom: 2.5rem;
   display: flex;
   flex-flow: column;
   @include respond-to(medium) {
@@ -118,6 +117,15 @@
     @include respond-to(medium){
       width: 220px;
     };
+  }
+
+  p {
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+    @include respond-to(medium){
+      font-size: 10px;
+      line-height: 0.85rem;
+    }
   }
 }
 

@@ -35,8 +35,8 @@ class Archive extends React.Component {
       }
     };
 
-    // fetch("./php/products.php", myInit)
-    fetch("/getProducts", myInit)
+    fetch("./php/products.php", myInit)
+    // fetch("/getProducts", myInit)
       .then((res) => {
         return res.json();
       })
