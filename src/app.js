@@ -11,7 +11,6 @@ import {
 } from 'react-router-dom';
 
 import './scss/app.scss';
-// import svgImg from 'svg-url-loader!./graphic.svg';
 import Home from './components/home';
 import Archive from './components/archive';
 
@@ -25,8 +24,6 @@ class App extends Component {
     $(".loaderSmall").delay(3000).fadeOut("slow");
   }
 
-  // <div className="pixel-loader"></div>
-
   render() {
     return (
       <div>
@@ -36,15 +33,14 @@ class App extends Component {
             <path className='st0' style={{fill: 'none', stroke: '#A7A9AC', strokeWidth: 4, strokeLinecap: 'round', strokeLinejoin: 'miter', strokeMiterlimit: 4, strokeOpacity: 1, strokeDasharray: 'none'}} d='M134,133c0,29.7-24,53.7-53.7,53.7s-53.7-24-53.7-53.7'/>
             <path className='st0' style={{fill: 'none', stroke: '#A7A9AC', strokeWidth: 4, strokeLinecap: 'round', strokeLinejoin: 'miter', strokeMiterlimit: 4, strokeOpacity: 1, strokeDasharray: 'none'}} d='M245.8,133c0,29.7-24,53.7-53.7,53.7s-53.7-24-53.7-53.7'/>
             <circle className='st1' style={{fill: '#A7A9AC', stroke: 'none', strokeWidth: 1, strokeLinecap: 'round', strokeLinejoin: 'miter', strokeMiterlimit: 4, strokeOpacity: 1, strokeDasharray: 'none'}} cx='80.3' cy='141.7' r='7.7' >
-              <animateTransform attributeType='xml' attributeName='transform' type='translate'
-                  from='0 0' to='0 -30' begin="0s" dur='5s' repeatCount='indefinite' />
+              <animateTransform attributeType='xml' fill='freeze' attributeName='transform' type='translate'
+                  from='0 0' to='0 -30' begin="0s" dur='5s' fill="freeze" repeatCount='indefinite' />
             </circle>
             <circle className='st1' style={{fill: '#A7A9AC', stroke: 'none', strokeWidth: 1, strokeLinecap: 'round', strokeLinejoin: 'miter', strokeMiterlimit: 4, strokeOpacity: 1, strokeDasharray: 'none'}} cx='192.1' cy='141.7' r='7.7' />
 
           <animateTransform attributeType='xml' attributeName='transform' type='translate'
-              from='0 0' to='0 -30' begin="0s" dur='5s' repeatCount='1' />
+              from='0 0' to='0 -30' dur='5s' fill="freeze" repeatCount='indefinite' />
           </svg>
-
 
         </div>
 
@@ -71,7 +67,3 @@ if (module.hot) {
 }
 
 export default App;
-
-// <div className="loaderSmall">
-//   <img className="loadingImg" src={loadImg}/>
-// </div>

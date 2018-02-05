@@ -27,7 +27,7 @@ const plugins = [
 			warnings: false
 		}
 	}),
-  new ExtractTextPlugin('bundle.css'), // extract you css into seperate file files to serve your webpack bundles
+  new ExtractTextPlugin('bundle.css'),
 	new HtmlWebpackPlugin({
 		template: 'index-template.html',
 		inject: true,
@@ -69,16 +69,8 @@ const config = {
 					loader: 'file-loader',
 					options: {
 						name: '[path][name].[ext]'
-					} // Convert images < 10k to base64 strings (all in images folder)
-					// loader: 'url-loader',
-					// options: { limit: 100000, name: './images/[name].[ext]' } // Convert images < 10k to base64 strings (all in images folder)
+					} 
 				}]
-			},
-			{
-        test: /\.svg/,
-        use: {
-            loader: 'svg-url-loader'
-        }
 			},
 			{
 				test: /\.(sass|scss)$/,
@@ -99,9 +91,6 @@ const config = {
 		]
   },
 	plugins: plugins,
-	// externals: {
-	//   jquery: 'jQuery'
-	// }
 }
 
 module.exports = config;
