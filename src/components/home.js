@@ -3,13 +3,13 @@ import MenuB from './menuB';
 import About from './about';
 import Contact from './contact';
 import Footer from './footer';
-import ScrollableAnchor, { configureAnchors, removeHash } from 'react-scrollable-anchor';
+// import ScrollableAnchor, { configureAnchors, removeHash } from 'react-scrollable-anchor';
 
 class Home extends Component {
-  componentWillMount(){
-    configureAnchors({offset: 0, scrollDuration: 2000});
-    removeHash();
-  }
+  // componentWillMount(){
+  //   configureAnchors({offset: 0, scrollDuration: 2000});
+  //   removeHash();
+  // }
 
   render() {
     return(
@@ -18,17 +18,21 @@ class Home extends Component {
         <MenuB />
         <div className="container">
           <div className="hero"></div>
-            <ScrollableAnchor id={'about'}>
-              <About />
-            </ScrollableAnchor>
-            <ScrollableAnchor id={'contact'}>
-              <Contact />
-            </ScrollableAnchor>
+            <About />
+            <Contact />
         </div>
       </div>
     );
   };
 };
+
+// <ScrollableAnchor id={'about'}>
+//   <About />
+// </ScrollableAnchor>
+// <ScrollableAnchor id={'contact'}>
+//   <Contact />
+// </ScrollableAnchor>
+
 
 // <div className="news">
 //   <h1>V E R N I S A G E</h1>

@@ -75,6 +75,12 @@ const config = {
 				}]
 			},
 			{
+        test: /\.svg/,
+        use: {
+            loader: 'svg-url-loader'
+        }
+			},
+			{
 				test: /\.(sass|scss)$/,
 				use: ExtractTextPlugin.extract({
 			    fallback: 'style-loader',

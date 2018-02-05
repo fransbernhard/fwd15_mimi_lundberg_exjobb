@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
 
-// General styling
 * {
   margin: 0;
   padding: 0;
@@ -56,71 +55,7 @@ li {
 	background: map-get($colors, loaderSmallBg);
 }
 
-.pixel-loader {
-  width: 10px;
-  height: 10px;
-  background: #f35626;
-  color: #f35626;
-  margin: 80px auto;
-  box-shadow: 15px 15px  0 0,
-                -15px -15px  0 0,
-                15px -15px  0 0,
-                -15px 15px  0 0,
-                0 15px  0 0,
-                15px 0  0 0,
-                -15px 0  0 0,
-                0 -15px 0 0;
-  animation: anim 2s linear infinite;
+#loader-1 {
+  width: 150px;
+  height: 150px;
 }
-
-@keyframes anim {
-  0% {
-    -webkit-filter: hue-rotate(0deg);
-  }
-  50% {
-    box-shadow: 20px 20px  0 0,
-                -20px -20px  0 0,
-                20px -20px  0 0,
-                -20px 20px  0 0,
-                0 10px  0 0,
-                10px 0  0 0,
-                -10px 0  0 0,
-                0 -10px 0 0;
-  }
-
-  75% {
-    box-shadow: 20px 20px  0 0,
-                -20px -20px  0 0,
-                20px -20px  0 0,
-                -20px 20px  0 0,
-                0 10px  0 0,
-                10px 0  0 0,
-                -10px 0  0 0,
-                0 -10px 0 0;
-  }
-
-  100% {
-    transform: rotate(360deg);
-    -webkit-filter: hue-rotate(360deg);
-  }
-}
-
-// .news {
-//   @include flexColumnCenterCenter;
-//   background: rgba(255, 228, 225, 0.75);
-//   height: 300px;
-//   min-width: 500px;
-//   padding: 30px;
-//   text-align: center;
-//   border-radius: 20px;
-//
-//   h1 {
-//     margin-top: 0;
-//   }
-//
-//   a {
-//     letter-spacing: 1px;
-//     font-weight: bold;
-//     font-size: 12px;
-//   }
-// }

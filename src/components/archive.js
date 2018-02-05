@@ -53,8 +53,8 @@ class Archive extends React.Component {
 
       <div>
         <Menu />
-        <div className="archive-container">
-          <div className="archive-wrapper" id="archive">
+        <div className="archive-container" id="archive">
+          <div className="archive-wrapper">
             <CategoryContainer
               filterHandler={this.filterHandler}
               products={this.state.products}
