@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 
-
-//Menu component renders menu Link
 class Menu extends Component {
   render() {
     return (

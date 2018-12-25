@@ -3,72 +3,89 @@ import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
 const customStyles = {
-  overlay: {
-    position          : 'fixed',
-    top               : 0,
-    left              : 0,
-    right             : 0,
-    bottom            : 0,
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)',
-    zIndex            : 1000
-  },
-  content: {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    background            : 'rgba(0, 0, 0, 0.8)',
-    width                 : '100vw',
-    height                : '100vh',
-    display               : 'flex',
-    justifyContent        : 'center',
-    alignItems            : 'center',
-    zIndex                : 1000
-  }
+    overlay: {
+        position          : 'fixed',
+        top               : 0,
+        left              : 0,
+        right             : 0,
+        bottom            : 0,
+        backgroundColor   : 'rgba(255, 255, 255, 0.75)',
+        zIndex            : 1000
+    },
+    content: {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)',
+        background            : 'rgba(0, 0, 0, 0.8)',
+        width                 : '100vw',
+        height                : '100vh',
+        display               : 'flex',
+        justifyContent        : 'center',
+        alignItems            : 'center',
+        zIndex                : 1000
+    }
 };
 
 class Product extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalIsOpen: false,
-      image: "",
-      previewImg: "",
-      productClass: ""
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalIsOpen: false,
+            image: "",
+            previewImg: "",
+            productClass: ""
+        };
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.addClasses = this.addClasses.bind(this);
-    this.addProductContainerClass = this.addProductContainerClass.bind(this);
-  }
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+        this.addClasses = this.addClasses.bind(this);
+        this.addProductContainerClass = this.addProductContainerClass.bind(this);
+    }
 
-  openModal() {
-    this.setState({
-      modalIsOpen: true
-    });
+    componentDidMount() {
+        import(`./images/${this.props.product.thumbnail}`).then(
+            (image) => this.setState({
+                image: image
+            })
+        ).catch((err) => {
+            console.log('Could not import thumbnail: ' + err);
+        });
 
-  }
+        import(`./images/${this.props.product.previewImg}`).then(
+            (previewImg) => this.setState({
+                previewImg: previewImg
+            })
+        ).catch((err) => {
+            console.log('Could not import thumbnail: previewImg ' + err);
+        });
+    }
 
-  closeModal() {
-    this.setState({
-      modalIsOpen: false
-    });
-  }
+    openModal() {
+        this.setState({
+            modalIsOpen: true
+        });
+    }
 
-  addClasses(cat){
-    return (cat == 'Places') ? 'placesImgClass' : 'productImgClass';
-  }
+    closeModal() {
+        this.setState({
+            modalIsOpen: false
+        });
+    }
 
-  addProductContainerClass(cat){
-    return (cat == 'Places') ? 'hvr-sink placesBoxClass' : 'hvr-sink productBoxClass';
-  }
+    addClasses(cat){
+        return (cat == 'Places') ? 'placesImgClass' : 'productImgClass';
+    }
 
-  componentWillMount() {
-    Modal.setAppElement('body');
-  }
+    addProductContainerClass(cat){
+        return (cat == 'Places') ? 'hvr-sink placesBoxClass' : 'hvr-sink productBoxClass';
+    }
+
+    componentWillMount() {
+        Modal.setAppElement('body');
+    }
 
   render(){
     const divStyle = {
@@ -78,13 +95,13 @@ class Product extends Component {
     const cat = this.props.product.catName;
 
     if(this.state.image){
-      if(cat == 'Places'){
-        var img = <div className={this.addClasses(cat)} style={divStyle}/>
-      } else {
-        var img = <img className={this.addClasses(cat)} alt={this.props.product.name} src={this.state.image} />
-      }
+        if(cat == 'Places'){
+            var img = <div className={this.addClasses(cat)} style={divStyle}/>
+        } else {
+            var img = <img className={this.addClasses(cat)} alt={this.props.product.name} src={this.state.image} />
+        }
     } else {
-      var img = null;
+        var img = null;
     }
 
     var stockInt = parseInt(this.props.product.stocked);
@@ -159,24 +176,6 @@ class Product extends Component {
       </div>
     );
   };
-
-  componentDidMount() {
-    import(`./images/${this.props.product.thumbnail}`).then(
-      (image) => this.setState({
-        image: image
-      })
-    ).catch((err) => {
-      console.log('Could not import thumbnail: ' + err);
-    });
-
-    import(`./images/${this.props.product.previewImg}`).then(
-      (previewImg) => this.setState({
-        previewImg: previewImg
-      })
-    ).catch((err) => {
-      console.log('Could not import thumbnail: previewImg ' + err);
-    });
-  }
 };
 
 Product.propTypes = {

@@ -7,7 +7,6 @@
 
     // Check that data was sent to the mailer.
     if ( empty($message)) {
-      // Set a 400 (bad request) response code and exit.
       http_response_code(400);
       echo "<h1>Oops! There was a problem with your submission. Please complete the form and try again.</h1>";
       exit;

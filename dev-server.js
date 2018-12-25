@@ -10,7 +10,7 @@ var server = new WebpackDevServer(compiler, {
 	publicPath: config.output.publicPath,
 	proxy: {
 		"/getMail": 'http://localhost:80/magdan/php/mailer.php',
-		"/getProducts": 'http://localhost:80/magdan/php/products.php'
+		"/getProducts": 'https://localhost/magdalundberg-react/php/products.php'
 	},
 	stats: {
 		colors: true
@@ -20,6 +20,6 @@ var server = new WebpackDevServer(compiler, {
 	}
 });
 
-server.listen(8080, 'localhost', function() {
-	console.log("Starting server on http://localhost:8080");
+server.listen(8080, '127.0.0.1', function() {
+	console.log("Starting server on http://127.0.0.1:8080");
 });

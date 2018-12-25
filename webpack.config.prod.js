@@ -16,80 +16,79 @@ const output = {
 
 const plugins = [
 	new webpack.DefinePlugin({
-	  // 'process.env.NODE_ENV': JSON.stringify('production')
 		'process.env': {
-	    NODE_ENV: JSON.stringify('production')
-	  }
-	}),
-	new webpack.optimize.UglifyJsPlugin({
-		mangle: false,
-		compress: {
-			warnings: false
+			NODE_ENV: JSON.stringify('production')
 		}
 	}),
-  new ExtractTextPlugin('bundle.css'),
+  	new ExtractTextPlugin('bundle.css'),
 	new HtmlWebpackPlugin({
 		template: 'index-template.html',
 		inject: true,
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      removeRedundantAttributes: true,
-      useShortDoctype: true,
-      removeEmptyAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      keepClosingSlash: true,
-      minifyJS: true,
-      minifyCSS: true,
-      minifyURLs: true,
-    }
-	}),
-	new webpack.optimize.CommonsChunkPlugin({
-		name: 'bundle',
-		filename: 'bundle.common.js'
+	    minify: {
+	      removeComments: true,
+	      collapseWhitespace: true,
+	      removeRedundantAttributes: true,
+	      useShortDoctype: true,
+	      removeEmptyAttributes: true,
+	      removeStyleLinkTypeAttributes: true,
+	      keepClosingSlash: true,
+	      minifyJS: true,
+	      minifyCSS: true,
+	      minifyURLs: true,
+	    }
 	})
 ]
 
 const config = {
-  context: path.join(__dirname, 'src'),
-  entry: entry,
+	context: path.join(__dirname, 'src'),
+	entry: entry,
 	output: output,
-	devtool: "source-map",
-  module: {
-    rules: [
-			{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				include: path.join(__dirname, 'src'),
-				use: "babel-loader"
-			},
-      {
-			  test: /\.(png|jpg|gif)$/,
-			  use: [{
-					loader: 'file-loader',
+	optimization: {
+	    minimize: true,
+		splitChunks: {
+			chunks: 'all'
+		}
+	},
+	module: {
+	rules: [
+		{
+			test: /\.(js|jsx)$/,
+			exclude: /node_modules/,
+			include: path.join(__dirname, 'src'),
+			use: "babel-loader"
+		},
+		{
+			test: /\.(png|jpg|gif)$/,
+			use: [
+				'file-loader',
+				{
+					loader: 'image-webpack-loader',
 					options: {
-						name: '[path][name].[ext]'
-					} 
-				}]
-			},
-			{
-				test: /\.(sass|scss)$/,
-				use: ExtractTextPlugin.extract({
-			    fallback: 'style-loader',
-			    use: [
-			      'css-loader',
-			      {
-							loader: 'postcss-loader',
-							options: {
-								plugins: (loader) => [ require('autoprefixer')() ]
+						bypassOnDebug: true, // webpack@1.x
+						disable: true, // webpack@2.x and newer
+					}
+				},
+			]
+		},
+		{
+			test: /\.(sass|scss)$/,
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: [
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							config: {
+								path: __dirname + '/postcss.config.js'
 							}
 						},
-			      'sass-loader',
-			    ]
-			  })
-			}
-		]
-  },
+					},
+					'sass-loader'
+				]
+			})
+		}]
+	},
 	plugins: plugins,
 }
 

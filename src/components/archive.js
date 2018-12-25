@@ -28,29 +28,27 @@ class Archive extends React.Component {
 
   componentDidMount(){
     const myInit = {
-      method: "GET",
-      headers: {
-         "Content-Type": "application/json",
-         'Accept': 'application/json'
-      }
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            'Accept': 'application/json'
+        }
     };
 
-    fetch("./php/products.php", myInit)
-    // fetch("/getProducts", myInit)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        this.setState({ products: data });
-      })
-      .catch(function(err) {
-        console.log('Error cannot get products: ' + err.message);
-      });
+    // fetch("./php/products.php", myInit)
+    fetch("/getProducts", myInit)
+        .then(res => res.text())
+        .then(text => console.log("hejhej"))
+        // .then(res => res.json())
+        // .then((data) => {
+        //     this.setState({ products: data });
+        // }).catch(function(err) {
+        //     console.log('Error cannot get products: ' + err.message);
+        // });
   }
 
   render() {
     return (
-
       <div>
         <Menu />
         <div className="archive-container" id="archive">

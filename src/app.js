@@ -42,8 +42,6 @@ class App extends Component {
               <animateTransform attributeType='xml' fill='freeze' attributeName='transform' type='translate'
                   from='0 0' to='0 27' begin="1s" dur='3s' fill="freeze" repeatCount='1' />
             </circle>
-
-
           </svg>
 
         </div>
