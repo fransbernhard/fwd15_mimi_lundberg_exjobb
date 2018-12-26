@@ -1,9 +1,8 @@
 <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // trim() strips any white space from beginning and end of the string
-    $sender = filter_var(trim($_POST["form_email"]), FILTER_SANITIZE_EMAIL);
-    //  strip_tags() strips all HTML and PHP tags from a variable.
-    $message = strip_tags($_POST["form_msg"]);
+    $sender = filter_var(trim($_POST["form_email"]), FILTER_SANITIZE_EMAIL); // trim() strips any white space from beginning and end of the string
+
+    $message = strip_tags($_POST["form_msg"]); // strip of all HTML and PHP tags
 
     // Check that data was sent to the mailer.
     if ( empty($message)) {

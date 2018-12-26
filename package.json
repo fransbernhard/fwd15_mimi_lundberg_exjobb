@@ -6,8 +6,8 @@
     "author": "fransBernhard <mimilundberg@fransbernhard.se>",
     "license": "ISC",
     "scripts": {
-        "start": "node dev-server.js --mode development --open",
-        "build": "rimraf dist && webpack --mode production --config webpack.config.prod.js "
+        "dev": "node dev-server.js webpack --mode development --open",
+        "build": "rimraf dist && webpack --mode production --config webpack.config.prod.js"
     },
     "dependencies": {
         "react": "^16.2.0",
@@ -21,6 +21,7 @@
         "@babel/preset-env": "^7.1.5",
         "@babel/preset-react": "^7.0.0",
         "babel-loader": "^8.0.4",
+        "babel-plugin-dynamic-import-node": "^2.2.0",
         "css-loader": "^1.0.1",
         "extract-text-webpack-plugin": "^4.0.0-beta.0",
         "file-loader": "^2.0.0",

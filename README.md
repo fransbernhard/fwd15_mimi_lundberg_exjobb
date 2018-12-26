@@ -16,10 +16,10 @@ $ npm install
 $ npm run start
 ```
 
-Navigate to http://localhost:8080/ in browser to view project in development environment.
+Navigate to http://localhost:8888/ in browser to view project in development environment.
 
 ### Testing with Jest
-Project uses Jest to test functions and components: 
+Project uses Jest to test functions and components:
 
 ```
 $ yarn test
@@ -42,7 +42,7 @@ this will generate a folder in *magdenmagden/backstopdata* called "bitmaps_refer
 $ npm run test
 ```
 
-this will generate another folder called "bitmaps_test" and inside there will be a date-named folder with the differences and your browser will automatically open and display comparisons from initial state to edited state. 
+this will generate another folder called "bitmaps_test" and inside there will be a date-named folder with the differences and your browser will automatically open and display comparisons from initial state to edited state.
 
 #### Activate eslint
 To activate eslint - go to webpack.config.js file and comment in the "eslint-loader" section.
@@ -56,4 +56,3 @@ or
 
 $ npm run build
 ```
-

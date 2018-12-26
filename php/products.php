@@ -3,7 +3,7 @@
   $servername = "localhost";
   $username = "root";
   $password = "root";
-  $dbname = "magda";
+  $dbname = "magdalundberg_se_fri";
 
   // $servername = "magdalundberg.se.mysql";
   // $username = "magdalundberg_se_fri";

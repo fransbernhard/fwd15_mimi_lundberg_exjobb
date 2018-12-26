@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const entry = [
-	'webpack-dev-server/client?http://localhost:8080',
+	'webpack-dev-server/client?http://localhost:8888',
 	'webpack/hot/only-dev-server',
 	'./app.js'
 ]
@@ -21,6 +21,7 @@ const plugins = [
 
 const config = {
 	context: path.join(__dirname, 'src'),
+	mode: 'development',
 	entry: entry,
 	output: output,
 	devtool: "inline-source-map",

@@ -41,6 +41,7 @@ const plugins = [
 
 const config = {
 	context: path.join(__dirname, 'src'),
+	mode: 'production',
 	entry: entry,
 	output: output,
 	optimization: {
@@ -50,44 +51,50 @@ const config = {
 		}
 	},
 	module: {
-	rules: [
-		{
-			test: /\.(js|jsx)$/,
-			exclude: /node_modules/,
-			include: path.join(__dirname, 'src'),
-			use: "babel-loader"
-		},
-		{
-			test: /\.(png|jpg|gif)$/,
-			use: [
-				'file-loader',
-				{
-					loader: 'image-webpack-loader',
-					options: {
-						bypassOnDebug: true, // webpack@1.x
-						disable: true, // webpack@2.x and newer
-					}
-				},
-			]
-		},
-		{
-			test: /\.(sass|scss)$/,
-			use: ExtractTextPlugin.extract({
-				fallback: 'style-loader',
-				use: [
-					'css-loader',
-					{
-						loader: 'postcss-loader',
-						options: {
-							config: {
-								path: __dirname + '/postcss.config.js'
-							}
+		rules: [
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				include: path.join(__dirname, 'src'),
+				use: "babel-loader"
+			},
+			{
+				test: /\.(png|jpg|gif)$/,
+				loader: 'file-loader',
+		        options: {
+					name: '/images/[name].[ext]'
+		        },
+				// use: [
+				// 	'file-loader',
+				// 	{
+				// 		loader: 'image-webpack-loader',
+				// 		options: {
+				// 			bypassOnDebug: true,
+				// 			disable: true,
+				// 			name: '[path][name].[ext]'
+				// 		}
+				// 	},
+				// ]
+			},
+			{
+				test: /\.(sass|scss)$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [
+						'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								config: {
+									path: __dirname + '/postcss.config.js'
+								}
+							},
 						},
-					},
-					'sass-loader'
-				]
-			})
-		}]
+						'sass-loader'
+					]
+				})
+			}
+		]
 	},
 	plugins: plugins,
 }

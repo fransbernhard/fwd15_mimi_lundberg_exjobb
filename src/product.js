@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
@@ -13,23 +13,23 @@ const customStyles = {
         zIndex            : 1000
     },
     content: {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)',
-        background            : 'rgba(0, 0, 0, 0.8)',
-        width                 : '100vw',
-        height                : '100vh',
-        display               : 'flex',
-        justifyContent        : 'center',
-        alignItems            : 'center',
-        zIndex                : 1000
+        top               : '50%',
+        left              : '50%',
+        right             : 'auto',
+        bottom            : 'auto',
+        marginRight       : '-50%',
+        transform         : 'translate(-50%, -50%)',
+        background        : 'rgba(0, 0, 0, 0.8)',
+        width             : '100vw',
+        height            : '100vh',
+        display           : 'flex',
+        justifyContent    : 'center',
+        alignItems        : 'center',
+        zIndex            : 1000
     }
 };
 
-class Product extends Component {
+class Product extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -46,30 +46,31 @@ class Product extends Component {
     }
 
     componentDidMount() {
-        import(`./images/${this.props.product.thumbnail}`).then(
-            (image) => this.setState({
+        import(`./images/${this.props.product.thumbnail}`)
+        .then(image => {
+            this.setState({
                 image: image
             })
-        ).catch((err) => {
-            console.log('Could not import thumbnail: ' + err);
+        }).catch(err => {
+            console.log('Error importing thumbnail: ' + err);
         });
 
-        import(`./images/${this.props.product.previewImg}`).then(
-            (previewImg) => this.setState({
-                previewImg: previewImg
-            })
-        ).catch((err) => {
-            console.log('Could not import thumbnail: previewImg ' + err);
-        });
+        // import(`./images/${this.props.product.previewImg}`).then(
+        //     (previewImg) => this.setState({
+        //         previewImg: previewImg
+        //     })
+        // ).catch((err) => {
+        //     console.log('Could not import preview image: ' + err);
+        // });
     }
 
-    openModal() {
+    openModal(){
         this.setState({
             modalIsOpen: true
         });
     }
 
-    closeModal() {
+    closeModal(){
         this.setState({
             modalIsOpen: false
         });
@@ -87,95 +88,84 @@ class Product extends Component {
         Modal.setAppElement('body');
     }
 
-  render(){
-    const divStyle = {
-      backgroundImage: 'url(' + this.state.image + ')'
-    }
-
-    const cat = this.props.product.catName;
-
-    if(this.state.image){
-        if(cat == 'Places'){
-            var img = <div className={this.addClasses(cat)} style={divStyle}/>
-        } else {
-            var img = <img className={this.addClasses(cat)} alt={this.props.product.name} src={this.state.image} />
+    render(){
+        const divStyle = {
+          backgroundImage: 'url(' + this.state.image + ')'
         }
-    } else {
-        var img = null;
-    }
 
-    var stockInt = parseInt(this.props.product.stocked);
+        const cat = this.props.product.catName;
 
-    var name = stockInt
-      ? <h3>{this.props.product.name}</h3>
-      : <h3>{this.props.product.name} - SÅLD</h3>;
+        if(this.state.image){
+            if(cat == 'Places'){
+                var img = <div className={this.addClasses(cat)} style={divStyle}/>
+            } else {
+                var img = <img className={this.addClasses(cat)} alt={this.props.product.name} src={this.state.image} />
+            }
+        }
 
-    var desc = this.props.product.desc
-      ? <p>{this.props.product.desc}</p>
-      : null;
+        const stockInt = parseInt(this.props.product.stocked);
 
-    var limited = this.props.product.limited
-      ? <p>begränsad upplaga: {this.props.product.limited} ex</p>
-      : null;
+        const name = stockInt
+          ? <h3>{this.props.product.name}</h3>
+          : <h3>{this.props.product.name} - SÅLD</h3>;
 
-    var available = this.props.product.available
-      ? <p>tillgängliga: {this.props.product.available} ex</p>
-      : null;
+        const desc = this.props.product.desc
+            && <p>{this.props.product.desc}</p>
 
-    var price = this.props.product.price
-      ? <p>{this.props.product.price}  kr</p>
-      : null;
+        const limited = this.props.product.limited
+            && <p>begränsad upplaga: {this.props.product.limited} ex</p>
 
-    var type = this.props.product.type
-      ? <p>{this.props.product.type}</p>
-      : null;
+        const available = this.props.product.available
+            && <p>tillgängliga: {this.props.product.available} ex</p>
 
-    var size = this.props.product.size
-      ? <p>{this.props.product.size} cm</p>
-      : null;
+        const price = this.props.product.price
+            && <p>{this.props.product.price} kr</p>
 
-    var modalName = this.props.product.name
-      ? <h2><a className="modalDesc" href="mailto:magdamargaretha@gmail.com?subject=Fri!%20Fri!%20Fri!&body=Innan%20du%20skriver%20vill%20jag%20bara%20säga%20hej.%20Hej">{this.props.product.name}</a></h2>
-      : null;
+        const type = this.props.product.type
+            && <p>{this.props.product.type}</p>
 
-    var modalDesc = this.props.product.modalDesc
-      ? <h2>{this.props.product.modalDesc}</h2>
-      : null;
+        const size = this.props.product.size
+            && <p>{this.props.product.size} cm</p>
 
-    var modalDescSmall = this.props.product.modalDesc
-      ? <p>{this.props.product.modalDesc}</p>
-      : null;
+        const modalName = this.props.product.name
+            && <h2><a className="modalDesc" href="mailto:magdamargaretha@gmail.com?subject=Fri!%20Fri!%20Fri!&body=Innan%20du%20skriver%20vill%20jag%20bara%20säga%20hej.%20Hej">{this.props.product.name}</a></h2>
 
-    return (
-      <div>
-        <div className={this.addProductContainerClass(this.props.product.catName)} onClick={this.openModal}>
-          {img}
-          {name}
-          {type}
-          {limited}
-          {available}
-          {size}
-          {price}
-          {desc}
-          {modalDescSmall}
-        </div>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          shouldCloseOnOverlayClick={true}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Modal"
-        >
-          <div className="modal-box">
-            <div className="close" onClick={this.closeModal}>x</div>
-            <img src={this.state.previewImg}/>
-            {modalName}
-            {modalDesc}
+        const modalDesc = this.props.product.modalDesc
+            && <h2>{this.props.product.modalDesc}</h2>
+
+        const modalDescSmall = this.props.product.modalDesc
+            && <p>{this.props.product.modalDesc}</p>
+
+        return (
+          <div>
+            <div className={this.addProductContainerClass(this.props.product.catName)} onClick={this.openModal}>
+                {img}
+                {name}
+                {type}
+                {limited}
+                {available}
+                {size}
+                {price}
+                {desc}
+                {modalDescSmall}
+            </div>
+            <Modal
+                isOpen={this.state.modalIsOpen}
+                shouldCloseOnOverlayClick={true}
+                onRequestClose={this.closeModal}
+                style={customStyles}
+                contentLabel="Modal"
+            >
+                <div className="modal-box">
+                    <div className="close" onClick={this.closeModal}>x</div>
+                    <img src={this.state.previewImg}/>
+                    {modalName}
+                    {modalDesc}
+                </div>
+            </Modal>
           </div>
-        </Modal>
-      </div>
-    );
-  };
+        );
+    };
 };
 
 Product.propTypes = {
