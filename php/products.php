@@ -5,11 +5,6 @@
   $password = "root";
   $dbname = "magdalundberg_se_fri";
 
-  // $servername = "magdalundberg.se.mysql";
-  // $username = "magdalundberg_se_fri";
-  // $password = "3etTfdDg";
-  // $dbname = "magdalundberg_se_fri";
-
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
 
