@@ -3,3 +3,4 @@ dist/
 *.log
 yarn.error.log*
 yarn.lock*
+info.txt
