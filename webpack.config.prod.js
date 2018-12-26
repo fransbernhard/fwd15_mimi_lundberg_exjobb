@@ -1,5 +1,4 @@
 //  PRODUCTION
-
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -15,11 +14,6 @@ const output = {
 }
 
 const plugins = [
-	new webpack.DefinePlugin({
-		'process.env': {
-			NODE_ENV: JSON.stringify('production')
-		}
-	}),
   	new ExtractTextPlugin('bundle.css'),
 	new HtmlWebpackPlugin({
 		template: 'index-template.html',
