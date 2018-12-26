@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
-import Footer from './Footer';
-import ProductContainer from './ProductContainer';
-import CategoryContainer from './CategoryContainer';
 
-class Archive extends React.Component {
+import Menu from '../components/Menu';
+import Footer from '../components/Footer';
+import ProductContainer from '../components/ProductContainer';
+import CategoryContainer from '../components/CategoryContainer';
+
+class Archive extends Component {
     state = {
         products: [],
         category: "",

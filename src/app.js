@@ -10,9 +10,9 @@ import {
     HashRouter
 } from 'react-router-dom';
 
-import './scss/App.scss';
-import Home from './components/Home';
-import Archive from './components/Archive';
+import './assets/scss/App.scss';
+import Home from './containers/Home';
+import Archive from './containers/Archive';
 
 class App extends PureComponent {
 

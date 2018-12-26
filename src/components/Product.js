@@ -142,25 +142,25 @@ class Product extends PureComponent {
         )
     }
 
-    // componentDidMount() {
-    //     import(`./images/${product.thumbnail}`)
-    //     .then((image) => {
-    //         this.setState({
-    //             image: image
-    //         })
-    //     }).catch(err => {
-    //         console.log('Error importing thumbnail: ' + err);
-    //     });
-    //
-    //
-    //     import(`./images/${product.previewImg}`).then(
-    //         (previewImg) => this.setState({
-    //             previewImg: previewImg
-    //         })
-    //     ).catch((err) => {
-    //         console.log('Could not import preview image: ' + err);
-    //     });
-    // }
+    componentDidMount() {
+        // import(`../images/${this.props.product.thumbnail}`)
+        //     .then((image) => {
+        //         this.setState({
+        //             image: image
+        //         })
+        //     }).catch(err => {
+        //         console.log('Error importing thumbnail: ' + err);
+        //     });
+
+        // import(`./images/${product.previewImg}`)
+        //     .then(
+        //         (previewImg) => this.setState({
+        //             previewImg: previewImg
+        //         })
+        //     ).catch((err) => {
+        //         console.log('Could not import preview image: ' + err);
+        //     });
+    }
 };
 
 export default Product;
