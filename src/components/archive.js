@@ -1,5 +1,3 @@
-/*global $:true*/
-
 import React, { Component } from 'react';
 import Menu from './Menu';
 import Footer from './Footer';
@@ -7,17 +5,13 @@ import ProductContainer from './ProductContainer';
 import CategoryContainer from './CategoryContainer';
 
 class Archive extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            products: [],
-            category: "",
-            activeIndex: 3
-        }
-        this.filterHandler = this.filterHandler.bind(this);
+    state = {
+        products: [],
+        category: "",
+        activeIndex: 3
     }
 
-    filterHandler(cat, index){
+    filterHandler = (cat, index) => {
         this.setState({
             category: cat,
             activeIndex: index
@@ -65,8 +59,8 @@ class Archive extends React.Component {
                 </div>
                 <Footer />
             </div>
-        );
-    };
-};
+        )
+    }
+}
 
 export default Archive;

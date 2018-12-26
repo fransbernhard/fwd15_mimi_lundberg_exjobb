@@ -1,32 +1,25 @@
 import React, { PureComponent } from 'react';
 
 class Contact extends PureComponent {
-    constructor(props){
-        super(props);
-        this.state = {
-            contactEmail: '',
-            contactMessage: '',
-            successMsg: ''
-        };
+    state = {
+        contactEmail: '',
+        contactMessage: '',
+        successMsg: ''
+    };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChangeMsg = this.handleChangeMsg.bind(this);
-    }
-
-    handleChange(e) {
+    handleChange = (e) => {
         this.setState({
             contactEmail: e.target.value,
         });
     }
 
-    handleChangeMsg(e) {
+    handleChangeMsg = (e) => {
         this.setState({
             contactMessage: e.target.value
         });
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
 
         $.ajax({
