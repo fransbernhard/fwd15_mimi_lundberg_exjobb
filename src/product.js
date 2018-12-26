@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import Modal from 'react-modal';
-import PropTypes from 'prop-types';
 
 const customStyles = {
     overlay: {
@@ -45,25 +44,6 @@ class Product extends PureComponent {
         this.addProductContainerClass = this.addProductContainerClass.bind(this);
     }
 
-    componentDidMount() {
-        import(`./images/${this.props.product.thumbnail}`)
-        .then(image => {
-            this.setState({
-                image: image
-            })
-        }).catch(err => {
-            console.log('Error importing thumbnail: ' + err);
-        });
-
-        // import(`./images/${this.props.product.previewImg}`).then(
-        //     (previewImg) => this.setState({
-        //         previewImg: previewImg
-        //     })
-        // ).catch((err) => {
-        //     console.log('Could not import preview image: ' + err);
-        // });
-    }
-
     openModal(){
         this.setState({
             modalIsOpen: true
@@ -90,7 +70,7 @@ class Product extends PureComponent {
 
     render(){
         const divStyle = {
-          backgroundImage: 'url(' + this.state.image + ')'
+            backgroundImage: 'url(' + this.state.image + ')'
         }
 
         const cat = this.props.product.catName;
@@ -166,10 +146,26 @@ class Product extends PureComponent {
           </div>
         );
     };
-};
 
-Product.propTypes = {
-  product: PropTypes.object.isRequired
-}
+    // componentDidMount() {
+    //     import(`./images/${this.props.product.thumbnail}`)
+    //     .then((image) => {
+    //         this.setState({
+    //             image: image
+    //         })
+    //     }).catch(err => {
+    //         console.log('Error importing thumbnail: ' + err);
+    //     });
+    //
+    //
+    //     import(`./images/${this.props.product.previewImg}`).then(
+    //         (previewImg) => this.setState({
+    //             previewImg: previewImg
+    //         })
+    //     ).catch((err) => {
+    //         console.log('Could not import preview image: ' + err);
+    //     });
+    // }
+};
 
 export default Product;

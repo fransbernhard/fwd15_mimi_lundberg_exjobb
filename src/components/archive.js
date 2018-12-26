@@ -7,7 +7,6 @@ import ProductContainer from './productContainer';
 import CategoryContainer from './categoryContainer';
 
 class Archive extends React.Component {
-
     constructor(props){
         super(props);
         this.state = {

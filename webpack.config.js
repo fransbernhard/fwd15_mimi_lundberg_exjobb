@@ -39,7 +39,9 @@ const config = {
 				test: /\.(png|jpg|gif)$/,
 				use: [{
 					loader: 'url-loader',
-					options: { name: './images/[name].[ext]' }
+					options: {
+						name: '[path][name].[ext]'
+					}
 				}]
 			},
 			{

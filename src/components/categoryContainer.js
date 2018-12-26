@@ -1,31 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Category from './category';
-import PropTypes from 'prop-types';
 
-class CategoryContainer extends Component {
-  render(){
-    const categories = [...new Set(this.props.products.map(prod => prod.catName))];
+const CategoryContainer = ({ activeIndex, products, filterHandler }) => {
+    const categories = [...new Set(products.map(prod => prod.catName))];
 
     return (
-      <ul className="filterList">
-        {
-          categories.map((cat, index) =>
-            <Category
-              key={index}
-              category={cat}
-              active={index === this.props.activeIndex}
-              handleClick={() => this.props.filterHandler(cat, index)}
-            />
-          )
-        }
-      </ul>
-    );
-  };
-};
-
-CategoryContainer.propTypes = {
-  products: PropTypes.array.isRequired,
-  filterHandler: PropTypes.func.isRequired
+        <ul className="filterList">
+            {categories.map((cat, index) =>
+                <Category
+                    key={index}
+                    category={cat}
+                    active={index === activeIndex}
+                    handleClick={() => filterHandler(cat, index)}
+                />
+            )}
+        </ul>
+    )
 }
 
 export default CategoryContainer;

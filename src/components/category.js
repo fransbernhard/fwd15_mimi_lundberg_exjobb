@@ -1,23 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
-class Category extends Component {
-  render(){
-    return (
-      <li
-        className={this.props.active ? 'category active' : 'category inActive'}
-        onClick={this.props.handleClick} >
+const Category = ({active, handleClick, category}) =>  (
+    <li
+        className={active ? 'category active' : 'category inActive'}
+        onClick={handleClick}
+    >
         <button className="btn">
-          {this.props.category}
+            {category}
         </button>
-      </li>
-    );
-  };
-};
-
-Category.propTypes = {
-  handleClick: PropTypes.func,
-  category: PropTypes.string
-}
+    </li>
+)
 
 export default Category;

@@ -1,32 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Product from "../product";
-import PropTypes from 'prop-types';
 
-// key={product.id}
-
-class ProductContainer extends Component {
-
-  render(){
-    return (
-      <div>
-        <div className="prodContainer">
-          {
-            this.props.products.map(product =>
-              <Product
-                key={product.itemId}
-                product={product}
-              />
+const ProductContainer = ({ products }) => (
+    <div className="prodContainer">
+        {
+            products.map(product =>
+                <Product
+                    key={product.itemId}
+                    product={product}
+                />
             )
-          }
-        </div>
-      </div>
-    );
-  };
-};
-
-// Components expected proptypes
-ProductContainer.propTypes = {
-  products: PropTypes.array.isRequired
-}
+        }
+    </div>
+)
 
 export default ProductContainer;

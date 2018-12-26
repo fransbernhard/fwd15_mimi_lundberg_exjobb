@@ -17,11 +17,11 @@ import Archive from './components/archive';
 class App extends Component {
 
   componentDidMount() {
-    window.addEventListener('load', this.handleLoad);
+      window.addEventListener('load', this.handleLoad);
   }
 
   handleLoad() {
-    $(".loaderSmall").delay(5000).fadeOut("slow");
+      $(".loaderSmall").delay(5000).fadeOut("slow");
   }
 
   render() {
@@ -47,11 +47,11 @@ class App extends Component {
         </div>
 
         <Router>
-          <Switch>
-            <Route exact path={'/'} component={Home}/>
-            <Route path={'/archive'} component={Archive} />
-            <Route render={() => { return <Redirect to="/" />}} />
-          </Switch>
+            <Switch>
+                <Route exact path={'/'} component={Home}/>
+                <Route path={'/archive'} component={Archive} />
+                <Route render={() => { return <Redirect to="/" />}} />
+            </Switch>
         </Router>
 
       </div>
@@ -60,8 +60,8 @@ class App extends Component {
 };
 
 ReactDOM.render (
-  <App/>,
-  document.getElementById('app')
+    <App/>,
+    document.getElementById('app')
 )
 
 if (module.hot) {
