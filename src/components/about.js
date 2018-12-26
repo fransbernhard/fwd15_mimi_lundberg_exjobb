@@ -41,7 +41,7 @@ const About = () => (
                 2012-2013 Beckmans kvällsskola | Stockholm</p>
             </div>
         </div>
-  </div>
+    </div>
 )
 
 export default About;

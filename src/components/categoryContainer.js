@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Category from './Category';
-
 const CategoryContainer = ({ activeIndex, products, filterHandler }) => {
     const categories = [...new Set(products.map(prod => prod.catName))];
 
@@ -18,5 +16,16 @@ const CategoryContainer = ({ activeIndex, products, filterHandler }) => {
         </ul>
     )
 }
+
+const Category = ({ active, handleClick, category }) =>  (
+    <li
+        className={active ? 'category active' : 'category inActive'}
+        onClick={handleClick}
+    >
+        <button className="btn">
+            {category}
+        </button>
+    </li>
+)
 
 export default CategoryContainer;
