@@ -12,9 +12,9 @@ class Archive extends Component {
         activeIndex: 3
     }
 
-    filterHandler = (cat, index) => {
+    filterHandler = (category, index) => {
         this.setState({
-            category: cat,
+            category,
             activeIndex: index
         })
     }
@@ -39,26 +39,28 @@ class Archive extends Component {
     }
 
     render() {
+        const {category, activeIndex, products} = this.state;
+
         return (
             <div>
-                <Menu />
+                <Menu/>
                 <div className="archive-container" id="archive">
                     <div className="archive-wrapper">
                         <CategoryContainer
                             filterHandler={this.filterHandler}
-                            products={this.state.products}
-                            activeIndex={this.state.activeIndex}
+                            products={products}
+                            activeIndex={activeIndex}
                         />
                         <br/><br/>
                         <ProductContainer
-                            products={this.state.category.length
-                                ? this.state.products.filter((prod) => prod.catName === this.state.category)
-                                : this.state.products.filter((prod) => prod.catName === 'Places')
+                            products={category.length
+                                ? products.filter((prod) => prod.catName === category)
+                                : products.filter((prod) => prod.catName === 'Places')
                             }
                         />
                     </div>
                 </div>
-                <Footer />
+                <Footer/>
             </div>
         )
     }

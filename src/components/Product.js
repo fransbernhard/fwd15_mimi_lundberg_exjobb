@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Modal from 'react-modal';
 
-const customStyles = {
+const modalStyles = {
     overlay: {
         position          : 'fixed',
         top               : 0,
@@ -32,59 +32,56 @@ class Product extends PureComponent {
     state = {
         modalIsOpen: false,
         image: "",
-        previewImg: "",
-        productClass: ""
-    };
+        previewImg: ""
+    }
 
     openModal = () => {
         this.setState({
             modalIsOpen: true
-        });
+        })
     }
 
     closeModal = () => {
         this.setState({
             modalIsOpen: false
-        });
+        })
     }
 
-    addClasses = cat => {
-        return (cat == 'Places') ? 'placesImgClass' : 'productImgClass';
+    addClasses = categoryName => {
+        return (categoryName === 'Places')
+            ? 'placesImgClass'
+            : 'productImgClass'
     }
 
-    addProductContainerClass = cat => {
-        return (cat == 'Places') ? 'hvr-sink placesBoxClass' : 'hvr-sink productBoxClass';
+    addProductContainererClass = categoryName => {
+        return (categoryName === 'Places')
+            ? 'hvr-sink placesBoxClass'
+            : 'hvr-sink productBoxClass'
     }
 
     componentWillMount() {
-        Modal.setAppElement('body');
+        Modal.setAppElement('body')
     }
 
     render(){
-        const { image } = this.state;
+        const { image, previewImg, modalIsOpen } = this.state;
         const { product } = this.props;
 
-        const divStyle = image && {
+        const imageBackground = image && {
             backgroundImage: 'url(' + image + ')'
         }
 
-        const cat = product.catName;
+        const categoryName = product.catName;
 
-        if(image){
-            if(cat == 'Places'){
-                var img = <div className={this.addClasses(cat)} style={divStyle}/>
-            } else {
-                var img = <img className={this.addClasses(cat)} alt={product.name} src={image} />
-            }
-        }
+        const img = image && categoryName === 'Places'
+            ? <div className={this.addClasses(categoryName)} style={imageBackground}/>
+            : <img className={this.addClasses(categoryName)} alt={product.name} src={image} />
 
-        const stockInt = parseInt(product.stocked);
-
-        const name = stockInt
+        const name = parseInt(product.stocked)
           ? <h3>{product.name}</h3>
           : <h3>{product.name} - SÅLD</h3>;
 
-        const desc = product.desc
+        const description = product.desc
             && <p>{product.desc}</p>
 
         const limited = product.limited
@@ -105,15 +102,15 @@ class Product extends PureComponent {
         const modalName = product.name
             && <h2><a className="modalDesc" href="mailto:magdamargaretha@gmail.com?subject=Fri!%20Fri!%20Fri!&body=Innan%20du%20skriver%20vill%20jag%20bara%20säga%20hej.%20Hej">{product.name}</a></h2>
 
-        const modalDesc = product.modalDesc
+        const modalDescription = product.modalDesc
             && <h2>{product.modalDesc}</h2>
 
-        const modalDescSmall = product.modalDesc
+        const modalDescriptionSmall = product.modalDesc
             && <p>{product.modalDesc}</p>
 
         return (
             <div>
-                <div className={this.addProductContainerClass(product.catName)} onClick={this.openModal}>
+                <div className={this.addProductContainererClass(product.catName)} onClick={this.openModal}>
                     {img}
                     {name}
                     {type}
@@ -121,21 +118,21 @@ class Product extends PureComponent {
                     {available}
                     {size}
                     {price}
-                    {desc}
-                    {modalDescSmall}
+                    {description}
+                    {modalDescriptionSmall}
                 </div>
                 <Modal
-                    isOpen={this.state.modalIsOpen}
+                    isOpen={modalIsOpen}
                     shouldCloseOnOverlayClick={true}
                     onRequestClose={this.closeModal}
-                    style={customStyles}
+                    style={modalStyles}
                     contentLabel="Modal"
                 >
                     <div className="modal-box">
                         <div className="close" onClick={this.closeModal}>x</div>
-                        <img src={this.state.previewImg}/>
+                        <img src={previewImg}/>
                         {modalName}
-                        {modalDesc}
+                        {modalDescription}
                     </div>
                 </Modal>
             </div>
@@ -161,6 +158,6 @@ class Product extends PureComponent {
         //         console.log('Could not import preview image: ' + err);
         //     });
     }
-};
+}
 
 export default Product;

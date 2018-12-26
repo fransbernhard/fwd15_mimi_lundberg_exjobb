@@ -6,7 +6,7 @@
     "author": "fransBernhard <mimilundberg@fransbernhard.se>",
     "license": "ISC",
     "scripts": {
-        "dev": "node dev-server.js webpack --mode development --open",
+        "dev": "node dev-server.js --mode development",
         "build": "rimraf dist && webpack --mode production --config webpack.config.prod.js"
     },
     "dependencies": {

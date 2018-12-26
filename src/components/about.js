@@ -1,5 +1,5 @@
 import React from 'react';
-import magdaImg from '../images/maggan.jpg';
+import magdaImg from '../assets/images/maggan.jpg';
 
 const About = () => (
     <div className="about" id="about">

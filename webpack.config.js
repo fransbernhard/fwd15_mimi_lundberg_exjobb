@@ -40,7 +40,8 @@ const config = {
 				use: [{
 					loader: 'url-loader',
 					options: {
-						name: '[path][name].[ext]'
+						name: '[path][name].[ext]',
+						limit: 25000
 					}
 				}]
 			},

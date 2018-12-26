@@ -5,12 +5,12 @@ const CategoryContainer = ({ activeIndex, products, filterHandler }) => {
 
     return (
         <ul className="filterList">
-            {categories.map((cat, index) =>
+            {categories.map((category, index) =>
                 <Category
                     key={index}
-                    category={cat}
+                    category={category}
                     active={index === activeIndex}
-                    handleClick={() => filterHandler(cat, index)}
+                    handleClick={() => filterHandler(category, index)}
                 />
             )}
         </ul>
@@ -23,7 +23,7 @@ const Category = ({ active, handleClick, category }) =>  (
         onClick={handleClick}
     >
         <button className="btn">
-            {category}
+            { category }
         </button>
     </li>
 )
