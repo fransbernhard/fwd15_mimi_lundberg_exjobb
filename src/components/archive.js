@@ -1,10 +1,10 @@
 /*global $:true*/
 
 import React, { Component } from 'react';
-import Menu from './menu';
-import Footer from './footer';
-import ProductContainer from './productContainer';
-import CategoryContainer from './categoryContainer';
+import Menu from './Menu';
+import Footer from './Footer';
+import ProductContainer from './ProductContainer';
+import CategoryContainer from './CategoryContainer';
 
 class Archive extends React.Component {
     constructor(props){

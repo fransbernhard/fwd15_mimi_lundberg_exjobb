@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import magdaImg from '../images/maggan.jpg';
 
-class About extends Component {
-
-  render() {
-    return (
-
-        <div className="about" id="about">
-
-            <div className="wrapper-about" >
-              <div className="wrapper-a" >
+const About = () => (
+    <div className="about" id="about">
+        <div className="wrapper-about" >
+            <div className="wrapper-a" >
                 <img className="mySlides about-img" src={magdaImg}/>
-                <p>Magda har massa csn lån och nästan en kandidat i företagsekonomi. För daglig uppdatering --><br/> <a target="_blank" href="https://www.instagram.com/magdenmagden/?hl=sv">@magdenmagden</a>
+                <p>Magda har massa csn lån och nästan en kandidat i företagsekonomi. För daglig uppdatering --><br/><a target="_blank" href="https://www.instagram.com/magdenmagden/?hl=sv">@magdenmagden</a>
                 </p><br/>
-              </div>
-              <div className="wrapper-cv">
+            </div>
+            <div className="wrapper-cv">
                 <h5>2017</h5>
                 <p>Live Art @ Ringen | Stockholm <br/>
                 Vernisage @ Layered Official | Stockholm <br/>
@@ -44,11 +39,9 @@ class About extends Component {
 
                 <p>2011-2012 Lunds Konst och Designskola | Lund<br/>
                 2012-2013 Beckmans kvällsskola | Stockholm</p>
-              </div>
             </div>
-      </div>
-    )
-  }
-}
+        </div>
+  </div>
+)
 
 export default About;

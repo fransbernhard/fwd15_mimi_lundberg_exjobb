@@ -9,7 +9,7 @@ var server = new WebpackDevServer(compiler, {
 	filename: config.output.filename,
 	publicPath: config.output.publicPath,
 	proxy: {
-		'/getMail': 'http://127.0.0.1:88/magdan/php/mailer.php',
+		'/getMail': 'http://127.0.0.1:80/magdalundberg-react/php/mailer.php',
 		'/getProducts': 'http://127.0.0.1:80/magdalundberg-react/php/products.php'
 	},
 	stats: {

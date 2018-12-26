@@ -11,8 +11,8 @@ import {
 } from 'react-router-dom';
 
 import './scss/app.scss';
-import Home from './components/home';
-import Archive from './components/archive';
+import Home from './components/Home';
+import Archive from './components/Archive';
 
 class App extends Component {
 

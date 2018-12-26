@@ -1,8 +1,6 @@
-/*global $:true*/
+import React, { PureComponent } from 'react';
 
-import React, { Component } from 'react';
-
-class Contact extends Component {
+class Contact extends PureComponent {
     constructor(props){
         super(props);
         this.state = {

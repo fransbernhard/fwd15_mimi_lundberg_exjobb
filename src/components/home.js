@@ -1,8 +1,9 @@
 import React from 'react';
-import MenuB from './menuB';
-import About from './about';
-import Contact from './contact';
-import Footer from './footer';
+
+import MenuB from './MenuB';
+import About from './About';
+import Contact from './Contact';
+import Footer from './Footer';
 
 const Home = () => (
     <div className="home" id="home">

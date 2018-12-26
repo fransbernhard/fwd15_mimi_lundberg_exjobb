@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Category = ({active, handleClick, category}) =>  (
+const Category = ({ active, handleClick, category }) =>  (
     <li
         className={active ? 'category active' : 'category inActive'}
         onClick={handleClick}

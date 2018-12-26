@@ -1,5 +1,6 @@
 import React from 'react';
-import Category from './category';
+
+import Category from './Category';
 
 const CategoryContainer = ({ activeIndex, products, filterHandler }) => {
     const categories = [...new Set(products.map(prod => prod.catName))];
