@@ -24,7 +24,6 @@ const config = {
 	mode: 'development',
 	entry: entry,
 	output: output,
-	devtool: "inline-source-map",
 	module: {
 		rules: [
 			{
@@ -37,13 +36,21 @@ const config = {
 			},
 			{
 				test: /\.(png|jpg|gif)$/,
-				use: [{
-					loader: 'url-loader',
-					options: {
-						name: '[path][name].[ext]',
-						limit: 25000
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '/[path][name].[ext]'
+						}
+					},
+					{
+						loader: 'image-webpack-loader',
+						options: {
+							bypassOnDebug: true,
+							disable: true,
+						}
 					}
-				}]
+				]
 			},
 			{
 				test: /\.(sass|scss)$/,

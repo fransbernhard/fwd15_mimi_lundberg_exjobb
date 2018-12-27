@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Modal from 'react-modal';
 
-const modalStyles = {
+const modalStyle = {
     overlay: {
         position          : 'fixed',
         top               : 0,
@@ -31,8 +31,28 @@ const modalStyles = {
 class Product extends PureComponent {
     state = {
         modalIsOpen: false,
-        image: "",
-        previewImg: ""
+        thumbnail: "",
+        modalImage: ""
+    }
+
+    componentDidMount() {
+        import(`../assets/images/${this.props.product.thumbnail}`)
+            .then(thumbnail => {
+                console.log(thumbnail);
+                this.setState({
+                    thumbnail
+                })
+            }).catch(err => {
+                console.log('Error importing thumbnail: ' + err);
+            })
+
+        import(`../assets/images/${this.props.product.previewImg}`)
+            .then(modalImage => this.setState({
+                    modalImage
+                })
+            ).catch((err) => {
+                console.log('Error importing modal image: ' + err);
+            });
     }
 
     openModal = () => {
@@ -53,7 +73,7 @@ class Product extends PureComponent {
             : 'productImgClass'
     }
 
-    addProductContainererClass = categoryName => {
+    addContainerClass = categoryName => {
         return (categoryName === 'Places')
             ? 'hvr-sink placesBoxClass'
             : 'hvr-sink productBoxClass'
@@ -64,22 +84,23 @@ class Product extends PureComponent {
     }
 
     render(){
-        const { image, previewImg, modalIsOpen } = this.state;
+        const { thumbnail, modalImage, modalIsOpen } = this.state;
         const { product } = this.props;
 
-        const imageBackground = image && {
-            backgroundImage: 'url(' + image + ')'
-        }
+        thumbnail && console.log("THUMBNAIL: ", thumbnail);
+        modalImage && console.log("MODAL: ", modalImage);
+
+        const thumbnailBackground = thumbnail && { backgroundImage: 'url(' + thumbnail + ')'}
 
         const categoryName = product.catName;
 
-        const img = image && categoryName === 'Places'
-            ? <div className={this.addClasses(categoryName)} style={imageBackground}/>
-            : <img className={this.addClasses(categoryName)} alt={product.name} src={image} />
+        const thumbnailImage = thumbnail && categoryName === 'Places'
+            ? <div className={this.addClasses(categoryName)} style={thumbnailBackground}/>
+            : <img className={this.addClasses(categoryName)} alt={product.name} src={thumbnail} />
 
         const name = parseInt(product.stocked)
-          ? <h3>{product.name}</h3>
-          : <h3>{product.name} - SÅLD</h3>;
+            ? <h3>{product.name}</h3>
+            : <h3>{product.name} - SÅLD</h3>;
 
         const description = product.desc
             && <p>{product.desc}</p>
@@ -110,8 +131,8 @@ class Product extends PureComponent {
 
         return (
             <div>
-                <div className={this.addProductContainererClass(product.catName)} onClick={this.openModal}>
-                    {img}
+                <div className={this.addContainerClass(product.catName)} onClick={this.openModal}>
+                    {thumbnailImage}
                     {name}
                     {type}
                     {limited}
@@ -125,38 +146,18 @@ class Product extends PureComponent {
                     isOpen={modalIsOpen}
                     shouldCloseOnOverlayClick={true}
                     onRequestClose={this.closeModal}
-                    style={modalStyles}
+                    style={modalStyle}
                     contentLabel="Modal"
                 >
                     <div className="modal-box">
                         <div className="close" onClick={this.closeModal}>x</div>
-                        <img src={previewImg}/>
+                        <img src={modalImage}/>
                         {modalName}
                         {modalDescription}
                     </div>
                 </Modal>
             </div>
         )
-    }
-
-    componentDidMount() {
-        // import(`../images/${this.props.product.thumbnail}`)
-        //     .then((image) => {
-        //         this.setState({
-        //             image: image
-        //         })
-        //     }).catch(err => {
-        //         console.log('Error importing thumbnail: ' + err);
-        //     });
-
-        // import(`./images/${product.previewImg}`)
-        //     .then(
-        //         (previewImg) => this.setState({
-        //             previewImg: previewImg
-        //         })
-        //     ).catch((err) => {
-        //         console.log('Could not import preview image: ' + err);
-        //     });
     }
 }
 

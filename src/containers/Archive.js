@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
 import ProductContainer from '../components/ProductContainer';
 import CategoryContainer from '../components/CategoryContainer';
 
-class Archive extends Component {
+class Archive extends PureComponent {
     state = {
         products: [],
         category: "",
-        activeIndex: 3
+        activeCategoryIndex: 3
     }
 
     filterHandler = (category, index) => {
         this.setState({
             category,
-            activeIndex: index
+            activeCategoryIndex: index
         })
     }
 
@@ -34,12 +34,12 @@ class Archive extends Component {
             .then((data) => {
                 this.setState({ products: data });
             }).catch(function(err) {
-                console.log('Error cannot get products: ' + err.message);
+                console.log('Error fetching products: ' + err.message);
             });
     }
 
     render() {
-        const {category, activeIndex, products} = this.state;
+        const { category, activeCategoryIndex, products } = this.state;
 
         return (
             <div>
@@ -49,7 +49,7 @@ class Archive extends Component {
                         <CategoryContainer
                             filterHandler={this.filterHandler}
                             products={products}
-                            activeIndex={activeIndex}
+                            activeCategoryIndex={activeCategoryIndex}
                         />
                         <br/><br/>
                         <ProductContainer

@@ -56,19 +56,8 @@ const config = {
 				test: /\.(png|jpg|gif)$/,
 				loader: 'file-loader',
 		        options: {
-					name: '/images/[name].[ext]'
+					name: '[path][name].[ext]'
 		        },
-				// use: [
-				// 	'file-loader',
-				// 	{
-				// 		loader: 'image-webpack-loader',
-				// 		options: {
-				// 			bypassOnDebug: true,
-				// 			disable: true,
-				// 			name: '[path][name].[ext]'
-				// 		}
-				// 	},
-				// ]
 			},
 			{
 				test: /\.(sass|scss)$/,

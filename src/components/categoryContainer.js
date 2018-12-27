@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CategoryContainer = ({ activeIndex, products, filterHandler }) => {
+const CategoryContainer = ({ activeCategoryIndex, products, filterHandler }) => {
     const categories = [...new Set(products.map(prod => prod.catName))];
 
     return (
@@ -9,7 +9,7 @@ const CategoryContainer = ({ activeIndex, products, filterHandler }) => {
                 <Category
                     key={index}
                     category={category}
-                    active={index === activeIndex}
+                    active={index === activeCategoryIndex}
                     handleClick={() => filterHandler(category, index)}
                 />
             )}
@@ -19,7 +19,7 @@ const CategoryContainer = ({ activeIndex, products, filterHandler }) => {
 
 const Category = ({ active, handleClick, category }) =>  (
     <li
-        className={active ? 'category active' : 'category inActive'}
+        className={active ? 'category active' : 'category categoryActive'}
         onClick={handleClick}
     >
         <button className="btn">

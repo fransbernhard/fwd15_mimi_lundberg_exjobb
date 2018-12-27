@@ -32,11 +32,11 @@
         }
     }
 
-    .inActive {
+    .categoryActive {
         border-bottom: 4px solid map-get($colors, white);
     }
 
-    .inActive:active {
+    .categoryActive:active {
         @include respond-to(medium) {
             -webkit-transform: translateY(2px);
             transform: translateY(2px);

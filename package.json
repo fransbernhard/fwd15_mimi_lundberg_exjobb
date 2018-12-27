@@ -38,6 +38,7 @@
         "prop-types": "^15.5.10",
         "react-hot-loader": "^4.3.12",
         "react-modal": "^3.7.1",
+        "react-svg-loader": "^2.1.0",
         "rimraf": "^2.6.2",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
