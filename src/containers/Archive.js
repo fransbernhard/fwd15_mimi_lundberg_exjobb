@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
-import ProductContainer from '../components/ProductContainer';
 import CategoryContainer from '../components/CategoryContainer';
+import Product from "../components/Product";
 
 class Archive extends PureComponent {
     state = {
@@ -65,5 +65,19 @@ class Archive extends PureComponent {
         )
     }
 }
+
+const ProductContainer = ({ products }) => (
+    <div className="prodContainer">
+        {products.map(product =>
+            <Product
+                key={product.itemId}
+                {...product}
+                catName={product.catName}
+                thumbnail={product.thumbnail}
+                previewImg={product.previewImg}
+            />
+        )}
+    </div>
+)
 
 export default Archive;

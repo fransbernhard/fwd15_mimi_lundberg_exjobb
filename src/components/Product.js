@@ -33,11 +33,12 @@ class Product extends PureComponent {
     state = {
         modalIsOpen: false,
         thumbnail: "",
-        modalImage: ""
+        modalImage: "",
+        isPlaces: this.props.catName === 'Places'
     }
 
     componentDidMount() {
-        import(`../assets/images/${this.props.product.thumbnail}`)
+        import(`../assets/images/${this.props.thumbnail}`)
             .then(thumbnail =>
                 this.setState({
                     thumbnail
@@ -46,7 +47,7 @@ class Product extends PureComponent {
                 console.log('Error importing thumbnail: ' + err)
             })
 
-        import(`../assets/images/${this.props.product.previewImg}`)
+        import(`../assets/images/${this.props.previewImg}`)
             .then(modalImage =>
                 this.setState({
                     modalImage
@@ -73,43 +74,38 @@ class Product extends PureComponent {
     }
 
     render(){
-        const { thumbnail, modalImage, modalIsOpen } = this.state;
-        const { product } = this.props;
+        const {modalIsOpen, thumbnail, modalImage, isPlaces} = this.state;
+        const {name, type, limited, available, size, price, desc, modalDesc, stocked} = this.props;
 
         const containerClass = classNames(
             'hvr-sink',
-            {'placesBoxClass': product.catName === 'Places'},
-            {'productBoxClass': product.catName !== 'Places'}
+            {'placesBoxClass': isPlaces},
+            {'productBoxClass': !isPlaces}
         );
 
-        const thumbnailClass = classNames(
-            {'placesImgClass': product.catName === 'Places'},
-            {'productImgClass': product.catName !== 'Places'}
-        );
+        const thumbnailImage = thumbnail && isPlaces
+            ? <div className='placesImgClass' style={{ backgroundImage: 'url(' + thumbnail.default + ')' }}/>
+            : <img className='productImgClass' alt={name} src={thumbnail.default} />
 
-        const thumbnailImage = thumbnail && product.catName === 'Places'
-            ? <div className={thumbnailClass} style={{ backgroundImage: 'url(' + thumbnail.default + ')' }}/>
-            : <img className={thumbnailClass} alt={product.name} src={thumbnail.default} />
+        const title = parseInt(stocked)
+            ? <h3>{name}</h3>
+            : <h3>{name} - SÅLD</h3>;
 
-        const name = parseInt(product.stocked)
-            ? <h3>{product.name}</h3>
-            : <h3>{product.name} - SÅLD</h3>;
-
-        const modalName = product.name
-            && <h2><a className="modalDesc" href="mailto:magdamargaretha@gmail.com?subject=Fri!%20Fri!%20Fri!&body=Innan%20du%20skriver%20vill%20jag%20bara%20säga%20hej.%20Hej">{product.name}</a></h2>
+        const modalName = name
+            && <h2><a className="modalDesc" href="mailto:magdamargaretha@gmail.com?subject=Fri!%20Fri!%20Fri!&body=Innan%20du%20skriver%20vill%20jag%20bara%20säga%20hej.%20Hej">{name}</a></h2>
 
         return (
             <div>
                 <div className={containerClass} onClick={this.openModal}>
                     {thumbnailImage}
-                    {name}
-                    {product.type && <p>{product.type}</p>}
-                    {product.limited && <p>begränsad upplaga: {product.limited} ex</p>}
-                    {product.available && <p>tillgängliga: {product.available} ex</p>}
-                    {product.size && <p>{product.size} cm</p>}
-                    {product.price && <p>{product.price} kr</p>}
-                    {product.desc && <p>{product.desc}</p>}
-                    {product.modalDesc && <p>{product.modalDesc}</p>}
+                    {title}
+                    {type && <p>{type}</p>}
+                    {limited && <p>begränsad upplaga: {limited} ex</p>}
+                    {available && <p>tillgängliga: {available} ex</p>}
+                    {size && <p>{size} cm</p>}
+                    {price && <p>{price} kr</p>}
+                    {desc && <p>{desc}</p>}
+                    {modalDesc && <p>{modalDesc}</p>}
                 </div>
                 <Modal
                     isOpen={modalIsOpen}
@@ -122,7 +118,7 @@ class Product extends PureComponent {
                         <div className="close" onClick={this.closeModal}>&times;</div>
                         <img src={modalImage.default}/>
                         {modalName}
-                        {product.modalDesc && <h2>{product.modalDesc}</h2>}
+                        {modalDesc && <h2>{modalDesc}</h2>}
                     </div>
                 </Modal>
             </div>
