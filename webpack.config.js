@@ -36,21 +36,12 @@ const config = {
 			},
 			{
 				test: /\.(png|jpg|gif)$/,
-				use: [
-					{
-						loader: 'file-loader',
-						options: {
-							name: '/[path][name].[ext]'
-						}
-					},
-					{
-						loader: 'image-webpack-loader',
-						options: {
-							bypassOnDebug: true,
-							disable: true,
-						}
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: '/[path][name].[ext]'
 					}
-				]
+				}
 			},
 			{
 				test: /\.(sass|scss)$/,

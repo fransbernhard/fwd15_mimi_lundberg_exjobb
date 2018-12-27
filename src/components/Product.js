@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import Modal from 'react-modal';
+import classNames from 'classnames';
 
 const modalStyle = {
     overlay: {
@@ -37,22 +38,22 @@ class Product extends PureComponent {
 
     componentDidMount() {
         import(`../assets/images/${this.props.product.thumbnail}`)
-            .then(thumbnail => {
-                console.log(thumbnail);
+            .then(thumbnail =>
                 this.setState({
                     thumbnail
                 })
-            }).catch(err => {
-                console.log('Error importing thumbnail: ' + err);
+            ).catch(err => {
+                console.log('Error importing thumbnail: ' + err)
             })
 
         import(`../assets/images/${this.props.product.previewImg}`)
-            .then(modalImage => this.setState({
+            .then(modalImage =>
+                this.setState({
                     modalImage
                 })
             ).catch((err) => {
-                console.log('Error importing modal image: ' + err);
-            });
+                console.log('Error importing modal image: ' + err)
+            })
     }
 
     openModal = () => {
@@ -67,18 +68,6 @@ class Product extends PureComponent {
         })
     }
 
-    addClasses = categoryName => {
-        return (categoryName === 'Places')
-            ? 'placesImgClass'
-            : 'productImgClass'
-    }
-
-    addContainerClass = categoryName => {
-        return (categoryName === 'Places')
-            ? 'hvr-sink placesBoxClass'
-            : 'hvr-sink productBoxClass'
-    }
-
     componentWillMount() {
         Modal.setAppElement('body')
     }
@@ -87,60 +76,40 @@ class Product extends PureComponent {
         const { thumbnail, modalImage, modalIsOpen } = this.state;
         const { product } = this.props;
 
-        thumbnail && console.log("THUMBNAIL: ", thumbnail);
-        modalImage && console.log("MODAL: ", modalImage);
+        const containerClass = classNames(
+            'hvr-sink',
+            {'placesBoxClass': product.catName === 'Places'},
+            {'productBoxClass': product.catName !== 'Places'}
+        );
 
-        const thumbnailBackground = thumbnail && { backgroundImage: 'url(' + thumbnail + ')'}
+        const thumbnailClass = classNames(
+            {'placesImgClass': product.catName === 'Places'},
+            {'productImgClass': product.catName !== 'Places'}
+        );
 
-        const categoryName = product.catName;
-
-        const thumbnailImage = thumbnail && categoryName === 'Places'
-            ? <div className={this.addClasses(categoryName)} style={thumbnailBackground}/>
-            : <img className={this.addClasses(categoryName)} alt={product.name} src={thumbnail} />
+        const thumbnailImage = thumbnail && product.catName === 'Places'
+            ? <div className={thumbnailClass} style={{ backgroundImage: 'url(' + thumbnail.default + ')' }}/>
+            : <img className={thumbnailClass} alt={product.name} src={thumbnail.default} />
 
         const name = parseInt(product.stocked)
             ? <h3>{product.name}</h3>
             : <h3>{product.name} - SÅLD</h3>;
 
-        const description = product.desc
-            && <p>{product.desc}</p>
-
-        const limited = product.limited
-            && <p>begränsad upplaga: {product.limited} ex</p>
-
-        const available = product.available
-            && <p>tillgängliga: {product.available} ex</p>
-
-        const price = product.price
-            && <p>{product.price} kr</p>
-
-        const type = product.type
-            && <p>{product.type}</p>
-
-        const size = product.size
-            && <p>{product.size} cm</p>
-
         const modalName = product.name
             && <h2><a className="modalDesc" href="mailto:magdamargaretha@gmail.com?subject=Fri!%20Fri!%20Fri!&body=Innan%20du%20skriver%20vill%20jag%20bara%20säga%20hej.%20Hej">{product.name}</a></h2>
 
-        const modalDescription = product.modalDesc
-            && <h2>{product.modalDesc}</h2>
-
-        const modalDescriptionSmall = product.modalDesc
-            && <p>{product.modalDesc}</p>
-
         return (
             <div>
-                <div className={this.addContainerClass(product.catName)} onClick={this.openModal}>
+                <div className={containerClass} onClick={this.openModal}>
                     {thumbnailImage}
                     {name}
-                    {type}
-                    {limited}
-                    {available}
-                    {size}
-                    {price}
-                    {description}
-                    {modalDescriptionSmall}
+                    {product.type && <p>{product.type}</p>}
+                    {product.limited && <p>begränsad upplaga: {product.limited} ex</p>}
+                    {product.available && <p>tillgängliga: {product.available} ex</p>}
+                    {product.size && <p>{product.size} cm</p>}
+                    {product.price && <p>{product.price} kr</p>}
+                    {product.desc && <p>{product.desc}</p>}
+                    {product.modalDesc && <p>{product.modalDesc}</p>}
                 </div>
                 <Modal
                     isOpen={modalIsOpen}
@@ -150,10 +119,10 @@ class Product extends PureComponent {
                     contentLabel="Modal"
                 >
                     <div className="modal-box">
-                        <div className="close" onClick={this.closeModal}>x</div>
-                        <img src={modalImage}/>
+                        <div className="close" onClick={this.closeModal}>&times;</div>
+                        <img src={modalImage.default}/>
                         {modalName}
-                        {modalDescription}
+                        {product.modalDesc && <h2>{product.modalDesc}</h2>}
                     </div>
                 </Modal>
             </div>
