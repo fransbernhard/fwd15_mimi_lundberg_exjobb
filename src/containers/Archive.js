@@ -54,8 +54,8 @@ class Archive extends PureComponent {
                         <br/><br/>
                         <ProductContainer
                             products={category.length
-                                ? products.filter((prod) => prod.catName === category)
-                                : products.filter((prod) => prod.catName === 'Places')
+                                ? products.filter(product => product.catName === category)
+                                : products.filter(product => product.catName === 'Places')
                             }
                         />
                     </div>

@@ -77,7 +77,7 @@ class Product extends PureComponent {
         const {modalIsOpen, thumbnail, modalImage, isPlaces} = this.state;
         const {name, type, limited, available, size, price, desc, modalDesc, stocked} = this.props;
 
-        const containerClass = classNames(
+        const classes = classNames(
             'hvr-sink',
             {'placesBoxClass': isPlaces},
             {'productBoxClass': !isPlaces}
@@ -96,7 +96,7 @@ class Product extends PureComponent {
 
         return (
             <div>
-                <div className={containerClass} onClick={this.openModal}>
+                <div className={classes} onClick={this.openModal}>
                     {thumbnailImage}
                     {title}
                     {type && <p>{type}</p>}
