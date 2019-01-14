@@ -1,52 +1,14 @@
--- phpMyAdmin SQL Dump
--- version 3.5.8.1
--- http://www.phpmyadmin.net
---
--- Host: magdalundberg.se.mysql:3306
--- Generation Time: Dec 04, 2018 at 08:53 PM
--- Server version: 10.1.30-MariaDB-1~xenial
--- PHP Version: 5.4.45-0+deb7u13
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `magdalundberg_se_fri`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Categories`
---
-
 CREATE TABLE IF NOT EXISTS `Categories` (
   `catId` int(11) NOT NULL AUTO_INCREMENT,
   `catName` varchar(11) NOT NULL,
   PRIMARY KEY (`catId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
---
--- Dumping data for table `Categories`
---
-
 INSERT INTO `Categories` (`catId`, `catName`) VALUES
 (1, 'Paints'),
 (2, 'Prints'),
 (3, 'Plexi'),
 (4, 'Places');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Items`
---
 
 CREATE TABLE IF NOT EXISTS `Items` (
   `itemId` int(11) NOT NULL AUTO_INCREMENT,
@@ -65,10 +27,6 @@ CREATE TABLE IF NOT EXISTS `Items` (
   PRIMARY KEY (`itemId`),
   KEY `cat_fk` (`catId_`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=306 ;
-
---
--- Dumping data for table `Items`
---
 
 INSERT INTO `Items` (`itemId`, `name`, `modalDesc`, `stocked`, `thumbnail`, `previewImg`, `limited`, `type`, `price`, `available`, `size`, `catId_`, `desc`) VALUES
 (23, 'deep blue she ', NULL, 0, 'deepblueshe-sm.jpg', 'deepblueshe.jpg', NULL, 'matt emulsion/akvarell/torrpastell', NULL, NULL, '104x124', 1, NULL),
@@ -149,16 +107,5 @@ INSERT INTO `Items` (`itemId`, `name`, `modalDesc`, `stocked`, `thumbnail`, `pre
 (302, 'mordor', NULL, 1, 'pinkplexi-sm.jpg', 'pinkplexi.jpg', '20', 'plexiglas, 93x120', '5,000', '19', NULL, 3, NULL),
 (305, 'tweed', '', 1, 'tweed-sm.jpg', 'tweed.jpg', '16', 'plexiglas, 80x120', '4,000', '9', NULL, 3, NULL);
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `Items`
---
 ALTER TABLE `Items`
   ADD CONSTRAINT `cat_fk` FOREIGN KEY (`catId_`) REFERENCES `Categories` (`catId`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

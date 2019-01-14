@@ -23,7 +23,7 @@ const Category = ({ active, handleClick, category }) =>  (
         onClick={handleClick}
     >
         <button className="btn">
-            { category }
+            {category}
         </button>
     </li>
 )

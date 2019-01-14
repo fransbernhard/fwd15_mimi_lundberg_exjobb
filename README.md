@@ -16,7 +16,7 @@ $ npm install
 $ npm run start
 ```
 
-Navigate to http://localhost:8888/ in browser to view project in development environment.
+Navigate to http://localhost:4444/ in browser to view project in development environment.
 
 ## Build project
 Compile development files @ **src** into production files @ **dist**:

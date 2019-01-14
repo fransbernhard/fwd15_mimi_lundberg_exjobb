@@ -10,6 +10,10 @@ const About = () => (
                 </p><br/>
             </div>
             <div className="wrapper-cv">
+                <h5>2018</h5>
+                <p>Utställning @ Malmö gallerinatten | Malmö<br/>
+                Hanging @ Tictail | Stockholm</p><br/>
+
                 <h5>2017</h5>
                 <p>Live Art @ Ringen | Stockholm <br/>
                 Vernisage @ Layered Official | Stockholm <br/>
